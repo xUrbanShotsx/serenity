@@ -245,7 +245,7 @@ export default function Home() {
           src="/frame3.png"
           alt=""
           style={{
-            width: "55%",
+            width: "42%",
             height: "100%",
             objectFit: "cover",
             display: "block",
