@@ -252,19 +252,130 @@ export default function Home() {
           backgroundColor: "#fff",
           height: "100vh",
           display: "flex",
-          justifyContent: "flex-end",
-          padding: "0 8rem 0 0",
+          alignItems: "center",
         }}
       >
+        {/* Left — text */}
+        <div
+          style={{
+            flex: 1,
+            padding: "0 4rem 0 3rem",
+            display: "flex",
+            flexDirection: "column",
+            gap: "1.5rem",
+          }}
+        >
+          <p
+            style={{
+              fontFamily: FUTURA,
+              fontWeight: 700,
+              fontSize: "0.6rem",
+              letterSpacing: "0.25em",
+              color: "#111",
+              opacity: 0.4,
+            }}
+          >
+            THE COLLECTION
+          </p>
+          <h2
+            style={{
+              fontFamily: "Georgia, 'Times New Roman', serif",
+              fontStyle: "italic",
+              fontWeight: 400,
+              fontSize: "clamp(2rem, 3vw, 3rem)",
+              lineHeight: 1.15,
+              color: "#111",
+            }}
+          >
+            The Residence
+          </h2>
+          <p
+            style={{
+              fontFamily: FUTURA,
+              fontWeight: 400,
+              fontSize: "0.72rem",
+              letterSpacing: "0.04em",
+              lineHeight: 1.8,
+              color: "#111",
+              opacity: 0.6,
+              maxWidth: "34ch",
+            }}
+          >
+            The main house on the property. Four bedrooms, two bathrooms,
+            a generous open-plan living and dining area, and a private
+            outdoor terrace made for slow mornings and long evenings.
+            Sleeps up to eight.
+          </p>
+          <div
+            style={{
+              display: "flex",
+              gap: "2rem",
+              marginTop: "0.5rem",
+            }}
+          >
+            {[["4", "Bedrooms"], ["2", "Bathrooms"], ["8", "Guests"]].map(([n, label]) => (
+              <div key={label}>
+                <p
+                  style={{
+                    fontFamily: FUTURA,
+                    fontWeight: 700,
+                    fontSize: "1.1rem",
+                    color: "#111",
+                    marginBottom: "0.2rem",
+                  }}
+                >
+                  {n}
+                </p>
+                <p
+                  style={{
+                    fontFamily: FUTURA,
+                    fontWeight: 400,
+                    fontSize: "0.58rem",
+                    letterSpacing: "0.18em",
+                    color: "#111",
+                    opacity: 0.45,
+                  }}
+                >
+                  {label.toUpperCase()}
+                </p>
+              </div>
+            ))}
+          </div>
+          <a
+            href="#"
+            style={{
+              fontFamily: FUTURA,
+              fontWeight: 700,
+              fontSize: "0.6rem",
+              letterSpacing: "0.18em",
+              color: "#111",
+              textDecoration: "none",
+              marginTop: "0.5rem",
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "0.6rem",
+              opacity: 0.75,
+              transition: "opacity 0.2s",
+            }}
+            onMouseEnter={(e) => (e.currentTarget.style.opacity = "1")}
+            onMouseLeave={(e) => (e.currentTarget.style.opacity = "0.75")}
+          >
+            VIEW RESIDENCE →
+          </a>
+        </div>
+
+        {/* Right — image */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src="/frame3.png"
-          alt=""
+          alt="The Residence"
           style={{
             width: "42%",
             height: "100%",
             objectFit: "cover",
             display: "block",
+            flexShrink: 0,
+            marginRight: "8rem",
           }}
         />
       </section>
