@@ -337,7 +337,7 @@ export default function CollectionPage() {
     setDir(next > idx ? 1 : -1);
     setLocked(true);
     setIdx(next);
-    setTimeout(() => setLocked(false), 700);
+    setTimeout(() => setLocked(false), 1300);
   }, [locked, idx]);
 
   useEffect(() => {
@@ -345,7 +345,7 @@ export default function CollectionPage() {
     const onWheel = (e: WheelEvent) => {
       e.preventDefault();
       const now = Date.now();
-      if (now - lastT < 750) return;
+      if (now - lastT < 1400) return;
       lastT = now;
       if (e.deltaY > 0) goTo(idx + 1);
       else goTo(idx - 1);
@@ -378,40 +378,6 @@ export default function CollectionPage() {
           )}
         </motion.div>
       </AnimatePresence>
-
-      {/* Side dots */}
-      <div
-        style={{
-          position: "fixed",
-          right: "1.5rem",
-          top: "50%",
-          transform: "translateY(-50%)",
-          zIndex: 100,
-          display: "flex",
-          flexDirection: "column",
-          gap: "0.45rem",
-          alignItems: "center",
-        }}
-      >
-        {PAGES.map((_, i) => (
-          <button
-            key={i}
-            onClick={() => goTo(i)}
-            aria-label={`Go to page ${i}`}
-            style={{
-              width: "5px",
-              height: i === idx ? "18px" : "5px",
-              borderRadius: "3px",
-              backgroundColor: "#111",
-              opacity: i === idx ? 0.7 : 0.18,
-              border: "none",
-              cursor: "pointer",
-              padding: 0,
-              transition: "all 0.35s ease",
-            }}
-          />
-        ))}
-      </div>
 
       {/* Arrow nav hint */}
       {idx > 0 && (
