@@ -312,15 +312,15 @@ function StayPage({ stay }: { stay: typeof STAYS[0] }) {
   );
 }
 
-// ── Page flip variants ───────────────────────────────────────────────
+// ── Wipe variants ────────────────────────────────────────────────────
 const makeVariants = (dir: number) => ({
-  initial: { rotateY: dir * 90, opacity: 0, transformOrigin: dir > 0 ? "right center" : "left center" },
-  animate: { rotateY: 0,        opacity: 1, transformOrigin: dir > 0 ? "right center" : "left center" },
-  exit:    { rotateY: dir * -90, opacity: 0, transformOrigin: dir > 0 ? "left center" : "right center" },
+  initial: { x: dir > 0 ? "100%" : "-100%" },
+  animate: { x: "0%" },
+  exit:    { x: "0%" }, // stays put — incoming page wipes over it
 });
 
 const flipTransition = {
-  duration: 0.55,
+  duration: 0.6,
   ease: [0.76, 0, 0.24, 1] as [number, number, number, number],
 };
 
@@ -357,10 +357,10 @@ export default function CollectionPage() {
   const variants = makeVariants(dir);
 
   return (
-    <main style={{ height: "100vh", overflow: "hidden", position: "relative", perspective: "1800px" }}>
+    <main style={{ height: "100vh", overflow: "hidden", position: "relative" }}>
       <Navbar />
 
-      <AnimatePresence mode="wait" custom={dir}>
+      <AnimatePresence mode="sync" custom={dir}>
         <motion.div
           key={idx}
           custom={dir}
@@ -445,16 +445,16 @@ export default function CollectionPage() {
         </button>
       )}
 
-      {/* Page counter */}
+      {/* Page counter — top right, only on stay pages */}
       {idx > 0 && (
         <div
           style={{
-            position: "fixed", left: "2rem", bottom: "2rem", zIndex: 100,
-            fontFamily: FUTURA, fontWeight: 700, fontSize: "0.55rem",
-            letterSpacing: "0.2em", color: "#111", opacity: 0.3,
+            position: "fixed", right: "2rem", top: "84px", zIndex: 100,
+            fontFamily: FUTURA, fontWeight: 700, fontSize: "0.6rem",
+            letterSpacing: "0.15em", color: "#111", opacity: 0.35,
           }}
         >
-          {String(idx).padStart(2, "0")} / {String(PAGES.length - 1).padStart(2, "0")}
+          {idx}/{PAGES.length - 1}
         </div>
       )}
     </main>
