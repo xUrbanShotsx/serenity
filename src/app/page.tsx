@@ -191,7 +191,7 @@ export default function Home() {
             opacity: 0.85,
           }}
         >
-          Tucked into the hills above Berry, Serenity is a quiet place to arrive at slowly. Four private stays surrounded by bush, birdsong, and the kind of stillness the South Coast does best.
+          A short stroll from Berry township in one direction, and minutes from the beach in the other. Serenity sits right in the middle — four private stays on the NSW South Coast, where everything you need is closer than you think.
         </p>
       </section>
 
