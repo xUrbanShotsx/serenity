@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 const FUTURA = "'Futura', 'Century Gothic', 'Trebuchet MS', sans-serif";
 
@@ -11,6 +12,19 @@ const NAV_LEFT = [
 ];
 
 export default function Home() {
+  const [navVisible, setNavVisible] = useState(true);
+  const [lastY, setLastY] = useState(0);
+
+  useEffect(() => {
+    const onScroll = () => {
+      const y = window.scrollY;
+      setNavVisible(y < lastY || y < 80);
+      setLastY(y);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [lastY]);
+
   return (
     <main>
 
@@ -27,6 +41,8 @@ export default function Home() {
           gridTemplateColumns: "minmax(0,1fr) auto minmax(0,1fr)",
           alignItems: "center",
           padding: "0 2.5rem",
+          transform: navVisible ? "translateY(0)" : "translateY(-100%)",
+          transition: "transform 0.35s ease",
         }}
       >
         {/* Left nav */}
