@@ -12,7 +12,7 @@ const NAV_LEFT = [
 
 export default function Home() {
   return (
-    <main style={{ position: "relative", height: "100vh", overflow: "hidden" }}>
+    <main>
 
       {/* ── Navbar ─────────────────────────────────────────────── */}
       <header
@@ -102,27 +102,28 @@ export default function Home() {
       </header>
 
       {/* ── Hero image ─────────────────────────────────────────── */}
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src="/Trialimage.png"
-        alt="The Coastal — Berry, NSW"
-        style={{
-          position: "absolute",
-          inset: 0,
-          width: "100%",
-          height: "100%",
-          objectFit: "cover",
-          objectPosition: "center",
-        }}
-      />
+      <section style={{ position: "relative", height: "100vh", overflow: "hidden" }}>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/Trialimage.png"
+          alt="The Coastal — Berry, NSW"
+          style={{
+            position: "absolute",
+            inset: 0,
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            objectPosition: "center",
+          }}
+        />
 
-      {/* Scroll cue */}
-      <div
-        style={{
-          position: "absolute",
-          bottom: "2.5rem",
-          left: "50%",
-          transform: "translateX(-50%)",
+        {/* Scroll cue */}
+        <div
+          style={{
+            position: "absolute",
+            bottom: "2.5rem",
+            left: "50%",
+            transform: "translateX(-50%)",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
@@ -150,7 +151,43 @@ export default function Home() {
             animation: "scrollPulse 1.8s ease-in-out infinite",
           }}
         />
-      </div>
+        </div>
+      </section>
+
+      {/* ── Two-image section ──────────────────────────────────── */}
+      <section
+        style={{
+          backgroundColor: "#fff",
+          height: "100vh",
+          display: "flex",
+          alignItems: "center",
+          padding: "0 3rem",
+          gap: "3rem",
+        }}
+      >
+        {["/frame1.png", "/frame2.png"].map((src, i) => (
+          <div
+            key={i}
+            style={{
+              flex: 1,
+              height: "75%",
+              overflow: "hidden",
+            }}
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={src}
+              alt=""
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                display: "block",
+              }}
+            />
+          </div>
+        ))}
+      </section>
 
       <style>{`
         @keyframes fadeIn {
