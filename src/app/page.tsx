@@ -230,13 +230,14 @@ export default function Home() {
         ))}
       </section>
 
-      {/* ── Single frame right-edge section ───────────────────── */}
+      {/* ── Single frame right section ─────────────────────────── */}
       <section
         style={{
           backgroundColor: "#fff",
           height: "100vh",
-          overflow: "hidden",
-          position: "relative",
+          display: "flex",
+          justifyContent: "flex-end",
+          padding: "3rem 3rem 0 0",
         }}
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -244,13 +245,10 @@ export default function Home() {
           src="/frame3.png"
           alt=""
           style={{
-            position: "absolute",
-            top: "50%",
-            transform: "translateY(-50%)",
-            right: "-4rem",
             width: "55%",
-            height: "78%",
+            height: "100%",
             objectFit: "cover",
+            display: "block",
           }}
         />
       </section>
