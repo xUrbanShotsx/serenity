@@ -259,9 +259,12 @@ export default function Home() {
         <div
           style={{
             flex: 1,
-            padding: "0 4rem 0 3rem",
             display: "flex",
             flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            textAlign: "center",
+            padding: "0 3rem",
             gap: "1.5rem",
           }}
         >
@@ -298,13 +301,13 @@ export default function Home() {
               lineHeight: 1.8,
               color: "#111",
               opacity: 0.6,
-              maxWidth: "34ch",
+              maxWidth: "38ch",
             }}
           >
-            The main house on the property. Four bedrooms, two bathrooms,
-            a generous open-plan living and dining area, and a private
-            outdoor terrace made for slow mornings and long evenings.
-            Sleeps up to eight.
+            The main house at Serenity. Made for families and groups who
+            want space to spread out — four bedrooms, two bathrooms, a
+            wide open living area that connects to an outdoor terrace, and
+            enough room for eight people to feel comfortable, not crowded.
           </p>
           <div
             style={{
@@ -370,7 +373,7 @@ export default function Home() {
           src="/frame3.png"
           alt="The Residence"
           style={{
-            width: "42%",
+            width: "34%",
             height: "100%",
             objectFit: "cover",
             display: "block",
