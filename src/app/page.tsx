@@ -237,7 +237,7 @@ export default function Home() {
           height: "100vh",
           display: "flex",
           justifyContent: "flex-end",
-          padding: "3rem 3rem 0 0",
+          padding: "3rem 8rem 0 0",
         }}
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
