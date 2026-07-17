@@ -383,6 +383,137 @@ export default function Home() {
         />
       </section>
 
+      {/* ── Suites section (flipped) ────────────────────────────── */}
+      <section
+        style={{
+          backgroundColor: "#fff",
+          height: "100vh",
+          display: "flex",
+          alignItems: "center",
+        }}
+      >
+        {/* Left — image */}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/frame4.png"
+          alt="The Suites"
+          style={{
+            width: "34%",
+            height: "100%",
+            objectFit: "cover",
+            display: "block",
+            flexShrink: 0,
+            marginLeft: "8rem",
+          }}
+        />
+
+        {/* Right — text */}
+        <div
+          style={{
+            flex: 1,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            textAlign: "center",
+            padding: "0 3rem",
+            gap: "1.5rem",
+          }}
+        >
+          <p
+            style={{
+              fontFamily: FUTURA,
+              fontWeight: 700,
+              fontSize: "0.6rem",
+              letterSpacing: "0.25em",
+              color: "#111",
+              opacity: 0.4,
+            }}
+          >
+            THE COLLECTION
+          </p>
+          <h2
+            style={{
+              fontFamily: "Georgia, 'Times New Roman', serif",
+              fontStyle: "italic",
+              fontWeight: 400,
+              fontSize: "clamp(2rem, 3vw, 3rem)",
+              lineHeight: 1.15,
+              color: "#111",
+            }}
+          >
+            The Suites
+          </h2>
+          <p
+            style={{
+              fontFamily: FUTURA,
+              fontWeight: 400,
+              fontSize: "0.72rem",
+              letterSpacing: "0.04em",
+              lineHeight: 1.8,
+              color: "#111",
+              opacity: 0.6,
+              maxWidth: "38ch",
+            }}
+          >
+            Three private suites, each with their own character. Whether
+            you&rsquo;re after a couple&rsquo;s retreat or a solo escape,
+            the suites offer one bedroom, a full bathroom, and a private
+            outdoor space — intimate by design, without anything missing.
+          </p>
+          <div style={{ display: "flex", gap: "2rem", marginTop: "0.5rem" }}>
+            {[["3", "Suites"], ["1", "Bedroom"], ["2", "Guests"]].map(([n, label]) => (
+              <div key={label}>
+                <p
+                  style={{
+                    fontFamily: FUTURA,
+                    fontWeight: 700,
+                    fontSize: "1.1rem",
+                    color: "#111",
+                    marginBottom: "0.2rem",
+                  }}
+                >
+                  {n}
+                </p>
+                <p
+                  style={{
+                    fontFamily: FUTURA,
+                    fontWeight: 400,
+                    fontSize: "0.58rem",
+                    letterSpacing: "0.18em",
+                    color: "#111",
+                    opacity: 0.45,
+                  }}
+                >
+                  {label.toUpperCase()}
+                </p>
+              </div>
+            ))}
+          </div>
+          <a
+            href="#"
+            style={{
+              fontFamily: FUTURA,
+              fontWeight: 700,
+              fontSize: "0.6rem",
+              letterSpacing: "0.18em",
+              color: "#111",
+              textDecoration: "none",
+              marginTop: "0.5rem",
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "0.6rem",
+              opacity: 0.75,
+              transition: "opacity 0.2s",
+            }}
+            onMouseEnter={(e) => (e.currentTarget.style.opacity = "1")}
+            onMouseLeave={(e) => (e.currentTarget.style.opacity = "0.75")}
+          >
+            VIEW SUITES →
+          </a>
+        </div>
+      </section>
+
       <style>{`
         @keyframes fadeIn {
           from { opacity: 0; transform: translateX(-50%) translateY(8px); }
