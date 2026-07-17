@@ -154,6 +154,47 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── Welcome section ────────────────────────────────────── */}
+      <section
+        style={{
+          backgroundColor: "#fff",
+          padding: "10rem 2rem",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+          textAlign: "center",
+        }}
+      >
+        <p
+          style={{
+            fontFamily: FUTURA,
+            fontWeight: 700,
+            fontSize: "0.6rem",
+            letterSpacing: "0.25em",
+            color: "#111",
+            opacity: 0.4,
+            marginBottom: "2rem",
+          }}
+        >
+          BERRY, NSW SOUTH COAST
+        </p>
+        <p
+          style={{
+            maxWidth: "52ch",
+            fontFamily: "Georgia, 'Times New Roman', serif",
+            fontStyle: "italic",
+            fontWeight: 400,
+            fontSize: "clamp(1.4rem, 2.2vw, 2rem)",
+            lineHeight: 1.55,
+            color: "#111",
+            opacity: 0.85,
+          }}
+        >
+          Tucked into the hills above Berry, Serenity is a quiet place to arrive at slowly. Four private stays surrounded by bush, birdsong, and the kind of stillness the South Coast does best.
+        </p>
+      </section>
+
       {/* ── Two-image section ──────────────────────────────────── */}
       <section
         style={{
