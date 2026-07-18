@@ -97,7 +97,7 @@ export default function StoryPage() {
       {/* Previous slide — static underneath */}
       {prevIdx !== null && (
         <div style={{ position: "absolute", inset: 0, zIndex: 1, backgroundColor: "#fff" }}>
-          <Slide entry={TIMELINE[prevIdx]} idx={prevIdx} isBackground />
+          <Slide entry={TIMELINE[prevIdx]} />
         </div>
       )}
 
@@ -110,7 +110,7 @@ export default function StoryPage() {
         onAnimationComplete={() => setPrevIdx(null)}
         style={{ position: "absolute", inset: 0, zIndex: 2, backgroundColor: "#fff" }}
       >
-        <Slide entry={TIMELINE[idx]} idx={idx} />
+        <Slide entry={TIMELINE[idx]} />
       </motion.div>
 
       {/* ── Up / down arrows ── */}
@@ -145,21 +145,14 @@ export default function StoryPage() {
 }
 
 // ── Individual slide ───────────────────────────────────────────────────
-function Slide({
-  entry,
-  idx,
-  isBackground = false,
-}: {
-  entry: typeof TIMELINE[0];
-  idx: number;
-  isBackground?: boolean;
-}) {
+function Slide({ entry }: { entry: typeof TIMELINE[0] }) {
   return (
     <div style={{
       position: "absolute",
       inset: 0,
       paddingTop: "68px",
       display: "flex",
+      backgroundColor: "#fff",
     }}>
       {/* Text panel */}
       <div style={{
@@ -168,50 +161,27 @@ function Slide({
         flexDirection: "column",
         justifyContent: "center",
         padding: "3rem 5rem",
+        gap: "1.5rem",
       }}>
-        {!isBackground && (
-          <motion.div
-            key={idx}
-            initial={{ opacity: 0, y: 22 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.55, delay: 0.3, ease: [0.25, 0, 0.25, 1] }}
-            style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}
-          >
-            <p style={{
-              fontFamily: FUTURA, fontWeight: 700, fontSize: "0.52rem",
-              letterSpacing: "0.25em", color: "#111", opacity: 0.35,
-            }}>
-              {entry.year}
-            </p>
-            <h2 style={{
-              fontFamily: SERIF, fontStyle: "italic", fontWeight: 400,
-              fontSize: "clamp(2.5rem, 4vw, 4.2rem)", color: "#111", lineHeight: 1.05,
-            }}>
-              {entry.title}
-            </h2>
-            <p style={{
-              fontFamily: FUTURA, fontWeight: 400, fontSize: "0.73rem",
-              letterSpacing: "0.03em", lineHeight: 2, color: "#111",
-              opacity: 0.55, maxWidth: "42ch",
-            }}>
-              {entry.detail}
-            </p>
-            <p style={{
-              fontFamily: FUTURA, fontWeight: 700, fontSize: "0.5rem",
-              letterSpacing: "0.18em", color: "#111", opacity: 0.18, marginTop: "1rem",
-            }}>
-              {idx + 1} / {TOTAL}
-            </p>
-          </motion.div>
-        )}
-
-        {isBackground && (
-          <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
-            <p style={{ fontFamily: FUTURA, fontWeight: 700, fontSize: "0.52rem", letterSpacing: "0.25em", color: "#111", opacity: 0.35 }}>{entry.year}</p>
-            <h2 style={{ fontFamily: SERIF, fontStyle: "italic", fontWeight: 400, fontSize: "clamp(2.5rem, 4vw, 4.2rem)", color: "#111", lineHeight: 1.05 }}>{entry.title}</h2>
-            <p style={{ fontFamily: FUTURA, fontWeight: 400, fontSize: "0.73rem", letterSpacing: "0.03em", lineHeight: 2, color: "#111", opacity: 0.55, maxWidth: "42ch" }}>{entry.detail}</p>
-          </div>
-        )}
+        <p style={{
+          fontFamily: FUTURA, fontWeight: 700, fontSize: "0.52rem",
+          letterSpacing: "0.25em", color: "#111", opacity: 0.35,
+        }}>
+          {entry.year}
+        </p>
+        <h2 style={{
+          fontFamily: SERIF, fontStyle: "italic", fontWeight: 400,
+          fontSize: "clamp(2.5rem, 4vw, 4.2rem)", color: "#111", lineHeight: 1.05,
+        }}>
+          {entry.title}
+        </h2>
+        <p style={{
+          fontFamily: FUTURA, fontWeight: 400, fontSize: "0.73rem",
+          letterSpacing: "0.03em", lineHeight: 2, color: "#111",
+          opacity: 0.55, maxWidth: "42ch",
+        }}>
+          {entry.detail}
+        </p>
       </div>
 
       {/* Image */}
