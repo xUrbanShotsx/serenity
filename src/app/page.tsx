@@ -13,7 +13,7 @@ export default function Home() {
       <section style={{ position: "relative", height: "100vh", overflow: "hidden" }}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="/Arielshot.png"
+          src="/Arielshot.jpg"
           alt="The Coastal — Berry, NSW"
           style={{
             position: "absolute",
