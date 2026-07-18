@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 
 const FUTURA = "'Futura', 'Century Gothic', 'Trebuchet MS', sans-serif";
@@ -312,30 +312,31 @@ function StayPage({ stay }: { stay: typeof STAYS[0] }) {
   );
 }
 
-// ── Wipe variants ────────────────────────────────────────────────────
-const makeVariants = (dir: number) => ({
-  initial: { x: dir > 0 ? "100%" : "-100%" },
-  animate: { x: "0%" },
-  exit:    { x: "0%" }, // stays put — incoming page wipes over it
-});
-
-const flipTransition = {
-  duration: 0.6,
-  ease: [0.76, 0, 0.24, 1] as [number, number, number, number],
-};
+const WIPE_DURATION = 0.6;
+const WIPE_EASE = [0.76, 0, 0.24, 1] as [number, number, number, number];
 
 // ── Collection page ──────────────────────────────────────────────────
 const PAGES = [null, ...STAYS]; // null = hero
 
+function PageContent({ pageIdx, onContinue }: { pageIdx: number; onContinue: () => void }) {
+  return PAGES[pageIdx] === null
+    ? <HeroPage onContinue={onContinue} />
+    : <StayPage stay={PAGES[pageIdx] as typeof STAYS[0]} />;
+}
+
 export default function CollectionPage() {
   const [idx, setIdx] = useState(0);
+  const [prevIdx, setPrevIdx] = useState<number | null>(null);
   const [dir, setDir] = useState(1);
   const [locked, setLocked] = useState(false);
+  const [hasNavigated, setHasNavigated] = useState(false);
 
   const goTo = useCallback((next: number) => {
     if (locked || next < 0 || next >= PAGES.length || next === idx) return;
     setDir(next > idx ? 1 : -1);
     setLocked(true);
+    setHasNavigated(true);
+    setPrevIdx(idx);
     setIdx(next);
     setTimeout(() => setLocked(false), 1300);
   }, [locked, idx]);
@@ -354,30 +355,28 @@ export default function CollectionPage() {
     return () => window.removeEventListener("wheel", onWheel);
   }, [goTo, idx]);
 
-  const variants = makeVariants(dir);
-
   return (
     <main style={{ height: "100vh", overflow: "hidden", position: "relative" }}>
       <Navbar />
 
-      <AnimatePresence mode="sync" custom={dir}>
-        <motion.div
-          key={idx}
-          custom={dir}
-          variants={variants}
-          initial="initial"
-          animate="animate"
-          exit="exit"
-          transition={flipTransition}
-          style={{ position: "absolute", inset: 0, backgroundColor: "#fff" }}
-        >
-          {PAGES[idx] === null ? (
-            <HeroPage onContinue={() => goTo(1)} />
-          ) : (
-            <StayPage stay={PAGES[idx] as typeof STAYS[0]} />
-          )}
-        </motion.div>
-      </AnimatePresence>
+      {/* Previous page — static underneath, cleared once new page lands */}
+      {prevIdx !== null && (
+        <div style={{ position: "absolute", inset: 0, zIndex: 1, backgroundColor: "#fff" }}>
+          <PageContent pageIdx={prevIdx} onContinue={() => goTo(1)} />
+        </div>
+      )}
+
+      {/* Current page — slides in on top (no animation on first load) */}
+      <motion.div
+        key={idx}
+        initial={hasNavigated ? { x: dir > 0 ? "100%" : "-100%" } : false}
+        animate={{ x: "0%" }}
+        transition={{ duration: WIPE_DURATION, ease: WIPE_EASE }}
+        onAnimationComplete={() => setPrevIdx(null)}
+        style={{ position: "absolute", inset: 0, zIndex: 2, backgroundColor: "#fff" }}
+      >
+        <PageContent pageIdx={idx} onContinue={() => goTo(1)} />
+      </motion.div>
 
       {/* Arrow nav hint */}
       {idx > 0 && (
