@@ -406,6 +406,122 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── Instagram section ──────────────────────────────────────── */}
+      <section
+        style={{
+          backgroundColor: "#fff",
+          padding: "7rem 3rem",
+        }}
+      >
+        {/* Header */}
+        <div
+          style={{
+            display: "flex",
+            alignItems: "flex-end",
+            justifyContent: "space-between",
+            marginBottom: "2rem",
+            maxWidth: "1400px",
+            margin: "0 auto 2rem",
+          }}
+        >
+          <div>
+            <p
+              style={{
+                fontFamily: FUTURA,
+                fontWeight: 700,
+                fontSize: "0.6rem",
+                letterSpacing: "0.25em",
+                color: "#111",
+                opacity: 0.4,
+                marginBottom: "0.6rem",
+              }}
+            >
+              FOLLOW ALONG
+            </p>
+            <p
+              style={{
+                fontFamily: "Georgia, 'Times New Roman', serif",
+                fontStyle: "italic",
+                fontWeight: 400,
+                fontSize: "clamp(1.6rem, 2.2vw, 2.2rem)",
+                color: "#111",
+                lineHeight: 1.1,
+              }}
+            >
+              @thecoastal.berry
+            </p>
+          </div>
+          <a
+            href="https://instagram.com/thecoastal.berry"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              fontFamily: FUTURA,
+              fontWeight: 700,
+              fontSize: "0.6rem",
+              letterSpacing: "0.18em",
+              color: "#111",
+              textDecoration: "none",
+              opacity: 0.5,
+              transition: "opacity 0.2s",
+            }}
+            onMouseEnter={(e) => (e.currentTarget.style.opacity = "1")}
+            onMouseLeave={(e) => (e.currentTarget.style.opacity = "0.5")}
+          >
+            VIEW PROFILE →
+          </a>
+        </div>
+
+        {/* 4-square grid */}
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(4, 1fr)",
+            gap: "0.75rem",
+            maxWidth: "1400px",
+            margin: "0 auto",
+          }}
+        >
+          {[0, 1, 2, 3].map((i) => (
+            <div
+              key={i}
+              className="instagram-tile"
+              style={{
+                aspectRatio: "1 / 1",
+                backgroundColor: "#f5f4f2",
+                overflow: "hidden",
+                position: "relative",
+                cursor: "pointer",
+              }}
+            >
+              {/* Placeholder state — replace inner content when Instagram feed is connected */}
+              <div
+                style={{
+                  position: "absolute",
+                  inset: 0,
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  gap: "0.5rem",
+                }}
+              >
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(0,0,0,0.18)" strokeWidth="1.5">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                  <circle cx="12" cy="12" r="4"/>
+                  <circle cx="17.5" cy="6.5" r="1" fill="rgba(0,0,0,0.18)" stroke="none"/>
+                </svg>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <style>{`
+        .instagram-tile { transition: opacity 0.25s ease; }
+        .instagram-tile:hover { opacity: 0.88; }
+      `}</style>
+
       <style>{`
         @keyframes fadeIn {
           from { opacity: 0; transform: translateX(-50%) translateY(8px); }
