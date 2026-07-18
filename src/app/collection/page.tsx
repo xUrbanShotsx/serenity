@@ -12,7 +12,7 @@ const STAYS = [
     slug: "the-residence",
     name: "The Residence",
     type: "MAIN HOUSE",
-    image: "/theresidence.png",
+    image: "/theresidence.jpg",
     beds: 4, baths: 2, guests: 8,
     description:
       "The main house at Serenity. Four bedrooms, two bathrooms, wide open living that spills onto a private terrace. Made for families and groups who want space without compromise.",
@@ -22,7 +22,7 @@ const STAYS = [
     slug: "the-olive",
     name: "The Olive",
     type: "SUITE",
-    image: "/Olivesuite.png",
+    image: "/Olivesuite.jpg",
     beds: 1, baths: 1, guests: 2,
     description:
       "Named for the grove that shades its terrace. A quiet, considered suite with one bedroom, a full bathroom, and a private outdoor area for slow starts.",
@@ -32,7 +32,7 @@ const STAYS = [
     slug: "the-shoreline",
     name: "The Shoreline",
     type: "SUITE",
-    image: "/shorelinesuite.png",
+    image: "/shorelinesuite.jpg",
     beds: 1, baths: 1, guests: 2,
     description:
       "Light-filled and easy, with a nod to the coast down the road. One bedroom, a full bathroom, and a deck that catches the afternoon sun.",
@@ -42,7 +42,7 @@ const STAYS = [
     slug: "the-horizon",
     name: "The Horizon",
     type: "SUITE",
-    image: "/horizonsuite.png",
+    image: "/horizonsuite.jpg",
     beds: 1, baths: 1, guests: 2,
     description:
       "The most open of the suites. Wide views, a clean interior, and a private outdoor space that earns its name at dusk.",
