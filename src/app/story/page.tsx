@@ -90,9 +90,6 @@ export default function StoryPage() {
     return () => window.removeEventListener("wheel", onWheel);
   }, [goTo, idx]);
 
-  // Progress ratio (0 → 1) for the dot position
-  const progress = idx / (TOTAL - 1);
-
   return (
     <main style={{ height: "100vh", overflow: "hidden", position: "relative", backgroundColor: "#fff" }}>
       <Navbar />
@@ -115,106 +112,6 @@ export default function StoryPage() {
       >
         <Slide entry={TIMELINE[idx]} idx={idx} />
       </motion.div>
-
-      {/* ── Minimal timeline sidebar (fixed, above slides) ── */}
-      <div
-        style={{
-          position: "fixed",
-          left: 0,
-          top: "68px",
-          bottom: 0,
-          width: "80px",
-          zIndex: 50,
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          gap: 0,
-          pointerEvents: "none",
-        }}
-      >
-        {/* Track line */}
-        <div style={{
-          position: "absolute",
-          top: "15%",
-          bottom: "15%",
-          left: "50%",
-          width: "1px",
-          backgroundColor: "rgba(0,0,0,0.1)",
-          transform: "translateX(-50%)",
-        }} />
-
-        {/* Filled progress line */}
-        <div style={{
-          position: "absolute",
-          top: "15%",
-          left: "50%",
-          width: "1px",
-          height: `${progress * 70}%`,
-          backgroundColor: "#111",
-          transform: "translateX(-50%)",
-          transition: "height 0.6s cubic-bezier(0.76,0,0.24,1)",
-        }} />
-
-        {/* Travelling dot */}
-        <div style={{
-          position: "absolute",
-          left: "50%",
-          top: `calc(15% + ${progress * 70}%)`,
-          transform: "translate(-50%, -50%)",
-          width: "8px",
-          height: "8px",
-          borderRadius: "50%",
-          backgroundColor: "#111",
-          transition: "top 0.6s cubic-bezier(0.76,0,0.24,1)",
-        }} />
-
-        {/* Current year label */}
-        <motion.p
-          key={idx}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.4, delay: 0.3 }}
-          style={{
-            position: "absolute",
-            left: "50%",
-            top: `calc(15% + ${progress * 70}%)`,
-            transform: "translate(12px, -50%)",
-            fontFamily: FUTURA,
-            fontWeight: 700,
-            fontSize: "0.48rem",
-            letterSpacing: "0.18em",
-            color: "#111",
-            opacity: 0.45,
-            whiteSpace: "nowrap",
-          }}
-        >
-          {TIMELINE[idx].year}
-        </motion.p>
-      </div>
-
-      {/* ── Scroll cue ── */}
-      {idx < TOTAL - 1 && (
-        <div style={{
-          position: "fixed",
-          bottom: "2rem",
-          left: "50%",
-          transform: "translateX(-50%)",
-          zIndex: 100,
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          gap: "0.4rem",
-          pointerEvents: "none",
-        }}>
-          <span style={{ fontFamily: FUTURA, fontWeight: 700, fontSize: "0.48rem", letterSpacing: "0.22em", color: "#111", opacity: 0.25 }}>SCROLL</span>
-          <motion.div
-            animate={{ y: [0, 5, 0] }}
-            transition={{ repeat: Infinity, duration: 1.6, ease: "easeInOut" }}
-            style={{ width: "1px", height: "28px", backgroundColor: "rgba(0,0,0,0.18)" }}
-          />
-        </div>
-      )}
 
       {/* ── Up / down arrows ── */}
       {idx > 0 && (
@@ -262,7 +159,6 @@ function Slide({
       position: "absolute",
       inset: 0,
       paddingTop: "68px",
-      paddingLeft: "80px",
       display: "flex",
     }}>
       {/* Text panel */}
