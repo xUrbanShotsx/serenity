@@ -522,6 +522,108 @@ export default function Home() {
         .instagram-tile:hover { opacity: 0.88; }
       `}</style>
 
+      {/* ── Footer ─────────────────────────────────────────────────── */}
+      <footer
+        style={{
+          backgroundColor: "#111",
+          color: "#fff",
+          padding: "5rem 3rem 3rem",
+        }}
+      >
+        <div style={{ maxWidth: "1400px", margin: "0 auto" }}>
+
+          {/* Top row */}
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "1fr 1fr 1fr",
+              gap: "3rem",
+              paddingBottom: "4rem",
+              borderBottom: "1px solid rgba(255,255,255,0.1)",
+            }}
+          >
+            {/* Brand */}
+            <div style={{ display: "flex", flexDirection: "column", gap: "1.2rem" }}>
+              <p style={{ fontFamily: FUTURA, fontWeight: 700, fontSize: "0.85rem", letterSpacing: "0.35em", color: "#fff" }}>
+                THE COASTAL
+              </p>
+              <p style={{ fontFamily: FUTURA, fontWeight: 400, fontSize: "0.65rem", letterSpacing: "0.04em", lineHeight: 1.8, color: "rgba(255,255,255,0.45)", maxWidth: "28ch" }}>
+                Four private stays on the NSW South Coast. A short stroll from Berry, minutes from the beach.
+              </p>
+            </div>
+
+            {/* Nav */}
+            <div style={{ display: "flex", flexDirection: "column", gap: "0.9rem" }}>
+              <p style={{ fontFamily: FUTURA, fontWeight: 700, fontSize: "0.52rem", letterSpacing: "0.22em", color: "rgba(255,255,255,0.35)", marginBottom: "0.4rem" }}>
+                EXPLORE
+              </p>
+              {[["Story", "/story"], ["Collection", "/collection"], ["Experiences", "/experiences"]].map(([label, href]) => (
+                <a
+                  key={label}
+                  href={href}
+                  style={{ fontFamily: FUTURA, fontWeight: 400, fontSize: "0.65rem", letterSpacing: "0.08em", color: "rgba(255,255,255,0.6)", textDecoration: "none", transition: "color 0.2s" }}
+                  onMouseEnter={(e) => (e.currentTarget.style.color = "#fff")}
+                  onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.6)")}
+                >
+                  {label}
+                </a>
+              ))}
+            </div>
+
+            {/* Contact */}
+            <div style={{ display: "flex", flexDirection: "column", gap: "0.9rem" }}>
+              <p style={{ fontFamily: FUTURA, fontWeight: 700, fontSize: "0.52rem", letterSpacing: "0.22em", color: "rgba(255,255,255,0.35)", marginBottom: "0.4rem" }}>
+                CONTACT
+              </p>
+              <a
+                href="mailto:hello@thecoastal.com.au"
+                style={{ fontFamily: FUTURA, fontWeight: 400, fontSize: "0.65rem", letterSpacing: "0.08em", color: "rgba(255,255,255,0.6)", textDecoration: "none", transition: "color 0.2s" }}
+                onMouseEnter={(e) => (e.currentTarget.style.color = "#fff")}
+                onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.6)")}
+              >
+                hello@thecoastal.com.au
+              </a>
+              <p style={{ fontFamily: FUTURA, fontWeight: 400, fontSize: "0.65rem", letterSpacing: "0.08em", color: "rgba(255,255,255,0.45)", lineHeight: 1.7 }}>
+                Berry, NSW 2535<br />South Coast, Australia
+              </p>
+              <a
+                href="https://instagram.com/thecoastal.berry"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ fontFamily: FUTURA, fontWeight: 400, fontSize: "0.65rem", letterSpacing: "0.08em", color: "rgba(255,255,255,0.6)", textDecoration: "none", transition: "color 0.2s" }}
+                onMouseEnter={(e) => (e.currentTarget.style.color = "#fff")}
+                onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.6)")}
+              >
+                @thecoastal.berry
+              </a>
+            </div>
+          </div>
+
+          {/* Bottom row */}
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              paddingTop: "2rem",
+            }}
+          >
+            <p style={{ fontFamily: FUTURA, fontWeight: 400, fontSize: "0.55rem", letterSpacing: "0.12em", color: "rgba(255,255,255,0.25)" }}>
+              © {new Date().getFullYear()} THE COASTAL. ALL RIGHTS RESERVED.
+            </p>
+            <a
+              href="#"
+              style={{ fontFamily: FUTURA, fontWeight: 700, fontSize: "0.55rem", letterSpacing: "0.18em", color: "rgba(255,255,255,0.35)", textDecoration: "none", transition: "color 0.2s" }}
+              onMouseEnter={(e) => (e.currentTarget.style.color = "#fff")}
+              onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.35)")}
+            >
+              BOOK NOW
+            </a>
+          </div>
+
+        </div>
+      </footer>
+
       <style>{`
         @keyframes fadeIn {
           from { opacity: 0; transform: translateX(-50%) translateY(8px); }
