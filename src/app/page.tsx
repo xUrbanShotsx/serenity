@@ -174,8 +174,8 @@ export default function Home() {
           </p>
           <h2
             style={{
-              fontFamily: "Georgia, 'Times New Roman', serif",
-              fontStyle: "italic",
+              fontFamily: "'Kenao', Georgia, serif",
+              fontStyle: "normal",
               fontWeight: 400,
               fontSize: "clamp(2rem, 3vw, 3rem)",
               lineHeight: 1.15,
@@ -326,8 +326,8 @@ export default function Home() {
           </p>
           <h2
             style={{
-              fontFamily: "Georgia, 'Times New Roman', serif",
-              fontStyle: "italic",
+              fontFamily: "'Kenao', Georgia, serif",
+              fontStyle: "normal",
               fontWeight: 400,
               fontSize: "clamp(2rem, 3vw, 3rem)",
               lineHeight: 1.15,
@@ -625,6 +625,13 @@ export default function Home() {
       </footer>
 
       <style>{`
+        @font-face {
+          font-family: 'Kenao';
+          src: url('/fonts/Kenao.otf') format('opentype');
+          font-weight: normal;
+          font-style: normal;
+          font-display: swap;
+        }
         @keyframes fadeIn {
           from { opacity: 0; transform: translateX(-50%) translateY(8px); }
           to   { opacity: 1; transform: translateX(-50%) translateY(0); }
