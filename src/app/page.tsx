@@ -182,7 +182,7 @@ export default function Home() {
               color: "#111",
             }}
           >
-            The Residence
+            THE RESIDENCE
           </h2>
           <p
             style={{
@@ -334,7 +334,7 @@ export default function Home() {
               color: "#111",
             }}
           >
-            The Suites
+            THE SUITES
           </h2>
           <p
             style={{
