@@ -9,8 +9,10 @@ const SERIF = "Georgia, 'Times New Roman', serif";
 
 const EXPERIENCES = [
   {
+    num: "01",
     category: "AT THE COASTAL",
     title: "On Property",
+    distance: "Right here",
     description:
       "The land itself is worth slowing down for. Twelve acres of gardens, olive groves, and open sky — with everything you need to make the most of it.",
     items: [
@@ -23,10 +25,13 @@ const EXPERIENCES = [
     ],
     image: "/Arielshot.jpg",
     flip: false,
+    dark: false,
   },
   {
+    num: "02",
     category: "THE VILLAGE",
     title: "Berry Township",
+    distance: "5 min walk",
     description:
       "A short stroll from the property, Berry is one of the South Coast's most beloved towns — small enough to cover in a morning, good enough to spend a week in.",
     items: [
@@ -39,10 +44,13 @@ const EXPERIENCES = [
     ],
     image: "/Olivesuite.jpg",
     flip: true,
+    dark: false,
   },
   {
+    num: "03",
     category: "THE COAST",
     title: "Seven Mile Beach",
+    distance: "12 min drive",
     description:
       "Minutes down the road, one of NSW's longest and least crowded beaches. Arrive early and you may have it to yourself.",
     items: [
@@ -55,10 +63,13 @@ const EXPERIENCES = [
     ],
     image: "/shorelinesuite.jpg",
     flip: false,
+    dark: true,
   },
   {
+    num: "04",
     category: "THE REGION",
     title: "Further Afield",
+    distance: "Under 1 hour",
     description:
       "The NSW South Coast rewards those who venture beyond the beach. Within an hour, you'll find wine country, ancient rainforest, and one of Australia's clearest bays.",
     items: [
@@ -71,18 +82,25 @@ const EXPERIENCES = [
     ],
     image: "/horizonsuite.jpg",
     flip: true,
+    dark: false,
   },
 ];
 
-function FadeIn({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
+function FadeIn({
+  children,
+  delay = 0,
+}: {
+  children: React.ReactNode;
+  delay?: number;
+}) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 24 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.7, ease: [0.25, 0, 0.25, 1], delay }}
+      transition={{ duration: 0.85, ease: [0.25, 0, 0.25, 1], delay }}
     >
       {children}
     </motion.div>
@@ -94,159 +112,380 @@ export default function ExperiencesPage() {
     <main style={{ backgroundColor: "#fff" }}>
       <Navbar />
 
-      {/* ── Hero ────────────────────────────────────────────────── */}
+      {/* ── Full-bleed hero ──────────────────────────────────────── */}
       <section
         style={{
-          paddingTop: "calc(68px + 7rem)",
-          paddingBottom: "7rem",
-          paddingLeft: "3rem",
-          paddingRight: "3rem",
-          maxWidth: "860px",
-          margin: "0 auto",
+          position: "relative",
+          height: "100vh",
+          overflow: "hidden",
+          display: "flex",
+          alignItems: "flex-end",
         }}
       >
-        <FadeIn>
-          <p style={{
-            fontFamily: FUTURA, fontWeight: 700, fontSize: "0.6rem",
-            letterSpacing: "0.25em", color: "#111", opacity: 0.4, marginBottom: "2rem",
-          }}>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/Arielshot.jpg"
+          alt="The Coastal from above"
+          style={{
+            position: "absolute",
+            inset: 0,
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            display: "block",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            background:
+              "linear-gradient(to bottom, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.55) 100%)",
+          }}
+        />
+        <div
+          style={{
+            position: "relative",
+            zIndex: 2,
+            padding: "0 4rem 5rem",
+            width: "100%",
+          }}
+        >
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            style={{
+              fontFamily: FUTURA,
+              fontWeight: 700,
+              fontSize: "0.55rem",
+              letterSpacing: "0.3em",
+              color: "rgba(255,255,255,0.6)",
+              marginBottom: "1.2rem",
+            }}
+          >
             BERRY, NSW SOUTH COAST
-          </p>
-        </FadeIn>
-        <FadeIn delay={0.1}>
-          <h1 style={{
-            fontFamily: SERIF, fontStyle: "italic", fontWeight: 400,
-            fontSize: "clamp(3rem, 5vw, 5rem)", color: "#111", lineHeight: 1.05,
-            marginBottom: "2.5rem",
-          }}>
+          </motion.p>
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.35, ease: [0.25, 0, 0.25, 1] }}
+            style={{
+              fontFamily: SERIF,
+              fontStyle: "italic",
+              fontWeight: 400,
+              fontSize: "clamp(4.5rem, 8vw, 8rem)",
+              color: "#fff",
+              lineHeight: 1,
+              marginBottom: "2rem",
+            }}
+          >
             Experiences
-          </h1>
-        </FadeIn>
-        <FadeIn delay={0.2}>
-          <p style={{
-            fontFamily: FUTURA, fontWeight: 400, fontSize: "0.75rem",
-            letterSpacing: "0.03em", lineHeight: 1.95, color: "#111",
-            opacity: 0.55, maxWidth: "50ch",
-          }}>
-            Between the property, the village, the beach, and the hills — there's
-            more within reach than most people expect. This is a guide to making
-            the most of it.
-          </p>
-        </FadeIn>
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.55 }}
+            style={{
+              fontFamily: FUTURA,
+              fontWeight: 400,
+              fontSize: "0.7rem",
+              letterSpacing: "0.04em",
+              lineHeight: 1.95,
+              color: "rgba(255,255,255,0.65)",
+              maxWidth: "48ch",
+            }}
+          >
+            Between the property, the village, the beach, and the hills — there&apos;s
+            more within reach than most people expect.
+          </motion.p>
+        </div>
       </section>
 
       {/* ── Experience sections ──────────────────────────────────── */}
-      {EXPERIENCES.map((exp, i) => (
+      {EXPERIENCES.map((exp) => (
         <section
-          key={exp.category}
+          key={exp.num}
           style={{
             display: "flex",
             flexDirection: exp.flip ? "row-reverse" : "row",
-            minHeight: "90vh",
-            borderTop: "1px solid rgba(0,0,0,0.07)",
+            minHeight: "95vh",
+            backgroundColor: exp.dark ? "#111" : "#fff",
           }}
         >
-          {/* Image */}
-          <FadeIn delay={0.05}>
-            <div style={{
-              width: "45vw",
+          {/* Image — fills full section height */}
+          <div
+            style={{
+              width: "52%",
               flexShrink: 0,
               overflow: "hidden",
-              minHeight: "90vh",
-            }}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={exp.image}
-                alt={exp.title}
-                style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
-              />
+              position: "relative",
+            }}
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={exp.image}
+              alt={exp.title}
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                display: "block",
+                minHeight: "95vh",
+              }}
+            />
+          </div>
+
+          {/* Text panel */}
+          <div
+            style={{
+              flex: 1,
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              padding: "5rem 4rem",
+              position: "relative",
+              overflow: "hidden",
+            }}
+          >
+            {/* Ghost number behind content */}
+            <div
+              aria-hidden="true"
+              style={{
+                position: "absolute",
+                bottom: "-2rem",
+                right: exp.flip ? "auto" : "-1rem",
+                left: exp.flip ? "-1rem" : "auto",
+                fontFamily: SERIF,
+                fontStyle: "italic",
+                fontSize: "clamp(12rem, 20vw, 22rem)",
+                lineHeight: 1,
+                color: exp.dark
+                  ? "rgba(255,255,255,0.04)"
+                  : "rgba(0,0,0,0.045)",
+                userSelect: "none",
+                pointerEvents: "none",
+                letterSpacing: "-0.05em",
+              }}
+            >
+              {exp.num}
             </div>
-          </FadeIn>
 
-          {/* Text */}
-          <div style={{
-            flex: 1,
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            padding: "5rem 4.5rem",
-          }}>
-            <FadeIn delay={0.1}>
-              <p style={{
-                fontFamily: FUTURA, fontWeight: 700, fontSize: "0.55rem",
-                letterSpacing: "0.25em", color: "#111", opacity: 0.35, marginBottom: "1.2rem",
-              }}>
-                {exp.category}
-              </p>
-              <h2 style={{
-                fontFamily: SERIF, fontStyle: "italic", fontWeight: 400,
-                fontSize: "clamp(2rem, 3vw, 3rem)", color: "#111", lineHeight: 1.1,
-                marginBottom: "1.8rem",
-              }}>
-                {exp.title}
-              </h2>
-              <p style={{
-                fontFamily: FUTURA, fontWeight: 400, fontSize: "0.7rem",
-                letterSpacing: "0.03em", lineHeight: 1.95, color: "#111",
-                opacity: 0.55, maxWidth: "38ch", marginBottom: "2.5rem",
-              }}>
-                {exp.description}
-              </p>
+            <div style={{ position: "relative", zIndex: 1 }}>
+              <FadeIn>
+                <p
+                  style={{
+                    fontFamily: FUTURA,
+                    fontWeight: 700,
+                    fontSize: "0.5rem",
+                    letterSpacing: "0.28em",
+                    color: exp.dark
+                      ? "rgba(255,255,255,0.35)"
+                      : "rgba(0,0,0,0.3)",
+                    marginBottom: "1rem",
+                  }}
+                >
+                  {exp.num} — {exp.category}
+                </p>
+              </FadeIn>
 
-              {/* Divider */}
-              <div style={{ height: "1px", backgroundColor: "rgba(0,0,0,0.07)", marginBottom: "2.5rem", maxWidth: "320px" }} />
+              <FadeIn delay={0.1}>
+                <h2
+                  style={{
+                    fontFamily: SERIF,
+                    fontStyle: "italic",
+                    fontWeight: 400,
+                    fontSize: "clamp(2.5rem, 3.5vw, 4rem)",
+                    color: exp.dark ? "#fff" : "#111",
+                    lineHeight: 1.05,
+                    marginBottom: "0.7rem",
+                  }}
+                >
+                  {exp.title}
+                </h2>
+              </FadeIn>
 
-              {/* List */}
-              <div style={{ display: "flex", flexDirection: "column", gap: "0.85rem" }}>
-                {exp.items.map((item) => (
-                  <div key={item} style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
-                    <div style={{ width: "18px", height: "1px", backgroundColor: "rgba(0,0,0,0.2)", flexShrink: 0 }} />
-                    <span style={{
-                      fontFamily: FUTURA, fontWeight: 400, fontSize: "0.65rem",
-                      letterSpacing: "0.04em", color: "#111", opacity: 0.6,
-                    }}>
-                      {item}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </FadeIn>
+              <FadeIn delay={0.15}>
+                <p
+                  style={{
+                    fontFamily: FUTURA,
+                    fontWeight: 700,
+                    fontSize: "0.5rem",
+                    letterSpacing: "0.22em",
+                    color: exp.dark
+                      ? "rgba(255,255,255,0.28)"
+                      : "rgba(0,0,0,0.22)",
+                    marginBottom: "2.2rem",
+                  }}
+                >
+                  {exp.distance}
+                </p>
+              </FadeIn>
+
+              <FadeIn delay={0.2}>
+                <p
+                  style={{
+                    fontFamily: FUTURA,
+                    fontWeight: 400,
+                    fontSize: "0.72rem",
+                    letterSpacing: "0.03em",
+                    lineHeight: 1.95,
+                    color: exp.dark
+                      ? "rgba(255,255,255,0.5)"
+                      : "rgba(0,0,0,0.5)",
+                    maxWidth: "38ch",
+                    marginBottom: "2.5rem",
+                  }}
+                >
+                  {exp.description}
+                </p>
+              </FadeIn>
+
+              <FadeIn delay={0.25}>
+                <div
+                  style={{
+                    height: "1px",
+                    backgroundColor: exp.dark
+                      ? "rgba(255,255,255,0.1)"
+                      : "rgba(0,0,0,0.07)",
+                    maxWidth: "280px",
+                    marginBottom: "2.2rem",
+                  }}
+                />
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: "0.9rem",
+                  }}
+                >
+                  {exp.items.map((item, j) => (
+                    <motion.div
+                      key={item}
+                      initial={{ opacity: 0, x: -12 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{
+                        duration: 0.55,
+                        delay: 0.3 + j * 0.07,
+                        ease: [0.25, 0, 0.25, 1],
+                      }}
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "1rem",
+                      }}
+                    >
+                      <div
+                        style={{
+                          width: "20px",
+                          height: "1px",
+                          backgroundColor: exp.dark
+                            ? "rgba(255,255,255,0.2)"
+                            : "rgba(0,0,0,0.18)",
+                          flexShrink: 0,
+                        }}
+                      />
+                      <span
+                        style={{
+                          fontFamily: FUTURA,
+                          fontWeight: 400,
+                          fontSize: "0.65rem",
+                          letterSpacing: "0.04em",
+                          color: exp.dark
+                            ? "rgba(255,255,255,0.55)"
+                            : "rgba(0,0,0,0.55)",
+                        }}
+                      >
+                        {item}
+                      </span>
+                    </motion.div>
+                  ))}
+                </div>
+              </FadeIn>
+            </div>
           </div>
         </section>
       ))}
 
-      {/* ── Closing CTA ─────────────────────────────────────────── */}
-      <section style={{
-        padding: "8rem 3rem",
-        textAlign: "center",
-        backgroundColor: "#faf9f7",
-        borderTop: "1px solid rgba(0,0,0,0.07)",
-      }}>
-        <FadeIn>
-          <p style={{
-            fontFamily: SERIF, fontStyle: "italic", fontWeight: 400,
-            fontSize: "clamp(1.4rem, 2.2vw, 2rem)", color: "#111",
-            lineHeight: 1.6, opacity: 0.85, marginBottom: "2.5rem", maxWidth: "44ch",
-            margin: "0 auto 2.5rem",
-          }}>
-            Ready to plan your stay?
-          </p>
-        </FadeIn>
-        <FadeIn delay={0.1}>
-          <a
-            href="/collection"
-            style={{
-              fontFamily: FUTURA, fontWeight: 700, fontSize: "0.6rem",
-              letterSpacing: "0.18em", color: "#111", textDecoration: "none",
-              border: "1.5px solid #111", padding: "0.7rem 1.8rem",
-              display: "inline-block", transition: "background 0.2s, color 0.2s",
-            }}
-            onMouseEnter={(e) => { e.currentTarget.style.background = "#111"; e.currentTarget.style.color = "#fff"; }}
-            onMouseLeave={(e) => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "#111"; }}
-          >
-            VIEW THE COLLECTION
-          </a>
-        </FadeIn>
+      {/* ── Closing CTA — image-backed ───────────────────────────── */}
+      <section
+        style={{
+          position: "relative",
+          height: "65vh",
+          overflow: "hidden",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/horizonsuite.jpg"
+          alt="The Coastal"
+          style={{
+            position: "absolute",
+            inset: 0,
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            backgroundColor: "rgba(0,0,0,0.48)",
+          }}
+        />
+        <div
+          style={{ position: "relative", zIndex: 2, textAlign: "center", padding: "0 2rem" }}
+        >
+          <FadeIn>
+            <p
+              style={{
+                fontFamily: SERIF,
+                fontStyle: "italic",
+                fontWeight: 400,
+                fontSize: "clamp(1.8rem, 3vw, 2.8rem)",
+                color: "#fff",
+                lineHeight: 1.5,
+                marginBottom: "2.5rem",
+              }}
+            >
+              Ready to plan your stay?
+            </p>
+          </FadeIn>
+          <FadeIn delay={0.15}>
+            <a
+              href="/collection"
+              style={{
+                fontFamily: FUTURA,
+                fontWeight: 700,
+                fontSize: "0.6rem",
+                letterSpacing: "0.18em",
+                color: "#fff",
+                textDecoration: "none",
+                border: "1.5px solid rgba(255,255,255,0.65)",
+                padding: "0.8rem 2.2rem",
+                display: "inline-block",
+                transition: "background 0.25s, color 0.25s, border-color 0.25s",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = "#fff";
+                e.currentTarget.style.color = "#111";
+                e.currentTarget.style.borderColor = "#fff";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = "transparent";
+                e.currentTarget.style.color = "#fff";
+                e.currentTarget.style.borderColor = "rgba(255,255,255,0.65)";
+              }}
+            >
+              VIEW THE COLLECTION
+            </a>
+          </FadeIn>
+        </div>
       </section>
     </main>
   );
