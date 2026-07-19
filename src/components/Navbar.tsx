@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 
 const FUTURA = "'Futura', 'Century Gothic', 'Trebuchet MS', sans-serif";
@@ -63,20 +64,15 @@ export default function Navbar() {
         ))}
       </nav>
 
-      <Link
-        href="/"
-        style={{
-          fontFamily: FUTURA,
-          fontWeight: 700,
-          fontSize: "0.85rem",
-          letterSpacing: "0.35em",
-          color: "#111",
-          textDecoration: "none",
-          whiteSpace: "nowrap",
-          userSelect: "none",
-        }}
-      >
-        THE COASTAL
+      <Link href="/" style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+        <Image
+          src="/Logodesign.png"
+          alt="The Coastal"
+          height={38}
+          width={120}
+          style={{ objectFit: "contain", height: "38px", width: "auto" }}
+          priority
+        />
       </Link>
 
       <div style={{ display: "flex", justifyContent: "flex-end" }}>
