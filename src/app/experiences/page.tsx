@@ -112,98 +112,8 @@ export default function ExperiencesPage() {
     <main style={{ backgroundColor: "#fff" }}>
       <Navbar />
 
-      {/* ── Full-bleed hero ──────────────────────────────────────── */}
-      <section
-        style={{
-          position: "relative",
-          height: "100vh",
-          overflow: "hidden",
-          display: "flex",
-          alignItems: "flex-end",
-        }}
-      >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="/Arielshot.jpg"
-          alt="The Coastal from above"
-          style={{
-            position: "absolute",
-            inset: 0,
-            width: "100%",
-            height: "100%",
-            objectFit: "cover",
-            display: "block",
-          }}
-        />
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            background:
-              "linear-gradient(to bottom, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.55) 100%)",
-          }}
-        />
-        <div
-          style={{
-            position: "relative",
-            zIndex: 2,
-            padding: "0 4rem 5rem",
-            width: "100%",
-          }}
-        >
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            style={{
-              fontFamily: FUTURA,
-              fontWeight: 700,
-              fontSize: "0.55rem",
-              letterSpacing: "0.3em",
-              color: "rgba(255,255,255,0.6)",
-              marginBottom: "1.2rem",
-            }}
-          >
-            BERRY, NSW SOUTH COAST
-          </motion.p>
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.35, ease: [0.25, 0, 0.25, 1] }}
-            style={{
-              fontFamily: SERIF,
-              fontStyle: "italic",
-              fontWeight: 400,
-              fontSize: "clamp(4.5rem, 8vw, 8rem)",
-              color: "#fff",
-              lineHeight: 1,
-              marginBottom: "2rem",
-            }}
-          >
-            Experiences
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.55 }}
-            style={{
-              fontFamily: FUTURA,
-              fontWeight: 400,
-              fontSize: "0.7rem",
-              letterSpacing: "0.04em",
-              lineHeight: 1.95,
-              color: "rgba(255,255,255,0.65)",
-              maxWidth: "48ch",
-            }}
-          >
-            Between the property, the village, the beach, and the hills — there&apos;s
-            more within reach than most people expect.
-          </motion.p>
-        </div>
-      </section>
-
       {/* ── Experience sections ──────────────────────────────────── */}
-      {EXPERIENCES.map((exp) => (
+      {EXPERIENCES.map((exp, i) => (
         <section
           key={exp.num}
           style={{
@@ -211,6 +121,7 @@ export default function ExperiencesPage() {
             flexDirection: exp.flip ? "row-reverse" : "row",
             minHeight: "95vh",
             backgroundColor: exp.dark ? "#111" : "#fff",
+            paddingTop: i === 0 ? "88px" : 0,
           }}
         >
           {/* Image — fills full section height */}
