@@ -65,7 +65,7 @@ function HeroPage({ onContinue }: { onContinue: () => void }) {
         justifyContent: "center",
         textAlign: "center",
         gap: "1.5rem",
-        paddingTop: "68px",
+        paddingTop: "88px",
       }}
     >
       <p style={{ fontFamily: FUTURA, fontWeight: 700, fontSize: "0.6rem", letterSpacing: "0.25em", color: "#111", opacity: 0.4 }}>
@@ -230,7 +230,7 @@ function StayPage({ stay }: { stay: typeof STAYS[0] }) {
 
   return (
     <>
-      <div style={{ position: "absolute", inset: 0, display: "flex", backgroundColor: "#fff", paddingTop: "68px" }}>
+      <div style={{ position: "absolute", inset: 0, display: "flex", backgroundColor: "#fff", paddingTop: "88px" }}>
 
         {/* Left — image */}
         <div style={{ width: "48%", flexShrink: 0, overflow: "hidden" }}>

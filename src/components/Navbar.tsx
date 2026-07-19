@@ -32,7 +32,7 @@ export default function Navbar() {
         position: "fixed",
         inset: "0 0 auto 0",
         zIndex: 50,
-        height: "68px",
+        height: "88px",
         backgroundColor: "#fff",
         borderBottom: "1px solid rgba(0,0,0,0.07)",
         display: "grid",
@@ -68,9 +68,9 @@ export default function Navbar() {
         <Image
           src="/Logodesign.png"
           alt="The Coastal"
-          height={38}
-          width={120}
-          style={{ objectFit: "contain", height: "38px", width: "auto" }}
+          height={54}
+          width={180}
+          style={{ objectFit: "contain", height: "54px", width: "auto" }}
           priority
         />
       </Link>
