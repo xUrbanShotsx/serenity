@@ -168,6 +168,7 @@ export default function Home() {
               letterSpacing: "0.25em",
               color: "#111",
               opacity: 0.4,
+              marginBottom: "1.5rem",
             }}
           >
             THE COLLECTION
@@ -320,6 +321,7 @@ export default function Home() {
               letterSpacing: "0.25em",
               color: "#111",
               opacity: 0.4,
+              marginBottom: "1.5rem",
             }}
           >
             THE COLLECTION
