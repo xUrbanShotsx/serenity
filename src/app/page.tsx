@@ -276,6 +276,9 @@ export default function Home() {
         />
       </section>
 
+      {/* ── Divider ────────────────────────────────────────────── */}
+      <div style={{ height: "1px", backgroundColor: "rgba(0,0,0,0.07)", margin: "0 3rem" }} />
+
       {/* ── Suites section (flipped) ────────────────────────────── */}
       <section
         style={{
