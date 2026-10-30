@@ -109,7 +109,7 @@ function FadeIn({
 
 export default function ExperiencesPage() {
   return (
-    <main style={{ backgroundColor: "#fff" }}>
+    <main style={{ backgroundColor: "#f2ede5" }}>
       <Navbar />
 
       {/* ── Experience sections ──────────────────────────────────── */}

@@ -58,7 +58,7 @@ function HeroPage({ onContinue }: { onContinue: () => void }) {
       style={{
         position: "absolute",
         inset: 0,
-        backgroundColor: "#fff",
+        backgroundColor: "#f2ede5",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
@@ -162,7 +162,7 @@ function FloorPlanModal({ isResidence, onClose }: { isResidence: boolean; onClos
           exit={{ opacity: 0, scale: 0.96 }}
           transition={{ duration: 0.25 }}
           style={{
-            backgroundColor: "#fff",
+            backgroundColor: "#f2ede5",
             padding: "3.5rem",
             maxWidth: "560px",
             width: "90%",
@@ -230,7 +230,7 @@ function StayPage({ stay }: { stay: typeof STAYS[0] }) {
 
   return (
     <>
-      <div style={{ position: "absolute", inset: 0, display: "flex", backgroundColor: "#fff", paddingTop: "88px" }}>
+      <div style={{ position: "absolute", inset: 0, display: "flex", backgroundColor: "#f2ede5", paddingTop: "88px" }}>
 
         {/* Left — image */}
         <div style={{ width: "48%", flexShrink: 0, overflow: "hidden" }}>
@@ -415,7 +415,7 @@ export default function CollectionPage() {
 
       {/* Previous page — static underneath, cleared once new page lands */}
       {prevIdx !== null && (
-        <div style={{ position: "absolute", inset: 0, zIndex: 1, backgroundColor: "#fff" }}>
+        <div style={{ position: "absolute", inset: 0, zIndex: 1, backgroundColor: "#f2ede5" }}>
           <PageContent pageIdx={prevIdx} onContinue={() => goTo(1)} />
         </div>
       )}
@@ -427,7 +427,7 @@ export default function CollectionPage() {
         animate={{ x: "0%" }}
         transition={{ duration: WIPE_DURATION, ease: WIPE_EASE }}
         onAnimationComplete={() => setPrevIdx(null)}
-        style={{ position: "absolute", inset: 0, zIndex: 2, backgroundColor: "#fff" }}
+        style={{ position: "absolute", inset: 0, zIndex: 2, backgroundColor: "#f2ede5" }}
       >
         <PageContent pageIdx={idx} onContinue={() => goTo(1)} />
       </motion.div>

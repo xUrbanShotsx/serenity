@@ -3,13 +3,45 @@
 import Navbar from "@/components/Navbar";
 
 const FUTURA = "'Futura', 'Century Gothic', 'Trebuchet MS', sans-serif";
+const SERIF = "Georgia, 'Times New Roman', serif";
+const CREAM = "#f2ede5";
+const INK = "#1a1916";
+
+const STAYS = [
+  {
+    name: "THE RESIDENCE",
+    tag: "The Main House",
+    specs: [
+      ["4", "Bedrooms"],
+      ["2", "Bathrooms"],
+      ["8+", "Guests"],
+    ],
+    description:
+      "The main house at The Coastal. Made for families and groups who want space to spread out — four bedrooms, a wide open living area connecting to an outdoor terrace, and enough room for eight people to feel comfortable.",
+    image: "/theresidence.jpg",
+    href: "/collection",
+  },
+  {
+    name: "THE SUITES",
+    tag: "Three Private Suites",
+    specs: [
+      ["3", "Suites"],
+      ["1", "Bedroom"],
+      ["2", "Guests"],
+    ],
+    description:
+      "Three private suites, each with their own character. One bedroom, a full bathroom, and a private outdoor space — intimate by design, without anything missing.",
+    image: "/Olivesuite.jpg",
+    href: "/collection",
+  },
+];
 
 export default function Home() {
   return (
-    <main>
+    <main style={{ backgroundColor: CREAM }}>
       <Navbar />
 
-      {/* ── Hero image ─────────────────────────────────────────── */}
+      {/* ── Hero ────────────────────────────────────────────────── */}
       <section style={{ position: "relative", height: "100vh", overflow: "hidden" }}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
@@ -24,7 +56,46 @@ export default function Home() {
             objectPosition: "center",
           }}
         />
-
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            background: "linear-gradient(to bottom, rgba(0,0,0,0) 50%, rgba(0,0,0,0.35) 100%)",
+          }}
+        />
+        {/* Bottom-left property label — Linnaeus style */}
+        <div
+          style={{
+            position: "absolute",
+            bottom: "2.8rem",
+            left: "2.8rem",
+          }}
+        >
+          <p
+            style={{
+              fontFamily: FUTURA,
+              fontWeight: 700,
+              fontSize: "0.52rem",
+              letterSpacing: "0.25em",
+              color: "rgba(255,255,255,0.7)",
+              marginBottom: "0.4rem",
+            }}
+          >
+            BERRY, NSW SOUTH COAST
+          </p>
+          <p
+            style={{
+              fontFamily: SERIF,
+              fontStyle: "italic",
+              fontSize: "clamp(1.4rem, 2.5vw, 2rem)",
+              fontWeight: 400,
+              color: "#fff",
+              lineHeight: 1.1,
+            }}
+          >
+            The Coastal
+          </p>
+        </div>
         {/* Scroll cue */}
         <div
           style={{
@@ -32,97 +103,127 @@ export default function Home() {
             bottom: "2.5rem",
             left: "50%",
             transform: "translateX(-50%)",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          gap: "0.5rem",
-          animation: "fadeIn 1s ease 1s both",
-        }}
-      >
-        <span
-          style={{
-            fontFamily: FUTURA,
-            fontWeight: 700,
-            fontSize: "0.55rem",
-            letterSpacing: "0.22em",
-            color: "#fff",
-            opacity: 0.7,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            gap: "0.5rem",
+            animation: "fadeIn 1s ease 1s both",
           }}
         >
-          SCROLL
-        </span>
-        <div
-          style={{
-            width: "1px",
-            height: "36px",
-            backgroundColor: "rgba(255,255,255,0.55)",
-            animation: "scrollPulse 1.8s ease-in-out infinite",
-          }}
-        />
+          <div
+            style={{
+              width: "1px",
+              height: "40px",
+              backgroundColor: "rgba(255,255,255,0.45)",
+              animation: "scrollPulse 1.8s ease-in-out infinite",
+            }}
+          />
         </div>
       </section>
 
-      {/* ── Welcome section ────────────────────────────────────── */}
+      {/* ── Brand intro — Linnaeus editorial block ───────────────── */}
       <section
         style={{
-          backgroundColor: "#fff",
-          padding: "10rem 2rem",
+          backgroundColor: CREAM,
+          padding: "9rem 2rem",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          justifyContent: "center",
           textAlign: "center",
+          gap: "1.4rem",
         }}
       >
         <p
           style={{
             fontFamily: FUTURA,
             fontWeight: 700,
-            fontSize: "0.6rem",
-            letterSpacing: "0.25em",
-            color: "#111",
+            fontSize: "0.55rem",
+            letterSpacing: "0.28em",
+            color: INK,
             opacity: 0.4,
-            marginBottom: "2rem",
           }}
         >
           BERRY, NSW SOUTH COAST
         </p>
         <p
           style={{
-            maxWidth: "52ch",
-            fontFamily: "Georgia, 'Times New Roman', serif",
-            fontStyle: "italic",
-            fontWeight: 400,
-            fontSize: "clamp(1.4rem, 2.2vw, 2rem)",
-            lineHeight: 1.55,
-            color: "#111",
-            opacity: 0.85,
+            fontFamily: FUTURA,
+            fontWeight: 700,
+            fontSize: "0.75rem",
+            letterSpacing: "0.28em",
+            color: INK,
           }}
         >
-          A short stroll from Berry township in one direction, and minutes from the beach in the other. Serenity sits right in the middle — four private stays on the NSW South Coast, where everything you need is closer than you think.
+          THE COASTAL
         </p>
+        <p
+          style={{
+            fontFamily: SERIF,
+            fontStyle: "italic",
+            fontWeight: 400,
+            fontSize: "clamp(1.3rem, 2vw, 1.7rem)",
+            color: INK,
+            lineHeight: 1.3,
+          }}
+        >
+          Four Private Stays. One Piece of Country.
+        </p>
+        <div
+          style={{
+            width: "40px",
+            height: "1px",
+            backgroundColor: "rgba(26,25,22,0.2)",
+            margin: "0.5rem 0",
+          }}
+        />
+        <p
+          style={{
+            fontFamily: FUTURA,
+            fontWeight: 400,
+            fontSize: "0.72rem",
+            letterSpacing: "0.03em",
+            lineHeight: 1.95,
+            color: INK,
+            opacity: 0.6,
+            maxWidth: "52ch",
+          }}
+        >
+          A short stroll from Berry township in one direction, and minutes from the beach
+          in the other. The Coastal sits right in the middle — four private stays on the
+          NSW South Coast, where everything you need is closer than you think.
+        </p>
+        <a
+          href="/collection"
+          style={{
+            fontFamily: FUTURA,
+            fontWeight: 700,
+            fontSize: "0.58rem",
+            letterSpacing: "0.18em",
+            color: INK,
+            textDecoration: "none",
+            opacity: 0.55,
+            marginTop: "0.5rem",
+            transition: "opacity 0.2s",
+          }}
+          onMouseEnter={(e) => (e.currentTarget.style.opacity = "1")}
+          onMouseLeave={(e) => (e.currentTarget.style.opacity = "0.55")}
+        >
+          VIEW THE COLLECTION →
+        </a>
       </section>
 
-      {/* ── Two-image section ──────────────────────────────────── */}
+      {/* ── Two editorial images ─────────────────────────────────── */}
       <section
         style={{
-          backgroundColor: "#fff",
-          height: "100vh",
-          display: "flex",
-          alignItems: "center",
-          padding: "0 3rem",
-          gap: "3rem",
+          backgroundColor: CREAM,
+          display: "grid",
+          gridTemplateColumns: "1fr 1fr",
+          gap: "0.5rem",
+          padding: "0 0.5rem 0.5rem",
         }}
       >
         {["/frame1.png", "/frame2.png"].map((src, i) => (
-          <div
-            key={i}
-            style={{
-              flex: 1,
-              height: "75%",
-              overflow: "hidden",
-            }}
-          >
+          <div key={i} style={{ overflow: "hidden", aspectRatio: "4/3" }}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={src}
@@ -132,187 +233,227 @@ export default function Home() {
                 height: "100%",
                 objectFit: "cover",
                 display: "block",
+                transition: "transform 0.6s ease",
               }}
+              onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.03)")}
+              onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
             />
           </div>
         ))}
       </section>
 
-      {/* ── Single frame right section ─────────────────────────── */}
+      {/* ── Property cards — Linnaeus 2-col style ───────────────── */}
       <section
         style={{
-          backgroundColor: "#fff",
-          height: "100vh",
-          display: "flex",
-          alignItems: "center",
+          backgroundColor: CREAM,
+          padding: "8rem 3rem",
+          maxWidth: "1300px",
+          margin: "0 auto",
         }}
       >
-        {/* Left — text */}
         <div
           style={{
-            flex: 1,
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
             textAlign: "center",
-            padding: "0 3rem",
-            gap: "1.5rem",
+            marginBottom: "5rem",
           }}
         >
           <p
             style={{
               fontFamily: FUTURA,
               fontWeight: 700,
-              fontSize: "0.6rem",
-              letterSpacing: "0.25em",
-              color: "#111",
+              fontSize: "0.55rem",
+              letterSpacing: "0.28em",
+              color: INK,
               opacity: 0.4,
-              marginBottom: "1.5rem",
+              marginBottom: "0.8rem",
             }}
           >
             THE COLLECTION
           </p>
-          <h2
-            style={{
-              fontFamily: "'Kenao', Georgia, serif",
-              fontStyle: "normal",
-              fontWeight: 400,
-              fontSize: "clamp(2rem, 3vw, 3rem)",
-              lineHeight: 1.15,
-              color: "#111",
-            }}
-          >
-            THE RESIDENCE
-          </h2>
           <p
             style={{
-              fontFamily: FUTURA,
+              fontFamily: SERIF,
+              fontStyle: "italic",
               fontWeight: 400,
-              fontSize: "0.72rem",
-              letterSpacing: "0.04em",
-              lineHeight: 1.8,
-              color: "#111",
-              opacity: 0.6,
-              maxWidth: "38ch",
+              fontSize: "clamp(1.4rem, 2.2vw, 2rem)",
+              color: INK,
             }}
           >
-            The main house at Serenity. Made for families and groups who
-            want space to spread out — four bedrooms, two bathrooms, a
-            wide open living area that connects to an outdoor terrace, and
-            enough room for eight people to feel comfortable, not crowded.
+            Choose Your Stay
           </p>
-          <div
-            style={{
-              display: "flex",
-              gap: "2rem",
-              marginTop: "0.5rem",
-            }}
-          >
-            {[["4", "Bedrooms"], ["2", "Bathrooms"], ["8", "Guests"]].map(([n, label]) => (
-              <div key={label}>
-                <p
+        </div>
+
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "1fr 1fr",
+            gap: "4rem",
+          }}
+        >
+          {STAYS.map((stay) => (
+            <div key={stay.name}>
+              {/* Image */}
+              <div style={{ overflow: "hidden", marginBottom: "1.8rem" }}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={stay.image}
+                  alt={stay.name}
+                  style={{
+                    width: "100%",
+                    aspectRatio: "4/3",
+                    objectFit: "cover",
+                    display: "block",
+                    transition: "transform 0.6s ease",
+                  }}
+                  onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.03)")}
+                  onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
+                />
+              </div>
+              {/* Name */}
+              <p
+                style={{
+                  fontFamily: "'Kenao', Georgia, serif",
+                  fontWeight: 400,
+                  fontSize: "clamp(1.5rem, 2.2vw, 2.2rem)",
+                  color: INK,
+                  marginBottom: "0.3rem",
+                  letterSpacing: "0.02em",
+                }}
+              >
+                {stay.name}
+              </p>
+              <p
+                style={{
+                  fontFamily: FUTURA,
+                  fontWeight: 700,
+                  fontSize: "0.52rem",
+                  letterSpacing: "0.2em",
+                  color: INK,
+                  opacity: 0.4,
+                  marginBottom: "1.2rem",
+                }}
+              >
+                {stay.tag}
+              </p>
+              {/* Specs */}
+              <div
+                style={{
+                  display: "flex",
+                  gap: "1.8rem",
+                  marginBottom: "1.4rem",
+                  borderTop: "1px solid rgba(26,25,22,0.1)",
+                  borderBottom: "1px solid rgba(26,25,22,0.1)",
+                  padding: "1rem 0",
+                }}
+              >
+                {stay.specs.map(([num, label]) => (
+                  <div key={label}>
+                    <p
+                      style={{
+                        fontFamily: FUTURA,
+                        fontWeight: 700,
+                        fontSize: "1rem",
+                        color: INK,
+                        marginBottom: "0.15rem",
+                      }}
+                    >
+                      {num}
+                    </p>
+                    <p
+                      style={{
+                        fontFamily: FUTURA,
+                        fontWeight: 400,
+                        fontSize: "0.5rem",
+                        letterSpacing: "0.18em",
+                        color: INK,
+                        opacity: 0.45,
+                      }}
+                    >
+                      {label.toUpperCase()}
+                    </p>
+                  </div>
+                ))}
+              </div>
+              {/* Description */}
+              <p
+                style={{
+                  fontFamily: FUTURA,
+                  fontWeight: 400,
+                  fontSize: "0.7rem",
+                  letterSpacing: "0.03em",
+                  lineHeight: 1.85,
+                  color: INK,
+                  opacity: 0.55,
+                  marginBottom: "1.4rem",
+                }}
+              >
+                {stay.description}
+              </p>
+              {/* CTAs */}
+              <div style={{ display: "flex", gap: "1.5rem", alignItems: "center" }}>
+                <a
+                  href={stay.href}
                   style={{
                     fontFamily: FUTURA,
                     fontWeight: 700,
-                    fontSize: "1.1rem",
-                    color: "#111",
-                    marginBottom: "0.2rem",
+                    fontSize: "0.55rem",
+                    letterSpacing: "0.16em",
+                    color: INK,
+                    textDecoration: "none",
+                    opacity: 0.65,
+                    transition: "opacity 0.2s",
                   }}
+                  onMouseEnter={(e) => (e.currentTarget.style.opacity = "1")}
+                  onMouseLeave={(e) => (e.currentTarget.style.opacity = "0.65")}
                 >
-                  {n}
-                </p>
-                <p
+                  DISCOVER MORE
+                </a>
+                <span style={{ color: "rgba(26,25,22,0.25)", fontSize: "0.6rem" }}>·</span>
+                <a
+                  href="#"
                   style={{
                     fontFamily: FUTURA,
-                    fontWeight: 400,
-                    fontSize: "0.58rem",
-                    letterSpacing: "0.18em",
-                    color: "#111",
-                    opacity: 0.45,
+                    fontWeight: 700,
+                    fontSize: "0.55rem",
+                    letterSpacing: "0.16em",
+                    color: INK,
+                    textDecoration: "none",
+                    opacity: 0.65,
+                    transition: "opacity 0.2s",
                   }}
+                  onMouseEnter={(e) => (e.currentTarget.style.opacity = "1")}
+                  onMouseLeave={(e) => (e.currentTarget.style.opacity = "0.65")}
                 >
-                  {label.toUpperCase()}
-                </p>
+                  BOOK NOW
+                </a>
               </div>
-            ))}
-          </div>
-          <a
-            href="#"
-            style={{
-              fontFamily: FUTURA,
-              fontWeight: 700,
-              fontSize: "0.6rem",
-              letterSpacing: "0.18em",
-              color: "#111",
-              textDecoration: "none",
-              marginTop: "0.5rem",
-              display: "inline-flex",
-              alignItems: "center",
-              gap: "0.6rem",
-              opacity: 0.75,
-              transition: "opacity 0.2s",
-            }}
-            onMouseEnter={(e) => (e.currentTarget.style.opacity = "1")}
-            onMouseLeave={(e) => (e.currentTarget.style.opacity = "0.75")}
-          >
-            VIEW RESIDENCE →
-          </a>
+            </div>
+          ))}
         </div>
+      </section>
 
-        {/* Right — image */}
+      {/* ── Full-bleed feature image ─────────────────────────────── */}
+      <section style={{ position: "relative", height: "70vh", overflow: "hidden" }}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src="/frame3.png"
-          alt="The Residence"
+          alt="The Coastal"
           style={{
-            width: "34%",
+            width: "100%",
             height: "100%",
             objectFit: "cover",
             display: "block",
-            flexShrink: 0,
-            marginRight: "8rem",
           }}
         />
-      </section>
-
-      {/* ── Divider ────────────────────────────────────────────── */}
-      <div style={{ height: "1px", backgroundColor: "rgba(0,0,0,0.07)", margin: "0 3rem" }} />
-
-      {/* ── Suites section (flipped) ────────────────────────────── */}
-      <section
-        style={{
-          backgroundColor: "#fff",
-          height: "100vh",
-          display: "flex",
-          alignItems: "center",
-        }}
-      >
-        {/* Left — image */}
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="/frame4.png"
-          alt="The Suites"
-          style={{
-            width: "34%",
-            height: "100%",
-            objectFit: "cover",
-            display: "block",
-            flexShrink: 0,
-            marginLeft: "8rem",
-          }}
-        />
-
-        {/* Right — text */}
         <div
           style={{
-            flex: 1,
+            position: "absolute",
+            inset: 0,
+            backgroundColor: "rgba(26,25,22,0.3)",
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
             justifyContent: "center",
-            textAlign: "center",
-            padding: "0 3rem",
             gap: "1.5rem",
           }}
         >
@@ -320,93 +461,52 @@ export default function Home() {
             style={{
               fontFamily: FUTURA,
               fontWeight: 700,
-              fontSize: "0.6rem",
-              letterSpacing: "0.25em",
-              color: "#111",
-              opacity: 0.4,
-              marginBottom: "1.5rem",
+              fontSize: "0.52rem",
+              letterSpacing: "0.28em",
+              color: "rgba(255,255,255,0.65)",
             }}
           >
-            THE COLLECTION
+            OUR STORY
           </p>
-          <h2
-            style={{
-              fontFamily: "'Kenao', Georgia, serif",
-              fontStyle: "normal",
-              fontWeight: 400,
-              fontSize: "clamp(2rem, 3vw, 3rem)",
-              lineHeight: 1.15,
-              color: "#111",
-            }}
-          >
-            THE SUITES
-          </h2>
           <p
             style={{
-              fontFamily: FUTURA,
+              fontFamily: SERIF,
+              fontStyle: "italic",
               fontWeight: 400,
-              fontSize: "0.72rem",
-              letterSpacing: "0.04em",
-              lineHeight: 1.8,
-              color: "#111",
-              opacity: 0.6,
-              maxWidth: "38ch",
+              fontSize: "clamp(1.8rem, 3vw, 2.8rem)",
+              color: "#fff",
+              lineHeight: 1.2,
+              textAlign: "center",
+              maxWidth: "36ch",
             }}
           >
-            Three private suites, each with their own character. Whether
-            you&rsquo;re after a couple&rsquo;s retreat or a solo escape,
-            the suites offer one bedroom, a full bathroom, and a private
-            outdoor space — intimate by design, without anything missing.
+            Built by hand. Designed to last.
           </p>
-          <div style={{ display: "flex", gap: "2rem", marginTop: "0.5rem" }}>
-            {[["3", "Suites"], ["1", "Bedroom"], ["2", "Guests"]].map(([n, label]) => (
-              <div key={label}>
-                <p
-                  style={{
-                    fontFamily: FUTURA,
-                    fontWeight: 700,
-                    fontSize: "1.1rem",
-                    color: "#111",
-                    marginBottom: "0.2rem",
-                  }}
-                >
-                  {n}
-                </p>
-                <p
-                  style={{
-                    fontFamily: FUTURA,
-                    fontWeight: 400,
-                    fontSize: "0.58rem",
-                    letterSpacing: "0.18em",
-                    color: "#111",
-                    opacity: 0.45,
-                  }}
-                >
-                  {label.toUpperCase()}
-                </p>
-              </div>
-            ))}
-          </div>
           <a
-            href="#"
+            href="/story"
             style={{
               fontFamily: FUTURA,
               fontWeight: 700,
-              fontSize: "0.6rem",
+              fontSize: "0.58rem",
               letterSpacing: "0.18em",
-              color: "#111",
+              color: "#fff",
               textDecoration: "none",
+              border: "1.5px solid rgba(255,255,255,0.55)",
+              borderRadius: "50px",
+              padding: "0.65rem 1.8rem",
               marginTop: "0.5rem",
-              display: "inline-flex",
-              alignItems: "center",
-              gap: "0.6rem",
-              opacity: 0.75,
-              transition: "opacity 0.2s",
+              transition: "background 0.25s, color 0.25s",
             }}
-            onMouseEnter={(e) => (e.currentTarget.style.opacity = "1")}
-            onMouseLeave={(e) => (e.currentTarget.style.opacity = "0.75")}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = "#fff";
+              e.currentTarget.style.color = INK;
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = "transparent";
+              e.currentTarget.style.color = "#fff";
+            }}
           >
-            VIEW SUITES →
+            READ THE STORY
           </a>
         </div>
       </section>
@@ -414,11 +514,10 @@ export default function Home() {
       {/* ── Instagram section ──────────────────────────────────────── */}
       <section
         style={{
-          backgroundColor: "#fff",
+          backgroundColor: CREAM,
           padding: "7rem 3rem",
         }}
       >
-        {/* Header */}
         <div
           style={{
             display: "flex",
@@ -434,9 +533,9 @@ export default function Home() {
               style={{
                 fontFamily: FUTURA,
                 fontWeight: 700,
-                fontSize: "0.6rem",
+                fontSize: "0.55rem",
                 letterSpacing: "0.25em",
-                color: "#111",
+                color: INK,
                 opacity: 0.4,
                 marginBottom: "0.6rem",
               }}
@@ -445,11 +544,11 @@ export default function Home() {
             </p>
             <p
               style={{
-                fontFamily: "Georgia, 'Times New Roman', serif",
+                fontFamily: SERIF,
                 fontStyle: "italic",
                 fontWeight: 400,
-                fontSize: "clamp(1.6rem, 2.2vw, 2.2rem)",
-                color: "#111",
+                fontSize: "clamp(1.4rem, 2vw, 2rem)",
+                color: INK,
                 lineHeight: 1.1,
               }}
             >
@@ -463,26 +562,25 @@ export default function Home() {
             style={{
               fontFamily: FUTURA,
               fontWeight: 700,
-              fontSize: "0.6rem",
-              letterSpacing: "0.18em",
-              color: "#111",
+              fontSize: "0.58rem",
+              letterSpacing: "0.16em",
+              color: INK,
               textDecoration: "none",
-              opacity: 0.5,
+              opacity: 0.45,
               transition: "opacity 0.2s",
             }}
             onMouseEnter={(e) => (e.currentTarget.style.opacity = "1")}
-            onMouseLeave={(e) => (e.currentTarget.style.opacity = "0.5")}
+            onMouseLeave={(e) => (e.currentTarget.style.opacity = "0.45")}
           >
             VIEW PROFILE →
           </a>
         </div>
 
-        {/* 4-square grid */}
         <div
           style={{
             display: "grid",
             gridTemplateColumns: "repeat(4, 1fr)",
-            gap: "0.75rem",
+            gap: "0.5rem",
             maxWidth: "1400px",
             margin: "0 auto",
           }}
@@ -493,28 +591,25 @@ export default function Home() {
               className="instagram-tile"
               style={{
                 aspectRatio: "1 / 1",
-                backgroundColor: "#f5f4f2",
+                backgroundColor: "rgba(26,25,22,0.06)",
                 overflow: "hidden",
                 position: "relative",
                 cursor: "pointer",
               }}
             >
-              {/* Placeholder state — replace inner content when Instagram feed is connected */}
               <div
                 style={{
                   position: "absolute",
                   inset: 0,
                   display: "flex",
-                  flexDirection: "column",
                   alignItems: "center",
                   justifyContent: "center",
-                  gap: "0.5rem",
                 }}
               >
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(0,0,0,0.18)" strokeWidth="1.5">
-                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-                  <circle cx="12" cy="12" r="4"/>
-                  <circle cx="17.5" cy="6.5" r="1" fill="rgba(0,0,0,0.18)" stroke="none"/>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(26,25,22,0.15)" strokeWidth="1.5">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                  <circle cx="12" cy="12" r="4" />
+                  <circle cx="17.5" cy="6.5" r="1" fill="rgba(26,25,22,0.15)" stroke="none" />
                 </svg>
               </div>
             </div>
@@ -522,89 +617,78 @@ export default function Home() {
         </div>
       </section>
 
-      <style>{`
-        .instagram-tile { transition: opacity 0.25s ease; }
-        .instagram-tile:hover { opacity: 0.88; }
-      `}</style>
-
       {/* ── Footer ─────────────────────────────────────────────────── */}
       <footer
         style={{
-          backgroundColor: "#111",
-          color: "#fff",
+          backgroundColor: "#1a1916",
+          color: "#f2ede5",
           padding: "5rem 3rem 3rem",
         }}
       >
         <div style={{ maxWidth: "1400px", margin: "0 auto" }}>
-
-          {/* Top row */}
           <div
             style={{
               display: "grid",
               gridTemplateColumns: "1fr 1fr 1fr",
               gap: "3rem",
               paddingBottom: "4rem",
-              borderBottom: "1px solid rgba(255,255,255,0.1)",
+              borderBottom: "1px solid rgba(242,237,229,0.1)",
             }}
           >
-            {/* Brand */}
             <div style={{ display: "flex", flexDirection: "column", gap: "1.2rem" }}>
-              <p style={{ fontFamily: FUTURA, fontWeight: 700, fontSize: "0.85rem", letterSpacing: "0.35em", color: "#fff" }}>
+              <p style={{ fontFamily: FUTURA, fontWeight: 700, fontSize: "0.75rem", letterSpacing: "0.28em", color: "#f2ede5" }}>
                 THE COASTAL
               </p>
-              <p style={{ fontFamily: FUTURA, fontWeight: 400, fontSize: "0.65rem", letterSpacing: "0.04em", lineHeight: 1.8, color: "rgba(255,255,255,0.45)", maxWidth: "28ch" }}>
+              <p style={{ fontFamily: FUTURA, fontWeight: 400, fontSize: "0.65rem", letterSpacing: "0.04em", lineHeight: 1.8, color: "rgba(242,237,229,0.45)", maxWidth: "28ch" }}>
                 Four private stays on the NSW South Coast. A short stroll from Berry, minutes from the beach.
               </p>
             </div>
 
-            {/* Nav */}
             <div style={{ display: "flex", flexDirection: "column", gap: "0.9rem" }}>
-              <p style={{ fontFamily: FUTURA, fontWeight: 700, fontSize: "0.52rem", letterSpacing: "0.22em", color: "rgba(255,255,255,0.35)", marginBottom: "0.4rem" }}>
+              <p style={{ fontFamily: FUTURA, fontWeight: 700, fontSize: "0.5rem", letterSpacing: "0.22em", color: "rgba(242,237,229,0.35)", marginBottom: "0.4rem" }}>
                 EXPLORE
               </p>
               {[["Story", "/story"], ["Collection", "/collection"], ["Experiences", "/experiences"]].map(([label, href]) => (
                 <a
                   key={label}
                   href={href}
-                  style={{ fontFamily: FUTURA, fontWeight: 400, fontSize: "0.65rem", letterSpacing: "0.08em", color: "rgba(255,255,255,0.6)", textDecoration: "none", transition: "color 0.2s" }}
-                  onMouseEnter={(e) => (e.currentTarget.style.color = "#fff")}
-                  onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.6)")}
+                  style={{ fontFamily: FUTURA, fontWeight: 400, fontSize: "0.65rem", letterSpacing: "0.08em", color: "rgba(242,237,229,0.6)", textDecoration: "none", transition: "color 0.2s" }}
+                  onMouseEnter={(e) => (e.currentTarget.style.color = "#f2ede5")}
+                  onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(242,237,229,0.6)")}
                 >
                   {label}
                 </a>
               ))}
             </div>
 
-            {/* Contact */}
             <div style={{ display: "flex", flexDirection: "column", gap: "0.9rem" }}>
-              <p style={{ fontFamily: FUTURA, fontWeight: 700, fontSize: "0.52rem", letterSpacing: "0.22em", color: "rgba(255,255,255,0.35)", marginBottom: "0.4rem" }}>
+              <p style={{ fontFamily: FUTURA, fontWeight: 700, fontSize: "0.5rem", letterSpacing: "0.22em", color: "rgba(242,237,229,0.35)", marginBottom: "0.4rem" }}>
                 CONTACT
               </p>
               <a
                 href="mailto:hello@thecoastal.com.au"
-                style={{ fontFamily: FUTURA, fontWeight: 400, fontSize: "0.65rem", letterSpacing: "0.08em", color: "rgba(255,255,255,0.6)", textDecoration: "none", transition: "color 0.2s" }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = "#fff")}
-                onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.6)")}
+                style={{ fontFamily: FUTURA, fontWeight: 400, fontSize: "0.65rem", letterSpacing: "0.08em", color: "rgba(242,237,229,0.6)", textDecoration: "none", transition: "color 0.2s" }}
+                onMouseEnter={(e) => (e.currentTarget.style.color = "#f2ede5")}
+                onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(242,237,229,0.6)")}
               >
                 hello@thecoastal.com.au
               </a>
-              <p style={{ fontFamily: FUTURA, fontWeight: 400, fontSize: "0.65rem", letterSpacing: "0.08em", color: "rgba(255,255,255,0.45)", lineHeight: 1.7 }}>
+              <p style={{ fontFamily: FUTURA, fontWeight: 400, fontSize: "0.65rem", letterSpacing: "0.08em", color: "rgba(242,237,229,0.45)", lineHeight: 1.7 }}>
                 Berry, NSW 2535<br />South Coast, Australia
               </p>
               <a
                 href="https://instagram.com/thecoastal.berry"
                 target="_blank"
                 rel="noopener noreferrer"
-                style={{ fontFamily: FUTURA, fontWeight: 400, fontSize: "0.65rem", letterSpacing: "0.08em", color: "rgba(255,255,255,0.6)", textDecoration: "none", transition: "color 0.2s" }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = "#fff")}
-                onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.6)")}
+                style={{ fontFamily: FUTURA, fontWeight: 400, fontSize: "0.65rem", letterSpacing: "0.08em", color: "rgba(242,237,229,0.6)", textDecoration: "none", transition: "color 0.2s" }}
+                onMouseEnter={(e) => (e.currentTarget.style.color = "#f2ede5")}
+                onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(242,237,229,0.6)")}
               >
                 @thecoastal.berry
               </a>
             </div>
           </div>
 
-          {/* Bottom row */}
           <div
             style={{
               display: "flex",
@@ -613,19 +697,18 @@ export default function Home() {
               paddingTop: "2rem",
             }}
           >
-            <p style={{ fontFamily: FUTURA, fontWeight: 400, fontSize: "0.55rem", letterSpacing: "0.12em", color: "rgba(255,255,255,0.25)" }}>
+            <p style={{ fontFamily: FUTURA, fontWeight: 400, fontSize: "0.52rem", letterSpacing: "0.12em", color: "rgba(242,237,229,0.25)" }}>
               © {new Date().getFullYear()} THE COASTAL. ALL RIGHTS RESERVED.
             </p>
             <a
               href="#"
-              style={{ fontFamily: FUTURA, fontWeight: 700, fontSize: "0.55rem", letterSpacing: "0.18em", color: "rgba(255,255,255,0.35)", textDecoration: "none", transition: "color 0.2s" }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = "#fff")}
-              onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.35)")}
+              style={{ fontFamily: FUTURA, fontWeight: 700, fontSize: "0.52rem", letterSpacing: "0.18em", color: "rgba(242,237,229,0.35)", textDecoration: "none", transition: "color 0.2s" }}
+              onMouseEnter={(e) => (e.currentTarget.style.color = "#f2ede5")}
+              onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(242,237,229,0.35)")}
             >
               BOOK NOW
             </a>
           </div>
-
         </div>
       </footer>
 
@@ -637,13 +720,15 @@ export default function Home() {
           font-style: normal;
           font-display: swap;
         }
+        .instagram-tile { transition: opacity 0.25s ease; }
+        .instagram-tile:hover { opacity: 0.8; }
         @keyframes fadeIn {
-          from { opacity: 0; transform: translateX(-50%) translateY(8px); }
-          to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+          from { opacity: 0; }
+          to   { opacity: 1; }
         }
         @keyframes scrollPulse {
-          0%, 100% { transform: scaleY(1);   opacity: 0.55; }
-          50%       { transform: scaleY(0.6); opacity: 0.2;  }
+          0%, 100% { transform: scaleY(1);   opacity: 0.45; }
+          50%       { transform: scaleY(0.6); opacity: 0.15; }
         }
         @media (prefers-reduced-motion: reduce) {
           * { animation: none !important; transition: none !important; }

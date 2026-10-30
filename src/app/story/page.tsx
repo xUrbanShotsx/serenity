@@ -91,12 +91,12 @@ export default function StoryPage() {
   }, [goTo, idx]);
 
   return (
-    <main style={{ height: "100vh", overflow: "hidden", position: "relative", backgroundColor: "#fff" }}>
+    <main style={{ height: "100vh", overflow: "hidden", position: "relative", backgroundColor: "#f2ede5" }}>
       <Navbar />
 
       {/* Previous slide — static underneath */}
       {prevIdx !== null && (
-        <div style={{ position: "absolute", inset: 0, zIndex: 1, backgroundColor: "#fff" }}>
+        <div style={{ position: "absolute", inset: 0, zIndex: 1, backgroundColor: "#f2ede5" }}>
           <Slide entry={TIMELINE[prevIdx]} />
         </div>
       )}
@@ -108,7 +108,7 @@ export default function StoryPage() {
         animate={{ y: "0%" }}
         transition={{ duration: DURATION, ease: EASE }}
         onAnimationComplete={() => setPrevIdx(null)}
-        style={{ position: "absolute", inset: 0, zIndex: 2, backgroundColor: "#fff" }}
+        style={{ position: "absolute", inset: 0, zIndex: 2, backgroundColor: "#f2ede5" }}
       >
         <Slide entry={TIMELINE[idx]} />
       </motion.div>
@@ -152,7 +152,7 @@ function Slide({ entry }: { entry: typeof TIMELINE[0] }) {
       inset: 0,
       paddingTop: "88px",
       display: "flex",
-      backgroundColor: "#fff",
+      backgroundColor: "#f2ede5",
     }}>
       {/* Text panel */}
       <div style={{
