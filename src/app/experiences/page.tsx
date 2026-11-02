@@ -121,7 +121,7 @@ export default function ExperiencesPage() {
             flexDirection: exp.flip ? "row-reverse" : "row",
             minHeight: "95vh",
             backgroundColor: exp.dark ? "#111" : "#fff",
-            paddingTop: i === 0 ? "96px" : 0,
+            paddingTop: i === 0 ? "120px" : 0,
           }}
         >
           {/* Image — fills full section height */}

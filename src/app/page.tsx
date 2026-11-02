@@ -42,7 +42,7 @@ export default function Home() {
       <Navbar />
 
       {/* ── Hero ────────────────────────────────────────────────── */}
-      <section style={{ position: "relative", height: "100vh", overflow: "hidden" }}>
+      <section style={{ position: "relative", height: "67vh", overflow: "hidden" }}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src="/Arielshot.jpg"

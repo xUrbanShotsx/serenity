@@ -38,9 +38,9 @@ export default function Navbar() {
 
   const linkStyle = {
     fontFamily: FUTURA,
-    fontSize: "0.6rem",
+    fontSize: "0.72rem",
     fontWeight: 700 as const,
-    letterSpacing: "0.16em",
+    letterSpacing: "0.14em",
     textTransform: "uppercase" as const,
     color: INK,
     textDecoration: "none",
@@ -62,7 +62,7 @@ export default function Navbar() {
         {/* ── Top bar: property links | logo | book ─── */}
         <div
           style={{
-            height: mobile ? "60px" : "56px",
+            height: mobile ? "72px" : "76px",
             display: "grid",
             gridTemplateColumns: "1fr auto 1fr",
             alignItems: "center",
@@ -112,7 +112,7 @@ export default function Navbar() {
               alt="The Coastal"
               height={46}
               width={76}
-              style={{ height: mobile ? "40px" : "46px", width: "auto" }}
+              style={{ height: mobile ? "52px" : "60px", width: "auto" }}
               priority
               unoptimized
             />
@@ -125,14 +125,14 @@ export default function Navbar() {
               style={{
                 fontFamily: FUTURA,
                 fontWeight: 700,
-                fontSize: "0.58rem",
+                fontSize: "0.68rem",
                 letterSpacing: "0.14em",
                 textTransform: "uppercase" as const,
                 color: INK,
                 textDecoration: "none",
                 border: "1.5px solid rgba(26,25,22,0.5)",
                 borderRadius: "50px",
-                padding: "0.5rem 1.4rem",
+                padding: "0.6rem 1.6rem",
                 whiteSpace: "nowrap" as const,
                 transition: "background 0.2s, color 0.2s",
               }}
@@ -154,12 +154,12 @@ export default function Navbar() {
         {!mobile && (
           <div
             style={{
-              height: "40px",
+              height: "44px",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
               gap: "clamp(1.5rem, 3vw, 3rem)",
-              borderTop: "1px solid rgba(26,25,22,0.07)",
+              borderTop: "2px solid rgba(26,25,22,0.18)",
             }}
           >
             {SECTION_LINKS.map(({ label, href }) => (
