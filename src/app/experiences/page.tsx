@@ -122,6 +122,7 @@ export default function ExperiencesPage() {
               flexShrink: 0,
               overflow: "hidden",
               position: "relative",
+              margin: "2rem",
             }}
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -282,69 +283,61 @@ export default function ExperiencesPage() {
         </section>
       ))}
 
-      {/* Closing CTA */}
-      <section
-        style={{
-          position: "relative",
-          height: "55vh",
-          overflow: "hidden",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="/horizonsuite.jpg"
-          alt="The Coastal"
-          style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }}
-        />
-        <div style={{ position: "absolute", inset: 0, backgroundColor: "rgba(0,0,0,0.45)" }} />
-        <div style={{ position: "relative", zIndex: 2, textAlign: "center", padding: "0 2rem" }}>
-          <FadeIn>
-            <p
-              style={{
-                fontFamily: SERIF,
-                fontStyle: "italic",
-                fontWeight: 400,
-                fontSize: "clamp(1.8rem, 3vw, 2.8rem)",
-                color: "#fff",
-                lineHeight: 1.5,
-                marginBottom: "2.5rem",
-              }}
-            >
-              Ready to plan your stay?
+      {/* Footer */}
+      <footer style={{ backgroundColor: INK, color: CREAM, padding: "5rem 3rem 3rem" }}>
+        <div style={{ maxWidth: "1400px", margin: "0 auto" }}>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "1fr 1fr 1fr",
+              gap: "3rem",
+              paddingBottom: "4rem",
+              borderBottom: "1px solid rgba(242,237,229,0.1)",
+            }}
+          >
+            <div style={{ display: "flex", flexDirection: "column", gap: "1.2rem" }}>
+              <p style={{ fontFamily: FUTURA, fontWeight: 700, fontSize: "0.75rem", letterSpacing: "0.28em", color: CREAM }}>
+                THE COASTAL
+              </p>
+              <p style={{ fontFamily: FUTURA, fontWeight: 400, fontSize: "0.65rem", letterSpacing: "0.04em", lineHeight: 1.8, color: "rgba(242,237,229,0.45)", maxWidth: "28ch" }}>
+                Four private stays on the NSW South Coast. A short stroll from Berry, minutes from the beach.
+              </p>
+            </div>
+            <div style={{ display: "flex", flexDirection: "column", gap: "0.9rem" }}>
+              <p style={{ fontFamily: FUTURA, fontWeight: 700, fontSize: "0.5rem", letterSpacing: "0.22em", color: "rgba(242,237,229,0.35)", marginBottom: "0.4rem" }}>
+                EXPLORE
+              </p>
+              {[["Story", "/story"], ["Collection", "/collection"], ["Experiences", "/experiences"]].map(([label, href]) => (
+                <a key={label} href={href} style={{ fontFamily: FUTURA, fontWeight: 400, fontSize: "0.65rem", letterSpacing: "0.08em", color: "rgba(242,237,229,0.6)", textDecoration: "none", transition: "color 0.2s" }}
+                  onMouseEnter={(e) => (e.currentTarget.style.color = CREAM)}
+                  onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(242,237,229,0.6)")}
+                >{label}</a>
+              ))}
+            </div>
+            <div style={{ display: "flex", flexDirection: "column", gap: "0.9rem" }}>
+              <p style={{ fontFamily: FUTURA, fontWeight: 700, fontSize: "0.5rem", letterSpacing: "0.22em", color: "rgba(242,237,229,0.35)", marginBottom: "0.4rem" }}>
+                CONTACT
+              </p>
+              <a href="mailto:hello@thecoastal.com.au" style={{ fontFamily: FUTURA, fontWeight: 400, fontSize: "0.65rem", letterSpacing: "0.08em", color: "rgba(242,237,229,0.6)", textDecoration: "none", transition: "color 0.2s" }}
+                onMouseEnter={(e) => (e.currentTarget.style.color = CREAM)}
+                onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(242,237,229,0.6)")}
+              >hello@thecoastal.com.au</a>
+              <p style={{ fontFamily: FUTURA, fontWeight: 400, fontSize: "0.65rem", letterSpacing: "0.08em", color: "rgba(242,237,229,0.45)", lineHeight: 1.7 }}>
+                Berry, NSW 2535<br />South Coast, Australia
+              </p>
+            </div>
+          </div>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", paddingTop: "2rem" }}>
+            <p style={{ fontFamily: FUTURA, fontWeight: 400, fontSize: "0.52rem", letterSpacing: "0.12em", color: "rgba(242,237,229,0.25)" }}>
+              © {new Date().getFullYear()} THE COASTAL. ALL RIGHTS RESERVED.
             </p>
-          </FadeIn>
-          <FadeIn delay={0.15}>
-            <a
-              href="/collection"
-              style={{
-                fontFamily: FUTURA,
-                fontWeight: 700,
-                fontSize: "0.6rem",
-                letterSpacing: "0.18em",
-                color: "#fff",
-                textDecoration: "none",
-                border: "1.5px solid rgba(255,255,255,0.65)",
-                padding: "0.8rem 2.2rem",
-                display: "inline-block",
-                transition: "background 0.25s, color 0.25s, border-color 0.25s",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.background = "#fff";
-                e.currentTarget.style.color = "#111";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.background = "transparent";
-                e.currentTarget.style.color = "#fff";
-              }}
-            >
-              VIEW THE COLLECTION
-            </a>
-          </FadeIn>
+            <a href="/book" style={{ fontFamily: FUTURA, fontWeight: 700, fontSize: "0.52rem", letterSpacing: "0.18em", color: "rgba(242,237,229,0.35)", textDecoration: "none", transition: "color 0.2s" }}
+              onMouseEnter={(e) => (e.currentTarget.style.color = CREAM)}
+              onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(242,237,229,0.35)")}
+            >BOOK NOW</a>
+          </div>
         </div>
-      </section>
+      </footer>
     </main>
   );
 }
