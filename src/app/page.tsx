@@ -42,27 +42,7 @@ export default function Home() {
       <Navbar />
 
       {/* ── Hero ────────────────────────────────────────────────── */}
-      <section style={{ position: "relative", height: "67vh", overflow: "hidden" }}>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="/Arielshot.jpg"
-          alt="The Coastal — Berry, NSW"
-          style={{
-            position: "absolute",
-            inset: 0,
-            width: "100%",
-            height: "100%",
-            objectFit: "cover",
-            objectPosition: "center",
-          }}
-        />
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            background: "linear-gradient(to bottom, rgba(0,0,0,0) 50%, rgba(0,0,0,0.35) 100%)",
-          }}
-        />
+      <section style={{ position: "relative", height: "75vh", overflow: "hidden", backgroundColor: "rgba(26,25,22,0.08)" }}>
         {/* Bottom-left property label — Linnaeus style */}
         <div
           style={{
