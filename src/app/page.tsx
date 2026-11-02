@@ -43,39 +43,6 @@ export default function Home() {
 
       {/* ── Hero ────────────────────────────────────────────────── */}
       <section style={{ position: "relative", height: "75vh", overflow: "hidden", backgroundColor: "rgba(26,25,22,0.08)" }}>
-        {/* Bottom-left property label — Linnaeus style */}
-        <div
-          style={{
-            position: "absolute",
-            bottom: "2.8rem",
-            left: "2.8rem",
-          }}
-        >
-          <p
-            style={{
-              fontFamily: FUTURA,
-              fontWeight: 700,
-              fontSize: "0.52rem",
-              letterSpacing: "0.25em",
-              color: "rgba(255,255,255,0.7)",
-              marginBottom: "0.4rem",
-            }}
-          >
-            BERRY, NSW SOUTH COAST
-          </p>
-          <p
-            style={{
-              fontFamily: SERIF,
-              fontStyle: "italic",
-              fontSize: "clamp(1.4rem, 2.5vw, 2rem)",
-              fontWeight: 400,
-              color: "#fff",
-              lineHeight: 1.1,
-            }}
-          >
-            The Coastal
-          </p>
-        </div>
         {/* Scroll cue */}
         <div
           style={{
