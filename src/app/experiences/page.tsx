@@ -6,6 +6,8 @@ import Navbar from "@/components/Navbar";
 
 const FUTURA = "'Futura', 'Century Gothic', 'Trebuchet MS', sans-serif";
 const SERIF = "Georgia, 'Times New Roman', serif";
+const CREAM = "#f2ede5";
+const INK = "#1a1916";
 
 const EXPERIENCES = [
   {
@@ -25,7 +27,6 @@ const EXPERIENCES = [
     ],
     image: "/Arielshot.jpg",
     flip: false,
-    dark: false,
   },
   {
     num: "02",
@@ -44,7 +45,6 @@ const EXPERIENCES = [
     ],
     image: "/Olivesuite.jpg",
     flip: true,
-    dark: false,
   },
   {
     num: "03",
@@ -63,7 +63,6 @@ const EXPERIENCES = [
     ],
     image: "/shorelinesuite.jpg",
     flip: false,
-    dark: true,
   },
   {
     num: "04",
@@ -82,17 +81,10 @@ const EXPERIENCES = [
     ],
     image: "/horizonsuite.jpg",
     flip: true,
-    dark: false,
   },
 ];
 
-function FadeIn({
-  children,
-  delay = 0,
-}: {
-  children: React.ReactNode;
-  delay?: number;
-}) {
+function FadeIn({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
   return (
@@ -109,25 +101,24 @@ function FadeIn({
 
 export default function ExperiencesPage() {
   return (
-    <main style={{ backgroundColor: "#f2ede5" }}>
+    <main style={{ backgroundColor: CREAM }}>
       <Navbar />
 
-      {/* ── Experience sections ──────────────────────────────────── */}
       {EXPERIENCES.map((exp, i) => (
         <section
           key={exp.num}
           style={{
             display: "flex",
             flexDirection: exp.flip ? "row-reverse" : "row",
-            minHeight: "95vh",
-            backgroundColor: exp.dark ? "#111" : "#fff",
+            minHeight: "65vh",
+            backgroundColor: CREAM,
             paddingTop: i === 0 ? "120px" : 0,
           }}
         >
-          {/* Image — fills full section height */}
+          {/* Image */}
           <div
             style={{
-              width: "52%",
+              width: "38%",
               flexShrink: 0,
               overflow: "hidden",
               position: "relative",
@@ -142,7 +133,7 @@ export default function ExperiencesPage() {
                 height: "100%",
                 objectFit: "cover",
                 display: "block",
-                minHeight: "95vh",
+                minHeight: "65vh",
               }}
             />
           </div>
@@ -159,7 +150,7 @@ export default function ExperiencesPage() {
               overflow: "hidden",
             }}
           >
-            {/* Ghost number behind content */}
+            {/* Ghost number */}
             <div
               aria-hidden="true"
               style={{
@@ -171,9 +162,7 @@ export default function ExperiencesPage() {
                 fontStyle: "italic",
                 fontSize: "clamp(12rem, 20vw, 22rem)",
                 lineHeight: 1,
-                color: exp.dark
-                  ? "rgba(255,255,255,0.04)"
-                  : "rgba(0,0,0,0.045)",
+                color: "rgba(26,25,22,0.04)",
                 userSelect: "none",
                 pointerEvents: "none",
                 letterSpacing: "-0.05em",
@@ -190,9 +179,7 @@ export default function ExperiencesPage() {
                     fontWeight: 700,
                     fontSize: "0.5rem",
                     letterSpacing: "0.28em",
-                    color: exp.dark
-                      ? "rgba(255,255,255,0.35)"
-                      : "rgba(0,0,0,0.3)",
+                    color: "rgba(26,25,22,0.3)",
                     marginBottom: "1rem",
                   }}
                 >
@@ -207,7 +194,7 @@ export default function ExperiencesPage() {
                     fontStyle: "italic",
                     fontWeight: 400,
                     fontSize: "clamp(2.5rem, 3.5vw, 4rem)",
-                    color: exp.dark ? "#fff" : "#111",
+                    color: INK,
                     lineHeight: 1.05,
                     marginBottom: "0.7rem",
                   }}
@@ -223,9 +210,7 @@ export default function ExperiencesPage() {
                     fontWeight: 700,
                     fontSize: "0.5rem",
                     letterSpacing: "0.22em",
-                    color: exp.dark
-                      ? "rgba(255,255,255,0.28)"
-                      : "rgba(0,0,0,0.22)",
+                    color: "rgba(26,25,22,0.22)",
                     marginBottom: "2.2rem",
                   }}
                 >
@@ -241,9 +226,7 @@ export default function ExperiencesPage() {
                     fontSize: "0.72rem",
                     letterSpacing: "0.03em",
                     lineHeight: 1.95,
-                    color: exp.dark
-                      ? "rgba(255,255,255,0.5)"
-                      : "rgba(0,0,0,0.5)",
+                    color: "rgba(26,25,22,0.5)",
                     maxWidth: "38ch",
                     marginBottom: "2.5rem",
                   }}
@@ -256,44 +239,26 @@ export default function ExperiencesPage() {
                 <div
                   style={{
                     height: "1px",
-                    backgroundColor: exp.dark
-                      ? "rgba(255,255,255,0.1)"
-                      : "rgba(0,0,0,0.07)",
+                    backgroundColor: "rgba(26,25,22,0.08)",
                     maxWidth: "280px",
                     marginBottom: "2.2rem",
                   }}
                 />
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    gap: "0.9rem",
-                  }}
-                >
+                <div style={{ display: "flex", flexDirection: "column", gap: "0.9rem" }}>
                   {exp.items.map((item, j) => (
                     <motion.div
                       key={item}
                       initial={{ opacity: 0, x: -12 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
-                      transition={{
-                        duration: 0.55,
-                        delay: 0.3 + j * 0.07,
-                        ease: [0.25, 0, 0.25, 1],
-                      }}
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        gap: "1rem",
-                      }}
+                      transition={{ duration: 0.55, delay: 0.3 + j * 0.07, ease: [0.25, 0, 0.25, 1] }}
+                      style={{ display: "flex", alignItems: "center", gap: "1rem" }}
                     >
                       <div
                         style={{
                           width: "20px",
                           height: "1px",
-                          backgroundColor: exp.dark
-                            ? "rgba(255,255,255,0.2)"
-                            : "rgba(0,0,0,0.18)",
+                          backgroundColor: "rgba(26,25,22,0.18)",
                           flexShrink: 0,
                         }}
                       />
@@ -303,9 +268,7 @@ export default function ExperiencesPage() {
                           fontWeight: 400,
                           fontSize: "0.65rem",
                           letterSpacing: "0.04em",
-                          color: exp.dark
-                            ? "rgba(255,255,255,0.55)"
-                            : "rgba(0,0,0,0.55)",
+                          color: "rgba(26,25,22,0.55)",
                         }}
                       >
                         {item}
@@ -319,11 +282,11 @@ export default function ExperiencesPage() {
         </section>
       ))}
 
-      {/* ── Closing CTA — image-backed ───────────────────────────── */}
+      {/* Closing CTA */}
       <section
         style={{
           position: "relative",
-          height: "65vh",
+          height: "55vh",
           overflow: "hidden",
           display: "flex",
           alignItems: "center",
@@ -334,24 +297,10 @@ export default function ExperiencesPage() {
         <img
           src="/horizonsuite.jpg"
           alt="The Coastal"
-          style={{
-            position: "absolute",
-            inset: 0,
-            width: "100%",
-            height: "100%",
-            objectFit: "cover",
-          }}
+          style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }}
         />
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            backgroundColor: "rgba(0,0,0,0.48)",
-          }}
-        />
-        <div
-          style={{ position: "relative", zIndex: 2, textAlign: "center", padding: "0 2rem" }}
-        >
+        <div style={{ position: "absolute", inset: 0, backgroundColor: "rgba(0,0,0,0.45)" }} />
+        <div style={{ position: "relative", zIndex: 2, textAlign: "center", padding: "0 2rem" }}>
           <FadeIn>
             <p
               style={{
@@ -385,12 +334,10 @@ export default function ExperiencesPage() {
               onMouseEnter={(e) => {
                 e.currentTarget.style.background = "#fff";
                 e.currentTarget.style.color = "#111";
-                e.currentTarget.style.borderColor = "#fff";
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.background = "transparent";
                 e.currentTarget.style.color = "#fff";
-                e.currentTarget.style.borderColor = "rgba(255,255,255,0.65)";
               }}
             >
               VIEW THE COLLECTION
