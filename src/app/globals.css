@@ -35,7 +35,7 @@ body {
   .r-full { width: 100% !important; margin: 0 !important; }
 
   /* Image grid section on house/suites — allow auto height */
-  .r-img-section { height: auto !important; padding-top: 88px !important; }
+  .r-img-section { height: auto !important; padding-top: 98px !important; }
 
   /* Image grid on house/suites — collapse to 2-col auto rows */
   .r-img-grid {

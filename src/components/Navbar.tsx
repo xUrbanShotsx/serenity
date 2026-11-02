@@ -62,7 +62,7 @@ export default function Navbar() {
         {/* ── Top bar: property links | logo | book ─── */}
         <div
           style={{
-            height: mobile ? "72px" : "76px",
+            height: mobile ? "84px" : "76px",
             display: "grid",
             gridTemplateColumns: "1fr auto 1fr",
             alignItems: "center",
@@ -112,7 +112,7 @@ export default function Navbar() {
               alt="The Coastal"
               height={46}
               width={76}
-              style={{ height: mobile ? "52px" : "60px", width: "auto" }}
+              style={{ height: mobile ? "64px" : "60px", width: "auto" }}
               priority
               unoptimized
             />
