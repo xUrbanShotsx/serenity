@@ -32,7 +32,7 @@ export default function HousePage() {
         style={{
           height: "100vh",
           paddingTop: "120px",
-          padding: "120px 1.5rem 1.5rem",
+          padding: "128px 1.5rem 1.5rem",
           boxSizing: "border-box",
         }}
       >

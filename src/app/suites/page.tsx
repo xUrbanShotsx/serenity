@@ -31,7 +31,7 @@ export default function SuitesPage() {
       <section
         style={{
           height: "100vh",
-          padding: "120px 1.5rem 1.5rem",
+          padding: "128px 1.5rem 1.5rem",
           boxSizing: "border-box",
         }}
       >
