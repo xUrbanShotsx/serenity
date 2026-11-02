@@ -90,7 +90,7 @@ export default function ExperiencesPage() {
 
       {EXPERIENCES.map((exp, i) => (
         <section
-          key={exp.num}
+          key={exp.title}
           style={{
             display: "flex",
             flexDirection: exp.flip ? "row-reverse" : "row",
