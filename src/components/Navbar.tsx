@@ -9,8 +9,8 @@ const CREAM = "#f2ede5";
 const INK = "#1a1916";
 
 const PROPERTY_LINKS = [
-  { label: "The House", href: "/collection#residence" },
-  { label: "The Suites", href: "/collection#suites" },
+  { label: "The House", href: "/house" },
+  { label: "The Suites", href: "/suites" },
 ];
 
 const SECTION_LINKS = [
