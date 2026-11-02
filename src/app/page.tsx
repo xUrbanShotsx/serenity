@@ -147,50 +147,20 @@ export default function Home() {
         </p>
         <p
           style={{
-            fontFamily: FUTURA,
-            fontWeight: 700,
-            fontSize: "0.75rem",
-            letterSpacing: "0.28em",
-            color: INK,
-          }}
-        >
-          THE COASTAL
-        </p>
-        <p
-          style={{
             fontFamily: SERIF,
             fontStyle: "italic",
             fontWeight: 400,
             fontSize: "clamp(1.3rem, 2vw, 1.7rem)",
             color: INK,
-            lineHeight: 1.3,
+            lineHeight: 1.65,
+            maxWidth: "58ch",
           }}
         >
-          Four Private Stays. One Piece of Country.
-        </p>
-        <div
-          style={{
-            width: "40px",
-            height: "1px",
-            backgroundColor: "rgba(26,25,22,0.2)",
-            margin: "0.5rem 0",
-          }}
-        />
-        <p
-          style={{
-            fontFamily: FUTURA,
-            fontWeight: 400,
-            fontSize: "0.72rem",
-            letterSpacing: "0.03em",
-            lineHeight: 1.95,
-            color: INK,
-            opacity: 0.6,
-            maxWidth: "52ch",
-          }}
-        >
-          A short stroll from Berry township in one direction, and minutes from the beach
-          in the other. The Coastal sits right in the middle — four private stays on the
-          NSW South Coast, where everything you need is closer than you think.
+          Welcome to The Coastal — a private retreat on the NSW South Coast, tucked between
+          the hills of Berry township and the wild stretch of Seven Mile Beach. Four stays,
+          each with their own character: a main residence built for families and groups, and
+          three intimate suites for those who come to slow down. Twelve acres of gardens,
+          open sky, and nothing you need to rush back for.
         </p>
         <a
           href="/collection"
