@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { useInView } from "framer-motion";
 import Navbar from "@/components/Navbar";
 
 const FUTURA = "'Futura', 'Century Gothic', 'Trebuchet MS', sans-serif";
@@ -17,14 +17,6 @@ const EXPERIENCES = [
     distance: "Right here",
     description:
       "The land itself is worth slowing down for. Twelve acres of gardens, olive groves, and open sky — with everything you need to make the most of it.",
-    items: [
-      "Heated pool & sun terrace",
-      "Outdoor kitchen & fire pit",
-      "Morning garden walks",
-      "Breakfast basket service",
-      "Private outdoor dining",
-      "Stargazing from the hill",
-    ],
     image: "/Arielshot.jpg",
     flip: false,
   },
@@ -35,14 +27,6 @@ const EXPERIENCES = [
     distance: "5 min walk",
     description:
       "A short stroll from the property, Berry is one of the South Coast's most beloved towns — small enough to cover in a morning, good enough to spend a week in.",
-    items: [
-      "Berry Farmers Market (Sat)",
-      "The Silos restaurant",
-      "Berry Sourdough Bakery",
-      "Local antique & design stores",
-      "Berry Hotel & wine bar",
-      "Produce stores & providores",
-    ],
     image: "/Olivesuite.jpg",
     flip: true,
   },
@@ -53,14 +37,6 @@ const EXPERIENCES = [
     distance: "12 min drive",
     description:
       "Minutes down the road, one of NSW's longest and least crowded beaches. Arrive early and you may have it to yourself.",
-    items: [
-      "Seven Mile Beach National Park",
-      "Surfing & bodyboarding",
-      "Sunrise coastal walks",
-      "Gerroa headland lookout",
-      "Shoalhaven River mouth",
-      "Rock platform fishing",
-    ],
     image: "/shorelinesuite.jpg",
     flip: false,
   },
@@ -71,14 +47,6 @@ const EXPERIENCES = [
     distance: "Under 1 hour",
     description:
       "The NSW South Coast rewards those who venture beyond the beach. Within an hour, you'll find wine country, ancient rainforest, and one of Australia's clearest bays.",
-    items: [
-      "Kangaroo Valley & gorge walks",
-      "Jervis Bay — Hyams Beach",
-      "Southern Highlands wineries",
-      "Fitzroy Falls lookout",
-      "Nowra & Shoalhaven arts",
-      "Budderoo National Park",
-    ],
     image: "/horizonsuite.jpg",
     flip: true,
   },
@@ -222,61 +190,17 @@ export default function ExperiencesPage() {
               <FadeIn delay={0.2}>
                 <p
                   style={{
-                    fontFamily: FUTURA,
+                    fontFamily: SERIF,
+                    fontStyle: "italic",
                     fontWeight: 400,
-                    fontSize: "0.72rem",
-                    letterSpacing: "0.03em",
-                    lineHeight: 1.95,
-                    color: "rgba(26,25,22,0.5)",
-                    maxWidth: "38ch",
-                    marginBottom: "2.5rem",
+                    fontSize: "clamp(1.1rem, 1.4vw, 1.3rem)",
+                    lineHeight: 1.8,
+                    color: "rgba(26,25,22,0.6)",
+                    maxWidth: "36ch",
                   }}
                 >
                   {exp.description}
                 </p>
-              </FadeIn>
-
-              <FadeIn delay={0.25}>
-                <div
-                  style={{
-                    height: "1px",
-                    backgroundColor: "rgba(26,25,22,0.08)",
-                    maxWidth: "280px",
-                    marginBottom: "2.2rem",
-                  }}
-                />
-                <div style={{ display: "flex", flexDirection: "column", gap: "0.9rem" }}>
-                  {exp.items.map((item, j) => (
-                    <motion.div
-                      key={item}
-                      initial={{ opacity: 0, x: -12 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.55, delay: 0.3 + j * 0.07, ease: [0.25, 0, 0.25, 1] }}
-                      style={{ display: "flex", alignItems: "center", gap: "1rem" }}
-                    >
-                      <div
-                        style={{
-                          width: "20px",
-                          height: "1px",
-                          backgroundColor: "rgba(26,25,22,0.18)",
-                          flexShrink: 0,
-                        }}
-                      />
-                      <span
-                        style={{
-                          fontFamily: FUTURA,
-                          fontWeight: 400,
-                          fontSize: "0.65rem",
-                          letterSpacing: "0.04em",
-                          color: "rgba(26,25,22,0.55)",
-                        }}
-                      >
-                        {item}
-                      </span>
-                    </motion.div>
-                  ))}
-                </div>
               </FadeIn>
             </div>
           </div>
