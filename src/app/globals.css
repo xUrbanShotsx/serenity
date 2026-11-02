@@ -15,3 +15,53 @@ body {
   color: #1a1916;
   -webkit-font-smoothing: antialiased;
 }
+
+@media (max-width: 768px) {
+  /* Grids → single or 2-col */
+  .r-grid-2 { grid-template-columns: repeat(2, 1fr) !important; }
+  .r-grid-1 { grid-template-columns: 1fr !important; gap: 2rem !important; }
+
+  /* Flex rows → columns */
+  .r-col { flex-direction: column !important; }
+  .r-col-rev { flex-direction: column-reverse !important; }
+
+  /* Side padding */
+  .r-pad-x { padding-left: 1.2rem !important; padding-right: 1.2rem !important; }
+
+  /* Reduced vertical padding */
+  .r-pad-y { padding-top: 4rem !important; padding-bottom: 4rem !important; }
+
+  /* Full width + no margin */
+  .r-full { width: 100% !important; margin: 0 !important; }
+
+  /* Image grid section on house/suites — allow auto height */
+  .r-img-section { height: auto !important; padding-top: 88px !important; }
+
+  /* Image grid on house/suites — collapse to 2-col auto rows */
+  .r-img-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    grid-template-rows: auto !important;
+    height: auto !important;
+    min-height: 0 !important;
+  }
+  .r-img-grid > div {
+    grid-column: auto !important;
+    grid-row: auto !important;
+    aspect-ratio: 1 / 1 !important;
+  }
+
+  /* Experiences: stack section */
+  .r-exp-section { flex-direction: column !important; min-height: 0 !important; }
+  .r-exp-img { width: 100% !important; margin: 0 !important; aspect-ratio: 4/3; min-height: 0 !important; }
+  .r-exp-img img { min-height: 0 !important; height: 100% !important; }
+  .r-exp-text { padding: 3rem 1.5rem !important; }
+
+  /* Specs row */
+  .r-specs { gap: 1.8rem !important; }
+
+  /* Footer grid */
+  .r-footer { grid-template-columns: 1fr !important; gap: 2rem !important; }
+
+  /* Hide ghost numbers */
+  .r-ghost { display: none !important; }
+}

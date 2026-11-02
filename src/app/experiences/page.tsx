@@ -91,6 +91,7 @@ export default function ExperiencesPage() {
       {EXPERIENCES.map((exp, i) => (
         <section
           key={exp.title}
+          className="r-exp-section"
           style={{
             display: "flex",
             flexDirection: exp.flip ? "row-reverse" : "row",
@@ -101,6 +102,7 @@ export default function ExperiencesPage() {
         >
           {/* Image */}
           <div
+            className="r-exp-img"
             style={{
               width: "38%",
               flexShrink: 0,
@@ -125,6 +127,7 @@ export default function ExperiencesPage() {
 
           {/* Text panel */}
           <div
+            className="r-exp-text"
             style={{
               flex: 1,
               display: "flex",
@@ -176,6 +179,7 @@ export default function ExperiencesPage() {
       <footer style={{ backgroundColor: INK, color: CREAM, padding: "5rem 3rem 3rem" }}>
         <div style={{ maxWidth: "1400px", margin: "0 auto" }}>
           <div
+            className="r-footer"
             style={{
               display: "grid",
               gridTemplateColumns: "1fr 1fr 1fr",

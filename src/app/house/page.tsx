@@ -29,6 +29,7 @@ export default function HousePage() {
 
       {/* ── Full-page image grid ─────────────────────────────────── */}
       <section
+        className="r-img-section"
         style={{
           height: "100vh",
           paddingTop: "120px",
@@ -37,6 +38,7 @@ export default function HousePage() {
         }}
       >
         <div
+          className="r-img-grid"
           style={{
             height: "100%",
             display: "grid",
@@ -141,6 +143,7 @@ export default function HousePage() {
 
           {/* Specs */}
           <div
+            className="r-specs"
             style={{
               display: "flex",
               gap: "4rem",
@@ -186,7 +189,7 @@ export default function HousePage() {
       {/* Footer */}
       <footer style={{ backgroundColor: INK, color: CREAM, padding: "5rem 3rem 3rem" }}>
         <div style={{ maxWidth: "1400px", margin: "0 auto" }}>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "3rem", paddingBottom: "4rem", borderBottom: "1px solid rgba(242,237,229,0.1)" }}>
+          <div className="r-footer" style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "3rem", paddingBottom: "4rem", borderBottom: "1px solid rgba(242,237,229,0.1)" }}>
             <div style={{ display: "flex", flexDirection: "column", gap: "1.2rem" }}>
               <p style={{ fontFamily: FUTURA, fontWeight: 700, fontSize: "0.75rem", letterSpacing: "0.28em", color: CREAM }}>THE COASTAL</p>
               <p style={{ fontFamily: FUTURA, fontWeight: 400, fontSize: "0.65rem", letterSpacing: "0.04em", lineHeight: 1.8, color: "rgba(242,237,229,0.45)", maxWidth: "28ch" }}>Four private stays on the NSW South Coast. A short stroll from Berry, minutes from the beach.</p>

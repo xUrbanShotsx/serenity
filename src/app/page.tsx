@@ -164,6 +164,7 @@ export default function Home() {
 
       {/* ── Two editorial images ─────────────────────────────────── */}
       <section
+        className="r-pad-x"
         style={{
           backgroundColor: CREAM,
           display: "grid",
@@ -200,6 +201,7 @@ export default function Home() {
         }}
       >
         <div
+          className="r-grid-2"
           style={{
             display: "grid",
             gridTemplateColumns: "repeat(4, 1fr)",
@@ -385,6 +387,7 @@ export default function Home() {
         </div>
 
         <div
+          className="r-grid-2"
           style={{
             display: "grid",
             gridTemplateColumns: "repeat(4, 1fr)",
@@ -435,6 +438,7 @@ export default function Home() {
       >
         <div style={{ maxWidth: "1400px", margin: "0 auto" }}>
           <div
+            className="r-footer"
             style={{
               display: "grid",
               gridTemplateColumns: "1fr 1fr 1fr",
