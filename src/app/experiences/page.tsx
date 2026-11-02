@@ -141,21 +141,6 @@ export default function ExperiencesPage() {
             </div>
 
             <div style={{ position: "relative", zIndex: 1 }}>
-              <FadeIn>
-                <p
-                  style={{
-                    fontFamily: FUTURA,
-                    fontWeight: 700,
-                    fontSize: "0.5rem",
-                    letterSpacing: "0.28em",
-                    color: "rgba(26,25,22,0.3)",
-                    marginBottom: "1rem",
-                  }}
-                >
-                  {exp.num} — {exp.category}
-                </p>
-              </FadeIn>
-
               <FadeIn delay={0.1}>
                 <h2
                   style={{
@@ -196,7 +181,7 @@ export default function ExperiencesPage() {
                     fontSize: "clamp(1.1rem, 1.4vw, 1.3rem)",
                     lineHeight: 1.8,
                     color: "rgba(26,25,22,0.6)",
-                    maxWidth: "36ch",
+                    maxWidth: "100%",
                   }}
                 >
                   {exp.description}
