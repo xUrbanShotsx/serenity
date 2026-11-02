@@ -168,8 +168,8 @@ export default function Home() {
           backgroundColor: CREAM,
           display: "grid",
           gridTemplateColumns: "1fr 1fr",
-          gap: "0.5rem",
-          padding: "0 0.5rem 0.5rem",
+          gap: "2rem",
+          padding: "0 5rem 4rem",
         }}
       >
         {["/frame1.png", "/frame2.png"].map((src, i) => (
