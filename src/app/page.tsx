@@ -360,7 +360,7 @@ export default function Home() {
                 </a>
                 <span style={{ color: "rgba(26,25,22,0.25)", fontSize: "0.6rem" }}>·</span>
                 <a
-                  href="#"
+                  href="/book"
                   style={{
                     fontFamily: FUTURA,
                     fontWeight: 700,
@@ -651,7 +651,7 @@ export default function Home() {
               © {new Date().getFullYear()} THE COASTAL. ALL RIGHTS RESERVED.
             </p>
             <a
-              href="#"
+              href="/book"
               style={{ fontFamily: FUTURA, fontWeight: 700, fontSize: "0.52rem", letterSpacing: "0.18em", color: "rgba(242,237,229,0.35)", textDecoration: "none", transition: "color 0.2s" }}
               onMouseEnter={(e) => (e.currentTarget.style.color = "#f2ede5")}
               onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(242,237,229,0.35)")}

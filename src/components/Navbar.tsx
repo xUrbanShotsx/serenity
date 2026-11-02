@@ -121,7 +121,7 @@ export default function Navbar() {
           {/* Right: BOOK */}
           <div style={{ justifySelf: "end" }}>
             <a
-              href="#book"
+              href="/book"
               style={{
                 fontFamily: FUTURA,
                 fontWeight: 700,
@@ -242,7 +242,7 @@ export default function Navbar() {
         ))}
 
         <a
-          href="#book"
+          href="/book"
           onClick={() => setMenuOpen(false)}
           style={{
             marginTop: "0.5rem",
