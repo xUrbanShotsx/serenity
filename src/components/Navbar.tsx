@@ -5,33 +5,48 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 
 const FUTURA = "'Futura', 'Century Gothic', 'Trebuchet MS', sans-serif";
+const CREAM = "#f2ede5";
+const INK = "#1a1916";
 
-const NAV_LINKS = [
-  { label: "Story", href: "/story" },
-  { label: "Collection", href: "/collection" },
+const PROPERTY_LINKS = [
+  { label: "The House", href: "/collection#residence" },
+  { label: "The Suites", href: "/collection#suites" },
+];
+
+const SECTION_LINKS = [
+  { label: "Stay", href: "/collection" },
   { label: "Experiences", href: "/experiences" },
+  { label: "Story", href: "/story" },
+  { label: "About", href: "/" },
 ];
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [visible, setVisible] = useState(true);
-  const [lastY, setLastY] = useState(0);
+  const [mobile, setMobile] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => {
-      const y = window.scrollY;
-      setVisible(y < lastY || y < 80);
-      setLastY(y);
-    };
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, [lastY]);
+    const check = () => setMobile(window.innerWidth < 768);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
 
-  // Lock body scroll when menu open
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
   }, [menuOpen]);
+
+  const linkStyle = {
+    fontFamily: FUTURA,
+    fontSize: "0.6rem",
+    fontWeight: 700 as const,
+    letterSpacing: "0.16em",
+    textTransform: "uppercase" as const,
+    color: INK,
+    textDecoration: "none",
+    opacity: 0.7,
+    transition: "opacity 0.2s",
+  };
 
   return (
     <>
@@ -40,121 +55,153 @@ export default function Navbar() {
           position: "fixed",
           inset: "0 0 auto 0",
           zIndex: 50,
-          height: "88px",
-          backgroundColor: "#f2ede5",
+          backgroundColor: CREAM,
           borderBottom: "1px solid rgba(26,25,22,0.1)",
-          display: "grid",
-          gridTemplateColumns: "1fr auto 1fr",
-          alignItems: "center",
-          padding: "0 2.5rem",
-          transform: visible ? "translateY(0)" : "translateY(-100%)",
-          transition: "transform 0.35s ease",
         }}
       >
-        {/* Hamburger */}
-        <button
-          onClick={() => setMenuOpen(true)}
-          aria-label="Open menu"
+        {/* ── Top bar: property links | logo | book ─── */}
+        <div
           style={{
-            background: "none",
-            border: "none",
-            cursor: "pointer",
-            padding: "0.4rem",
-            display: "flex",
-            flexDirection: "column",
-            gap: "5px",
-            justifySelf: "start",
+            height: mobile ? "60px" : "56px",
+            display: "grid",
+            gridTemplateColumns: "1fr auto 1fr",
+            alignItems: "center",
+            padding: "0 clamp(1.2rem, 3vw, 3rem)",
           }}
         >
-          {[0, 1, 2].map((i) => (
-            <span
-              key={i}
+          {/* Left: property shortcuts (desktop) or hamburger (mobile) */}
+          {mobile ? (
+            <button
+              onClick={() => setMenuOpen(true)}
+              aria-label="Open menu"
               style={{
-                display: "block",
-                width: "22px",
-                height: "1.5px",
-                backgroundColor: "#1a1916",
+                background: "none",
+                border: "none",
+                cursor: "pointer",
+                padding: "0.4rem",
+                display: "flex",
+                flexDirection: "column",
+                gap: "5px",
+                justifySelf: "start",
               }}
+            >
+              {[0, 1, 2].map((i) => (
+                <span
+                  key={i}
+                  style={{ display: "block", width: "22px", height: "1.5px", backgroundColor: INK }}
+                />
+              ))}
+            </button>
+          ) : (
+            <div style={{ display: "flex", gap: "2rem", alignItems: "center" }}>
+              {PROPERTY_LINKS.map(({ label, href }) => (
+                <Link key={label} href={href} style={linkStyle}
+                  onMouseEnter={(e) => (e.currentTarget.style.opacity = "1")}
+                  onMouseLeave={(e) => (e.currentTarget.style.opacity = "0.7")}
+                >
+                  {label}
+                </Link>
+              ))}
+            </div>
+          )}
+
+          {/* Center: logo */}
+          <Link href="/" style={{ display: "flex", alignItems: "center" }}>
+            <Image
+              src="/Logodesign.png"
+              alt="The Coastal"
+              height={44}
+              width={160}
+              style={{ objectFit: "contain", height: mobile ? "38px" : "44px", width: "auto" }}
+              priority
             />
-          ))}
-        </button>
+          </Link>
 
-        {/* Logo */}
-        <Link href="/" style={{ display: "flex", alignItems: "center" }}>
-          <Image
-            src="/Logodesign.png"
-            alt="The Coastal"
-            height={54}
-            width={180}
-            style={{ objectFit: "contain", height: "54px", width: "auto" }}
-            priority
-          />
-        </Link>
+          {/* Right: BOOK */}
+          <div style={{ justifySelf: "end" }}>
+            <a
+              href="#book"
+              style={{
+                fontFamily: FUTURA,
+                fontWeight: 700,
+                fontSize: "0.58rem",
+                letterSpacing: "0.14em",
+                textTransform: "uppercase" as const,
+                color: INK,
+                textDecoration: "none",
+                border: "1.5px solid rgba(26,25,22,0.5)",
+                borderRadius: "50px",
+                padding: "0.5rem 1.4rem",
+                whiteSpace: "nowrap" as const,
+                transition: "background 0.2s, color 0.2s",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = INK;
+                e.currentTarget.style.color = CREAM;
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = "transparent";
+                e.currentTarget.style.color = INK;
+              }}
+            >
+              Book
+            </a>
+          </div>
+        </div>
 
-        {/* Book */}
-        <div style={{ justifySelf: "end" }}>
-          <a
-            href="#"
+        {/* ── Secondary nav (desktop only) ─────────── */}
+        {!mobile && (
+          <div
             style={{
-              fontFamily: FUTURA,
-              fontWeight: 700,
-              fontSize: "0.6rem",
-              letterSpacing: "0.14em",
-              color: "#1a1916",
-              textDecoration: "none",
-              border: "1.5px solid rgba(26,25,22,0.55)",
-              borderRadius: "50px",
-              padding: "0.55rem 1.4rem",
-              whiteSpace: "nowrap",
-              transition: "background 0.2s, color 0.2s, border-color 0.2s",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.background = "#1a1916";
-              e.currentTarget.style.color = "#f2ede5";
-              e.currentTarget.style.borderColor = "#1a1916";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.background = "transparent";
-              e.currentTarget.style.color = "#1a1916";
-              e.currentTarget.style.borderColor = "rgba(26,25,22,0.55)";
+              height: "40px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: "clamp(1.5rem, 3vw, 3rem)",
+              borderTop: "1px solid rgba(26,25,22,0.07)",
             }}
           >
-            BOOK
-          </a>
-        </div>
+            {SECTION_LINKS.map(({ label, href }) => (
+              <Link key={label} href={href} style={linkStyle}
+                onMouseEnter={(e) => (e.currentTarget.style.opacity = "1")}
+                onMouseLeave={(e) => (e.currentTarget.style.opacity = "0.7")}
+              >
+                {label}
+              </Link>
+            ))}
+          </div>
+        )}
       </header>
 
-      {/* ── Full-screen menu overlay ─────────────────────────────── */}
+      {/* ── Fullscreen mobile menu ─────────────────────────────── */}
       <div
         style={{
           position: "fixed",
           inset: 0,
           zIndex: 100,
-          backgroundColor: "#1a1916",
+          backgroundColor: INK,
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
-          gap: "3rem",
+          gap: "2.5rem",
           opacity: menuOpen ? 1 : 0,
           pointerEvents: menuOpen ? "all" : "none",
-          transition: "opacity 0.4s ease",
+          transition: "opacity 0.35s ease",
         }}
       >
-        {/* Close */}
         <button
           onClick={() => setMenuOpen(false)}
           aria-label="Close menu"
           style={{
             position: "absolute",
-            top: "2.2rem",
-            right: "2.5rem",
+            top: "1.8rem",
+            right: "1.8rem",
             background: "none",
             border: "none",
             cursor: "pointer",
-            fontFamily: FUTURA,
-            fontSize: "1.2rem",
-            color: "#f2ede5",
+            fontSize: "1.4rem",
+            color: CREAM,
             opacity: 0.6,
             lineHeight: 1,
           }}
@@ -162,26 +209,24 @@ export default function Navbar() {
           ×
         </button>
 
-        {/* Logo in menu */}
         <Image
           src="/Logodesign.png"
           alt="The Coastal"
-          height={48}
-          width={160}
-          style={{ objectFit: "contain", height: "48px", width: "auto", filter: "brightness(0) invert(1)", opacity: 0.9, marginBottom: "1rem" }}
+          height={40}
+          width={140}
+          style={{ objectFit: "contain", height: "40px", width: "auto", filter: "brightness(0) invert(1)", opacity: 0.9, marginBottom: "0.5rem" }}
         />
 
-        {NAV_LINKS.map(({ label, href }) => (
+        {[...PROPERTY_LINKS, ...SECTION_LINKS].map(({ label, href }) => (
           <Link
-            key={label}
+            key={label + href}
             href={href}
             onClick={() => setMenuOpen(false)}
             style={{
-              fontFamily: "'Georgia', 'Times New Roman', serif",
+              fontFamily: "Georgia, 'Times New Roman', serif",
               fontStyle: "italic",
-              fontWeight: 400,
-              fontSize: "clamp(2rem, 4vw, 3.5rem)",
-              color: "#f2ede5",
+              fontSize: "clamp(1.8rem, 5vw, 3rem)",
+              color: CREAM,
               textDecoration: "none",
               opacity: 0.9,
               transition: "opacity 0.2s",
@@ -195,31 +240,23 @@ export default function Navbar() {
         ))}
 
         <a
-          href="#"
+          href="#book"
           onClick={() => setMenuOpen(false)}
           style={{
-            marginTop: "1rem",
+            marginTop: "0.5rem",
             fontFamily: FUTURA,
             fontWeight: 700,
-            fontSize: "0.6rem",
+            fontSize: "0.58rem",
             letterSpacing: "0.18em",
-            color: "#f2ede5",
+            textTransform: "uppercase",
+            color: CREAM,
             textDecoration: "none",
             border: "1.5px solid rgba(242,237,229,0.4)",
             borderRadius: "50px",
             padding: "0.7rem 2rem",
-            transition: "background 0.2s, color 0.2s",
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.background = "#f2ede5";
-            e.currentTarget.style.color = "#1a1916";
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.background = "transparent";
-            e.currentTarget.style.color = "#f2ede5";
           }}
         >
-          BOOK NOW
+          Book Now
         </a>
       </div>
     </>

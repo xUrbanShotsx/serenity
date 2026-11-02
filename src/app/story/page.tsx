@@ -150,7 +150,7 @@ function Slide({ entry }: { entry: typeof TIMELINE[0] }) {
     <div style={{
       position: "absolute",
       inset: 0,
-      paddingTop: "88px",
+      paddingTop: "96px",
       display: "flex",
       backgroundColor: "#f2ede5",
     }}>
