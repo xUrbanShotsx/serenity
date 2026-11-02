@@ -192,86 +192,37 @@ export default function Home() {
         ))}
       </section>
 
-      {/* ── Property cards — Linnaeus 2-col style ───────────────── */}
+      {/* ── Property placeholders — 4 col ───────────────────────── */}
       <section
         style={{
           backgroundColor: CREAM,
-          padding: "8rem 3rem",
-          maxWidth: "1300px",
-          margin: "0 auto",
+          padding: "6rem 3rem",
         }}
       >
         <div
           style={{
-            textAlign: "center",
-            marginBottom: "5rem",
-          }}
-        >
-          <p
-            style={{
-              fontFamily: FUTURA,
-              fontWeight: 700,
-              fontSize: "0.55rem",
-              letterSpacing: "0.28em",
-              color: INK,
-              opacity: 0.4,
-              marginBottom: "0.8rem",
-            }}
-          >
-            THE COLLECTION
-          </p>
-          <p
-            style={{
-              fontFamily: SERIF,
-              fontStyle: "italic",
-              fontWeight: 400,
-              fontSize: "clamp(1.4rem, 2.2vw, 2rem)",
-              color: INK,
-            }}
-          >
-            Choose Your Stay
-          </p>
-        </div>
-
-        <div
-          style={{
             display: "grid",
-            gridTemplateColumns: "1fr 1fr",
-            gap: "4rem",
+            gridTemplateColumns: "repeat(4, 1fr)",
+            gap: "1.5rem",
           }}
         >
-          {STAYS.map((stay) => (
-            <div key={stay.name}>
-              {/* Image */}
-              <div style={{ overflow: "hidden", marginBottom: "1.8rem" }}>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={stay.image}
-                  alt={stay.name}
-                  style={{
-                    width: "100%",
-                    aspectRatio: "4/3",
-                    objectFit: "cover",
-                    display: "block",
-                    transition: "transform 0.6s ease",
-                  }}
-                  onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.03)")}
-                  onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
-                />
-              </div>
-              {/* Name */}
-              <p
-                style={{
-                  fontFamily: "'Kenao', Georgia, serif",
-                  fontWeight: 400,
-                  fontSize: "clamp(1.5rem, 2.2vw, 2.2rem)",
-                  color: INK,
-                  marginBottom: "0.3rem",
-                  letterSpacing: "0.02em",
-                }}
-              >
-                {stay.name}
-              </p>
+          {[
+            "The House",
+            "The Olive Suite",
+            "The Shoreline Suite",
+            "The Horizon Suite",
+          ].map((name) => (
+            <div
+              key={name}
+              style={{
+                aspectRatio: "3/4",
+                backgroundColor: "rgba(26,25,22,0.06)",
+                border: "1px dashed rgba(26,25,22,0.12)",
+                display: "flex",
+                alignItems: "flex-end",
+                padding: "1.2rem",
+              }}
+            >
               <p
                 style={{
                   fontFamily: FUTURA,
@@ -279,104 +230,11 @@ export default function Home() {
                   fontSize: "0.52rem",
                   letterSpacing: "0.2em",
                   color: INK,
-                  opacity: 0.4,
-                  marginBottom: "1.2rem",
+                  opacity: 0.25,
                 }}
               >
-                {stay.tag}
+                {name.toUpperCase()}
               </p>
-              {/* Specs */}
-              <div
-                style={{
-                  display: "flex",
-                  gap: "1.8rem",
-                  marginBottom: "1.4rem",
-                  borderTop: "1px solid rgba(26,25,22,0.1)",
-                  borderBottom: "1px solid rgba(26,25,22,0.1)",
-                  padding: "1rem 0",
-                }}
-              >
-                {stay.specs.map(([num, label]) => (
-                  <div key={label}>
-                    <p
-                      style={{
-                        fontFamily: FUTURA,
-                        fontWeight: 700,
-                        fontSize: "1rem",
-                        color: INK,
-                        marginBottom: "0.15rem",
-                      }}
-                    >
-                      {num}
-                    </p>
-                    <p
-                      style={{
-                        fontFamily: FUTURA,
-                        fontWeight: 400,
-                        fontSize: "0.5rem",
-                        letterSpacing: "0.18em",
-                        color: INK,
-                        opacity: 0.45,
-                      }}
-                    >
-                      {label.toUpperCase()}
-                    </p>
-                  </div>
-                ))}
-              </div>
-              {/* Description */}
-              <p
-                style={{
-                  fontFamily: FUTURA,
-                  fontWeight: 400,
-                  fontSize: "0.7rem",
-                  letterSpacing: "0.03em",
-                  lineHeight: 1.85,
-                  color: INK,
-                  opacity: 0.55,
-                  marginBottom: "1.4rem",
-                }}
-              >
-                {stay.description}
-              </p>
-              {/* CTAs */}
-              <div style={{ display: "flex", gap: "1.5rem", alignItems: "center" }}>
-                <a
-                  href={stay.href}
-                  style={{
-                    fontFamily: FUTURA,
-                    fontWeight: 700,
-                    fontSize: "0.55rem",
-                    letterSpacing: "0.16em",
-                    color: INK,
-                    textDecoration: "none",
-                    opacity: 0.65,
-                    transition: "opacity 0.2s",
-                  }}
-                  onMouseEnter={(e) => (e.currentTarget.style.opacity = "1")}
-                  onMouseLeave={(e) => (e.currentTarget.style.opacity = "0.65")}
-                >
-                  DISCOVER MORE
-                </a>
-                <span style={{ color: "rgba(26,25,22,0.25)", fontSize: "0.6rem" }}>·</span>
-                <a
-                  href="/book"
-                  style={{
-                    fontFamily: FUTURA,
-                    fontWeight: 700,
-                    fontSize: "0.55rem",
-                    letterSpacing: "0.16em",
-                    color: INK,
-                    textDecoration: "none",
-                    opacity: 0.65,
-                    transition: "opacity 0.2s",
-                  }}
-                  onMouseEnter={(e) => (e.currentTarget.style.opacity = "1")}
-                  onMouseLeave={(e) => (e.currentTarget.style.opacity = "0.65")}
-                >
-                  BOOK NOW
-                </a>
-              </div>
             </div>
           ))}
         </div>
