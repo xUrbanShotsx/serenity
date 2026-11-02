@@ -1,3 +1,5 @@
+"use client";
+
 import Navbar from "@/components/Navbar";
 
 const FUTURA = "'Futura', 'Century Gothic', 'Trebuchet MS', sans-serif";
