@@ -11,42 +11,58 @@ const INK = "#1a1916";
 
 const EXPERIENCES = [
   {
-    num: "01",
-    category: "AT THE COASTAL",
-    title: "On Property",
-    distance: "Right here",
+    title: "Famous Berry Donut Van",
     description:
-      "The land itself is worth slowing down for. Twelve acres of gardens, olive groves, and open sky — with everything you need to make the most of it.",
+      "No visit to Berry is complete without it. The donut van has been parked on Queen Street for decades — hot, sugar-dusted, and gone by mid-morning on weekends. Get there early, bring cash, and don't plan anything too ambitious for the hour that follows.",
     image: "/Arielshot.jpg",
     flip: false,
   },
   {
-    num: "02",
-    category: "THE VILLAGE",
-    title: "Berry Township",
-    distance: "5 min walk",
+    title: "Milkwood Bakery",
     description:
-      "A short stroll from the property, Berry is one of the South Coast's most beloved towns. Start the morning at the Famous Berry Donut Van or Milkwood Bakery, browse the boutiques along Queen Street, and step into the Berry Museum if the afternoon calls for something slower. For lunch or dinner, Sara Dining and Silos Estate are two of the region's finest tables. Two Figs Winery is worth the short drive for a long afternoon glass. Small enough to cover in a morning, good enough to fill a week.",
+      "A proper bakery in the best sense — slow-fermented sourdough, pastries worth getting out of bed for, and coffee that earns its reputation. A short walk from the property and the most reliable way to start the day in Berry.",
     image: "/Olivesuite.jpg",
     flip: true,
   },
   {
-    num: "03",
-    category: "THE COAST",
-    title: "Seven Mile Beach",
-    distance: "12 min drive",
+    title: "Two Figs Winery",
     description:
-      "Minutes down the road, Seven Mile Beach sits inside its own national park — one of NSW's longest and least crowded stretches of coast. Arrive early and you may have it to yourself. The headland at Gerroa is worth the walk, and the river mouth at Shoalhaven is a quieter alternative when the swell is up.",
+      "A small, well-regarded winery a short drive from Berry, producing cool-climate wines from the Southern Highlands. The cellar door is unhurried and genuinely welcoming — the kind of place where one glass becomes three without anyone rushing you.",
     image: "/shorelinesuite.jpg",
     flip: false,
   },
   {
-    num: "04",
-    category: "THE REGION",
-    title: "Further Afield",
-    distance: "Under 1 hour",
+    title: "Silos Estate",
     description:
-      "The NSW South Coast rewards those who venture beyond the beach. Within an hour, you'll find wine country, ancient rainforest, and one of Australia's clearest bays.",
+      "Set in a converted railway silo on the edge of Berry, Silos Estate is one of the region's most loved destinations for lunch or a long dinner. The wine list leans local, the kitchen is confident, and the setting is unlike anything else on the South Coast.",
+    image: "/horizonsuite.jpg",
+    flip: true,
+  },
+  {
+    title: "Sara Dining",
+    description:
+      "Intimate, considered, and quietly exceptional. Sara is the kind of restaurant that earns a return visit before you've finished your first. A tasting-focused menu that takes the produce of the South Coast seriously — book ahead.",
+    image: "/Arielshot.jpg",
+    flip: false,
+  },
+  {
+    title: "Queen Street Boutiques",
+    description:
+      "Berry's main street is lined with independently owned shops that reward a slow walk — homewares, antiques, design, clothing, and food stores that reflect the character of the town. Better browsing than most city strips, without the pressure.",
+    image: "/Olivesuite.jpg",
+    flip: true,
+  },
+  {
+    title: "7 Mile Beach",
+    description:
+      "Twelve minutes from the property, Seven Mile Beach sits inside its own national park — one of NSW's longest and least visited stretches of coast. Arrive early on a weekday and you may have the whole thing to yourself. The headland at Gerroa is worth the extra walk.",
+    image: "/shorelinesuite.jpg",
+    flip: false,
+  },
+  {
+    title: "Berry Museum",
+    description:
+      "Housed in a heritage building on Queen Street, the Berry Museum tells the story of the town and the wider Shoalhaven region with more depth than you'd expect. Worth an hour on a rainy afternoon or a quieter day when the beach can wait.",
     image: "/horizonsuite.jpg",
     flip: true,
   },
@@ -119,27 +135,6 @@ export default function ExperiencesPage() {
               overflow: "hidden",
             }}
           >
-            {/* Ghost number */}
-            <div
-              aria-hidden="true"
-              style={{
-                position: "absolute",
-                bottom: "-2rem",
-                right: exp.flip ? "auto" : "-1rem",
-                left: exp.flip ? "-1rem" : "auto",
-                fontFamily: SERIF,
-                fontStyle: "italic",
-                fontSize: "clamp(12rem, 20vw, 22rem)",
-                lineHeight: 1,
-                color: "rgba(26,25,22,0.04)",
-                userSelect: "none",
-                pointerEvents: "none",
-                letterSpacing: "-0.05em",
-              }}
-            >
-              {exp.num}
-            </div>
-
             <div style={{ position: "relative", zIndex: 1 }}>
               <FadeIn delay={0.1}>
                 <h2
@@ -150,26 +145,11 @@ export default function ExperiencesPage() {
                     fontSize: "clamp(2.5rem, 3.5vw, 4rem)",
                     color: INK,
                     lineHeight: 1.05,
-                    marginBottom: "0.7rem",
+                    marginBottom: "2rem",
                   }}
                 >
                   {exp.title}
                 </h2>
-              </FadeIn>
-
-              <FadeIn delay={0.15}>
-                <p
-                  style={{
-                    fontFamily: FUTURA,
-                    fontWeight: 700,
-                    fontSize: "0.5rem",
-                    letterSpacing: "0.22em",
-                    color: "rgba(26,25,22,0.22)",
-                    marginBottom: "2.2rem",
-                  }}
-                >
-                  {exp.distance}
-                </p>
               </FadeIn>
 
               <FadeIn delay={0.2}>
