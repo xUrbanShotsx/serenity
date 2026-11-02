@@ -16,7 +16,8 @@ export default function BookPageClient() {
 
     const script = document.createElement("script");
     script.id = "lodgify-script";
-    script.src = "https://app.lodgify.com/v2/book-now-box.min.js";
+    script.src = "https://app.lodgify.com/book-now-box/stable/renderBookNowBox.js";
+    script.defer = true;
     script.async = true;
     document.body.appendChild(script);
 
