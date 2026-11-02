@@ -26,7 +26,7 @@ const EXPERIENCES = [
     title: "Berry Township",
     distance: "5 min walk",
     description:
-      "A short stroll from the property, Berry is one of the South Coast's most beloved towns — small enough to cover in a morning, good enough to spend a week in.",
+      "A short stroll from the property, Berry is one of the South Coast's most beloved towns. Start the morning at the Famous Berry Donut Van or Milkwood Bakery, browse the boutiques along Queen Street, and step into the Berry Museum if the afternoon calls for something slower. For lunch or dinner, Sara Dining and Silos Estate are two of the region's finest tables. Two Figs Winery is worth the short drive for a long afternoon glass. Small enough to cover in a morning, good enough to fill a week.",
     image: "/Olivesuite.jpg",
     flip: true,
   },
@@ -36,7 +36,7 @@ const EXPERIENCES = [
     title: "Seven Mile Beach",
     distance: "12 min drive",
     description:
-      "Minutes down the road, one of NSW's longest and least crowded beaches. Arrive early and you may have it to yourself.",
+      "Minutes down the road, Seven Mile Beach sits inside its own national park — one of NSW's longest and least crowded stretches of coast. Arrive early and you may have it to yourself. The headland at Gerroa is worth the walk, and the river mouth at Shoalhaven is a quieter alternative when the swell is up.",
     image: "/shorelinesuite.jpg",
     flip: false,
   },
