@@ -106,14 +106,15 @@ export default function Navbar() {
           )}
 
           {/* Center: logo */}
-          <Link href="/" style={{ display: "flex", alignItems: "center" }}>
+          <Link href="/" style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
             <Image
-              src="/Logodesign.png"
+              src="/logo.svg"
               alt="The Coastal"
-              height={44}
-              width={160}
-              style={{ objectFit: "contain", height: mobile ? "38px" : "44px", width: "auto" }}
+              height={46}
+              width={76}
+              style={{ height: mobile ? "40px" : "46px", width: "auto" }}
               priority
+              unoptimized
             />
           </Link>
 
@@ -210,11 +211,12 @@ export default function Navbar() {
         </button>
 
         <Image
-          src="/Logodesign.png"
+          src="/logo.svg"
           alt="The Coastal"
           height={40}
-          width={140}
-          style={{ objectFit: "contain", height: "40px", width: "auto", filter: "brightness(0) invert(1)", opacity: 0.9, marginBottom: "0.5rem" }}
+          width={66}
+          style={{ height: "40px", width: "auto", filter: "brightness(0) invert(1)", opacity: 0.9, marginBottom: "0.5rem" }}
+          unoptimized
         />
 
         {[...PROPERTY_LINKS, ...SECTION_LINKS].map(({ label, href }) => (
