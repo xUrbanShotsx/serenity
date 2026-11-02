@@ -159,7 +159,7 @@ export default function Navbar() {
               alignItems: "center",
               justifyContent: "center",
               gap: "clamp(1.5rem, 3vw, 3rem)",
-              borderTop: "2px solid rgba(26,25,22,0.75)",
+              borderTop: "1px solid rgba(26,25,22,0.75)",
             }}
           >
             {SECTION_LINKS.map(({ label, href }) => (
