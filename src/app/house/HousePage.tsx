@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect } from "react";
 import Navbar from "@/components/Navbar";
 
 const FUTURA = "'Futura', 'Century Gothic', 'Trebuchet MS', sans-serif";
@@ -23,6 +24,16 @@ const GRID_CELLS = [
 ];
 
 export default function HousePageClient() {
+  useEffect(() => {
+    const existing = document.getElementById("lodgify-script-house");
+    if (existing) return;
+    const script = document.createElement("script");
+    script.id = "lodgify-script-house";
+    script.src = "https://app.lodgify.com/book-now-box/stable/renderBookNowBox.js";
+    script.defer = true;
+    document.body.appendChild(script);
+  }, []);
+
   return (
     <main style={{ backgroundColor: CREAM }}>
       <Navbar />
@@ -162,27 +173,42 @@ export default function HousePageClient() {
             ))}
           </div>
 
-          <a
-            href="/book"
-            style={{
-              display: "inline-block",
-              marginTop: "3rem",
-              fontFamily: FUTURA,
-              fontWeight: 700,
-              fontSize: "0.6rem",
-              letterSpacing: "0.18em",
-              color: INK,
-              textDecoration: "none",
-              border: "1.5px solid rgba(26,25,22,0.4)",
-              borderRadius: "50px",
-              padding: "0.7rem 2rem",
-              transition: "background 0.2s, color 0.2s",
-            }}
-            onMouseEnter={(e) => { e.currentTarget.style.background = INK; e.currentTarget.style.color = CREAM; }}
-            onMouseLeave={(e) => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = INK; }}
-          >
-            Book The House
-          </a>
+          {/* Lodgify booking widget */}
+          <div style={{ marginTop: "3rem", width: "100%" }}>
+            <div
+              id="lodgify-book-now-box"
+              data-rental-id="REPLACE_HOUSE_RENTAL_ID"
+              data-website-id="686132"
+              data-slug="mark-spinelli-77adcb"
+              data-language-code="en"
+              data-new-tab="true"
+              data-version="stable"
+              data-has-guests-breakdown=""
+              data-check-in-label="Check-in"
+              data-check-out-label="Check-out"
+              data-guests-label="Guests"
+              data-guests-singular-label="{{NumberOfGuests}} guest"
+              data-guests-plural-label="{{NumberOfGuests}} guests"
+              data-total-price-label="Total price:"
+              data-select-dates-to-see-price-label="Select dates to see total price"
+              data-minimum-price-per-night-first-label="From"
+              data-minimum-price-per-night-second-label="per night"
+              data-book-button-label="Book Now"
+              data-guests-breakdown-label="Guests"
+              data-adults-label='{"one":"adult","other":"adults"}'
+              data-adults-description="Ages {minAge} or above"
+              data-children-label='{"one":"child","other":"children"}'
+              data-children-description="Ages {minAge}-{maxAge}"
+              data-children-not-allowed-label="Not suitable for children"
+              data-infants-label='{"one":"infant","other":"infants"}'
+              data-infants-description="Under {maxAge}"
+              data-infants-not-allowed-label="Not suitable for infants"
+              data-pets-label='{"one":"pet","other":"pets"}'
+              data-pets-not-allowed-label="Not allowed"
+              data-done-label="Done"
+              style={{ width: "100%" }}
+            />
+          </div>
         </div>
       </section>
 

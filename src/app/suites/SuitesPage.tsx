@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect } from "react";
 import Navbar from "@/components/Navbar";
 
 const FUTURA = "'Futura', 'Century Gothic', 'Trebuchet MS', sans-serif";
@@ -22,7 +23,23 @@ const GRID_CELLS = [
   { col: "4/5", row: "5/6" },
 ];
 
+const SUITES = [
+  { name: "The Olive Suite", rentalId: "REPLACE_OLIVE_RENTAL_ID", id: "olive" },
+  { name: "The Shoreline Suite", rentalId: "REPLACE_SHORELINE_RENTAL_ID", id: "shoreline" },
+  { name: "The Horizon Suite", rentalId: "863227", id: "horizon" },
+];
+
 export default function SuitesPageClient() {
+  useEffect(() => {
+    const existing = document.getElementById("lodgify-script-suites");
+    if (existing) return;
+    const script = document.createElement("script");
+    script.id = "lodgify-script-suites";
+    script.src = "https://app.lodgify.com/book-now-box/stable/renderBookNowBox.js";
+    script.defer = true;
+    document.body.appendChild(script);
+  }, []);
+
   return (
     <main style={{ backgroundColor: CREAM }}>
       <Navbar />
@@ -161,27 +178,49 @@ export default function SuitesPageClient() {
             ))}
           </div>
 
-          <a
-            href="/book"
-            style={{
-              display: "inline-block",
-              marginTop: "3rem",
-              fontFamily: FUTURA,
-              fontWeight: 700,
-              fontSize: "0.6rem",
-              letterSpacing: "0.18em",
-              color: INK,
-              textDecoration: "none",
-              border: "1.5px solid rgba(26,25,22,0.4)",
-              borderRadius: "50px",
-              padding: "0.7rem 2rem",
-              transition: "background 0.2s, color 0.2s",
-            }}
-            onMouseEnter={(e) => { e.currentTarget.style.background = INK; e.currentTarget.style.color = CREAM; }}
-            onMouseLeave={(e) => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = INK; }}
-          >
-            Book a Suite
-          </a>
+          {/* Lodgify booking widgets — one per suite */}
+          <div style={{ marginTop: "3rem", width: "100%", display: "flex", flexDirection: "column", gap: "3rem" }}>
+            {SUITES.map((suite) => (
+              <div key={suite.id}>
+                <p style={{ fontFamily: FUTURA, fontWeight: 700, fontSize: "0.48rem", letterSpacing: "0.24em", color: INK, opacity: 0.4, marginBottom: "1rem" }}>
+                  {suite.name.toUpperCase()}
+                </p>
+                <div
+                  id={`lodgify-book-now-box-${suite.id}`}
+                  data-rental-id={suite.rentalId}
+                  data-website-id="686132"
+                  data-slug="mark-spinelli-77adcb"
+                  data-language-code="en"
+                  data-new-tab="true"
+                  data-version="stable"
+                  data-has-guests-breakdown=""
+                  data-check-in-label="Check-in"
+                  data-check-out-label="Check-out"
+                  data-guests-label="Guests"
+                  data-guests-singular-label="{{NumberOfGuests}} guest"
+                  data-guests-plural-label="{{NumberOfGuests}} guests"
+                  data-total-price-label="Total price:"
+                  data-select-dates-to-see-price-label="Select dates to see total price"
+                  data-minimum-price-per-night-first-label="From"
+                  data-minimum-price-per-night-second-label="per night"
+                  data-book-button-label="Book Now"
+                  data-guests-breakdown-label="Guests"
+                  data-adults-label='{"one":"adult","other":"adults"}'
+                  data-adults-description="Ages {minAge} or above"
+                  data-children-label='{"one":"child","other":"children"}'
+                  data-children-description="Ages {minAge}-{maxAge}"
+                  data-children-not-allowed-label="Not suitable for children"
+                  data-infants-label='{"one":"infant","other":"infants"}'
+                  data-infants-description="Under {maxAge}"
+                  data-infants-not-allowed-label="Not suitable for infants"
+                  data-pets-label='{"one":"pet","other":"pets"}'
+                  data-pets-not-allowed-label="Not allowed"
+                  data-done-label="Done"
+                  style={{ width: "100%" }}
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
