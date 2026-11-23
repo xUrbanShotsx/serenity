@@ -19,14 +19,14 @@ import { GALLERY, HERO_IMAGE } from "@/lib/site";
 export const metadata: Metadata = {
   title: "The Coastal | Luxury Holiday Accommodation Berry NSW South Coast",
   description:
-    "The Coastal — luxury private holiday accommodation in Berry, NSW South Coast. One 4-bedroom house sleeping 8+ and three private boutique suites on 12 acres. Minutes from Seven Mile Beach, Kiama, and Jervis Bay.",
+    "The Coastal — luxury private holiday accommodation in Berry, NSW South Coast. One 4-bedroom house sleeping 8+ and three private boutique suites on private grounds. Minutes from Seven Mile Beach, Kiama, and Jervis Bay.",
   alternates: {
     canonical: "https://thecoastal.com.au",
   },
   openGraph: {
     title: "The Coastal | Luxury Holiday Accommodation Berry NSW",
     description:
-      "Private holiday house and boutique suites in Berry NSW. 12 acres, heated pool, minutes from Seven Mile Beach. 2hrs from Sydney.",
+      "Private holiday house and boutique suites in Berry NSW. Heated pool, private grounds, minutes from Seven Mile Beach. 2hrs from Sydney.",
     url: "https://thecoastal.com.au",
   },
 };
@@ -36,7 +36,7 @@ export default function Page() {
     <>
       <Hero
         title={"COASTAL\nSTILLNESS"}
-        description="Four private stays on twelve acres, where the hills of Berry meet the long, quiet sweep of Seven Mile Beach."
+        description="Four private stays set among gardens and open sky, where the hills of Berry meet the long, quiet sweep of Seven Mile Beach."
         button={{ label: "Explore Collection", href: "/collection" }}
         cover={HERO_IMAGE ?? undefined}
       />
@@ -48,7 +48,7 @@ export default function Page() {
         />
 
         <SectionDoubleImages
-          description="Twelve acres of gardens, open sky, and nothing you need to rush back for. Berry's cafés, cellar doors and Queen Street are a short stroll away; Seven Mile Beach is twelve minutes by car."
+          description="Gardens, open sky, and nothing you need to rush back for. Berry's cafés, cellar doors and Queen Street are a short stroll away; Seven Mile Beach is twelve minutes by car."
           left={[{ src: "/frame2.png", alt: "Gardens at The Coastal", ratio: "577 / 734" }]}
           right={[{ src: "/frame1.png", alt: "The grounds at The Coastal", ratio: "696 / 840" }]}
         />
@@ -73,7 +73,7 @@ export default function Page() {
           label="View suite"
         />
 
-        <SectionQuote text="“Four stays, twelve acres, and nothing you need to rush back for.”" author="The Coastal" meta="Berry NSW" />
+        <SectionQuote text="“Four stays, one quiet corner of the coast, and nothing you need to rush back for.”" author="The Coastal" meta="Berry NSW" />
 
         <SectionLargeGallery slides={GALLERY} />
 
@@ -90,7 +90,7 @@ export default function Page() {
 
         <SectionImagesCloud
           suptitle="The Land"
-          title="Twelve Acres, Gently Tended"
+          title="Gardens, Gently Tended"
           button={{ label: "Learn about the property", href: "/story" }}
           images={[
             { src: "/frame1.png" },

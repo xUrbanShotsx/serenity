@@ -41,7 +41,7 @@ export default function SouthCoastAccommodationPage() {
     <>
       <Hero title={"SOUTH COAST NSW\nACCOMMODATION"} button={{ label: "Book now", href: "/book" }} cover={null} size="md" />
       <div className="builder">
-        <SectionHeading suptitle="NSW SOUTH COAST · BERRY · SHOALHAVEN" title="The Coastal is a private holiday retreat on the NSW South Coast — set on 12 acres near Berry, Shoalhaven, within easy reach of Kiama, Nowra and Jervis Bay. Four distinct stays: a main house sleeping 8+ and three private boutique suites. Two hours from Sydney, and exactly the kind of South Coast accommodation that earns a return." />
+        <SectionHeading suptitle="NSW SOUTH COAST · BERRY · SHOALHAVEN" title="The Coastal is a private holiday retreat on the NSW South Coast — set in private grounds near Berry, Shoalhaven, within easy reach of Kiama, Nowra and Jervis Bay. Four distinct stays: a main house sleeping 8+ and three private boutique suites. Two hours from Sydney, and exactly the kind of South Coast accommodation that earns a return." />
         <SectionArticle
           blocks={[
           { heading: "Close to Kiama, Nowra, and Jervis Bay", paragraphs: ["The Coastal sits at the geographic heart of the best of the NSW South Coast. Kiama — famous for its blowhole, rock pools, and one of the most scenic coastal walks in NSW — is 35 minutes north. Nowra and the Shoalhaven are 30 minutes south. Jervis Bay, with its world-renowned white sand beaches, is 45 minutes away. Seven Mile Beach National Park is a 12-minute drive. Berry township — with its restaurants, wineries, and boutiques — is five minutes on foot."] },
@@ -52,7 +52,7 @@ export default function SouthCoastAccommodationPage() {
         <SectionCoverCTA
           cover="/frame3.png"
           suptitle="Plan a stay"
-          title="Four private stays on twelve acres in Berry — a house sleeping 8+ and three private suites. Choose yours, pick your dates and book direct."
+          title="Four private stays in Berry — a house sleeping 8+ and three private suites. Choose yours, pick your dates and book direct."
           button={{ label: "Plan your stay", href: "/book" }}
         />
       </div>

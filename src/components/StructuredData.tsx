@@ -6,7 +6,7 @@ export default function StructuredData() {
         "@type": "LodgingBusiness",
         "@id": "https://thecoastal.com.au/#lodging",
         "name": "The Coastal",
-        "description": "Luxury private holiday accommodation in Berry, NSW South Coast. One main house sleeping 8+ guests and three boutique suites set on 12 acres of gardens and open land, minutes from Seven Mile Beach.",
+        "description": "Luxury private holiday accommodation in Berry, NSW South Coast. One main house sleeping 8+ guests and three boutique suites set in private gardens and open land, minutes from Seven Mile Beach.",
         "url": "https://thecoastal.com.au",
         "telephone": "",
         "email": "hello@thecoastal.com.au",

@@ -31,7 +31,7 @@ export default function CollectionPage() {
     <>
       <Hero
         title="ACCOMMODATION"
-        description="One house and three private suites, set across twelve acres on the edge of Berry."
+        description="One house and three private suites, set in private grounds on the edge of Berry."
         button={{ label: "Plan your stay", href: "/book" }}
         cover={null}
       />

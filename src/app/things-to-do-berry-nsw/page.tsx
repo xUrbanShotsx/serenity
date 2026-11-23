@@ -103,7 +103,7 @@ export default function ThingsToDoBerryNswPage() {
         <SectionCoverCTA
           cover="/frame3.png"
           suptitle="Plan a stay"
-          title="The Coastal is Berry's finest private holiday accommodation — a four-bedroom house sleeping 8+ and three private boutique suites, set on 12 acres five minutes from Queen Street and 12 minutes from Seven Mile Beach."
+          title="The Coastal is Berry's finest private holiday accommodation — a four-bedroom house sleeping 8+ and three private boutique suites, set in private grounds five minutes from Queen Street and 12 minutes from Seven Mile Beach."
           button={{ label: "Plan your stay", href: "/book" }}
         />
       </div>

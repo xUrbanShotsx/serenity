@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     template: "%s | The Coastal Berry NSW",
   },
   description:
-    "Luxury holiday accommodation in Berry, NSW South Coast. One private house sleeping 8+ and three boutique suites on 12 acres. Minutes from Seven Mile Beach, Kiama, and Jervis Bay. Book your South Coast escape.",
+    "Luxury holiday accommodation in Berry, NSW South Coast. One private house sleeping 8+ and three boutique suites on private grounds. Minutes from Seven Mile Beach, Kiama, and Jervis Bay. Book your South Coast escape.",
   keywords: [
     "accommodation berry nsw",
     "holiday house berry nsw",
@@ -78,7 +78,7 @@ export const metadata: Metadata = {
     siteName: "The Coastal",
     title: "The Coastal | Luxury Holiday Accommodation Berry NSW South Coast",
     description:
-      "Luxury holiday accommodation in Berry, NSW South Coast. One private house sleeping 8+ and three boutique suites on 12 acres. Minutes from Seven Mile Beach, Kiama, and Jervis Bay.",
+      "Luxury holiday accommodation in Berry, NSW South Coast. One private house sleeping 8+ and three boutique suites on private grounds. Minutes from Seven Mile Beach, Kiama, and Jervis Bay.",
     images: [
       {
         url: "/og-image.jpg",
@@ -92,7 +92,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "The Coastal | Luxury Holiday Accommodation Berry NSW",
     description:
-      "Private holiday house and boutique suites in Berry, NSW South Coast. 12 acres, 4 stays, minutes from the beach.",
+      "Private holiday house and boutique suites in Berry, NSW South Coast. Private grounds, 4 stays, minutes from the beach.",
     images: ["/og-image.jpg"],
   },
   alternates: {
