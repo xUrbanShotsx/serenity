@@ -2,9 +2,13 @@ import type { Metadata } from "next";
 import { Fraunces, Inter } from "next/font/google";
 import "./globals.css";
 import StructuredData from "@/components/StructuredData";
+import SmoothScroll from "@/components/SmoothScroll";
+import PageTransition from "@/components/PageTransition";
+import SiteHeader from "@/components/SiteHeader";
+import SiteFooter from "@/components/SiteFooter";
 
-const serif = Fraunces({ subsets: ["latin"], variable: "--font-serif", display: "swap" });
-const sans = Inter({ subsets: ["latin"], variable: "--font-sans", display: "swap" });
+const serif = Fraunces({ subsets: ["latin"], variable: "--font-serif", display: "swap", axes: ["opsz"] });
+const sans = Inter({ subsets: ["latin"], variable: "--font-sans", weight: ["400", "500"], display: "swap" });
 
 const BASE_URL = "https://thecoastal.com.au";
 
@@ -112,7 +116,12 @@ export default function RootLayout({
       </head>
       <body>
         <StructuredData />
-        {children}
+        <SmoothScroll>
+          <PageTransition />
+          <SiteHeader />
+          <main id="main">{children}</main>
+          <SiteFooter />
+        </SmoothScroll>
       </body>
     </html>
   );

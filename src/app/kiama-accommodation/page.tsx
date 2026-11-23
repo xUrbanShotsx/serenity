@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
-import SiteHeader from "@/components/SiteHeader";
-import SiteFooter from "@/components/SiteFooter";
-import Link from "next/link";
+import Hero from "@/components/Hero";
+import { SectionHeading, SectionArticle, SectionCoverCTA } from "@/components/Sections";
 
 export const metadata: Metadata = {
   title: "Accommodation Near Kiama NSW | 35 Min Drive | The Coastal Berry",
@@ -30,51 +29,26 @@ export const metadata: Metadata = {
   },
 };
 
-const FUTURA = 'var(--sans)';
-const SERIF = 'var(--serif)';
-const CREAM = "#f5eee9";
-const INK = "#373f1d";
 
 export default function KiamaAccommodationPage() {
   return (
-    <main style={{ backgroundColor: CREAM, minHeight: "100vh" }}>
-      <SiteHeader tone="dark" />
-      <article style={{ maxWidth: "800px", margin: "0 auto", padding: "160px 2rem 8rem" }}>
-        <p style={{ fontFamily: FUTURA, fontSize: "0.52rem", letterSpacing: "0.28em", color: INK, opacity: 0.4, marginBottom: "1.2rem" }}>
-          35 MINUTES FROM KIAMA · BERRY NSW
-        </p>
-        <h1 style={{ fontFamily: SERIF, fontWeight: 300, fontSize: "clamp(2rem, 4vw, 3.2rem)", color: INK, lineHeight: 1.1, marginBottom: "2.5rem" }}>
-          Luxury Accommodation Near Kiama, NSW
-        </h1>
-
-        <p style={{ fontFamily: SERIF, fontSize: "clamp(1rem, 1.4vw, 1.15rem)", color: INK, lineHeight: 1.9, opacity: 0.75, marginBottom: "2rem" }}>
-          If you're searching for accommodation near Kiama on the NSW South Coast, The Coastal in Berry is 35 minutes south — and worth every minute of the drive. A private 12-acre estate with a four-bedroom holiday house sleeping 8+ guests and three intimate suites. The kind of place that anchors a longer South Coast trip, or stands completely on its own.
-        </p>
-
-        <h2 style={{ fontFamily: SERIF, fontWeight: 300, fontSize: "clamp(1.4rem, 2vw, 1.8rem)", color: INK, marginBottom: "1.2rem", marginTop: "3rem" }}>
-          Kiama + Berry — The Best of the South Coast
-        </h2>
-        <p style={{ fontFamily: SERIF, fontSize: "clamp(1rem, 1.4vw, 1.15rem)", color: INK, lineHeight: 1.9, opacity: 0.75, marginBottom: "2rem" }}>
-          Staying at The Coastal puts you within easy reach of both Kiama and Berry. From the property, Kiama's blowhole, Cathedral Rocks, and scenic coastal walks are 35 minutes north on the Princes Highway. Berry township — with Sara Dining, Silos Estate, Two Figs Winery, Milkwood Bakery, and the iconic Berry Donut Van — is a five-minute walk. Seven Mile Beach National Park is 12 minutes south. The Illawarra and Kiama regions are natural day trips; The Coastal is where you come back to.
-        </p>
-
-        <h2 style={{ fontFamily: SERIF, fontWeight: 300, fontSize: "clamp(1.4rem, 2vw, 1.8rem)", color: INK, marginBottom: "1.2rem", marginTop: "3rem" }}>
-          Better Than a Hotel Near Kiama
-        </h2>
-        <p style={{ fontFamily: SERIF, fontSize: "clamp(1rem, 1.4vw, 1.15rem)", color: INK, lineHeight: 1.9, opacity: 0.75, marginBottom: "2rem" }}>
-          Most accommodation options around Kiama are hotels, motels, or managed apartments — shared facilities, thin walls, and checkout at 10am. The Coastal is different. Twelve acres to yourself. A heated pool. A fire pit. A kitchen worth cooking in. Private decks on every suite. The Illawarra and Kiama are easy day trips; The Coastal is the kind of accommodation that makes you want to stay in, too.
-        </p>
-
-        <div style={{ marginTop: "4rem", display: "flex", gap: "1.5rem", flexWrap: "wrap" }}>
-          <Link href="/book" style={{ fontFamily: FUTURA, fontWeight: 700, fontSize: "0.6rem", letterSpacing: "0.18em", color: CREAM, textDecoration: "none", backgroundColor: INK, borderRadius: "50px", padding: "0.85rem 2.2rem" }}>
-            BOOK NOW
-          </Link>
-          <Link href="/collection" style={{ fontFamily: FUTURA, fontWeight: 700, fontSize: "0.6rem", letterSpacing: "0.18em", color: INK, textDecoration: "none", border: "1.5px solid rgba(55,63,29,0.4)", borderRadius: "50px", padding: "0.85rem 2.2rem" }}>
-            VIEW ALL STAYS
-          </Link>
-        </div>
-      </article>
-      <SiteFooter />
-    </main>
+    <>
+      <Hero title={"LUXURY ACCOMMODATION\nNEAR KIAMA, NSW"} button={{ label: "Book now", href: "/book" }} cover={null} size="md" />
+      <div className="builder">
+        <SectionHeading suptitle="35 MINUTES FROM KIAMA · BERRY NSW" title="If you're searching for accommodation near Kiama on the NSW South Coast, The Coastal in Berry is 35 minutes south — and worth every minute of the drive. A private 12-acre estate with a four-bedroom holiday house sleeping 8+ guests and three intimate suites. The kind of place that anchors a longer South Coast trip, or stands completely on its own." />
+        <SectionArticle
+          blocks={[
+          { heading: "Kiama + Berry — The Best of the South Coast", paragraphs: ["Staying at The Coastal puts you within easy reach of both Kiama and Berry. From the property, Kiama's blowhole, Cathedral Rocks, and scenic coastal walks are 35 minutes north on the Princes Highway. Berry township — with Sara Dining, Silos Estate, Two Figs Winery, Milkwood Bakery, and the iconic Berry Donut Van — is a five-minute walk. Seven Mile Beach National Park is 12 minutes south. The Illawarra and Kiama regions are natural day trips; The Coastal is where you come back to."] },
+          { heading: "Better Than a Hotel Near Kiama", paragraphs: ["Most accommodation options around Kiama are hotels, motels, or managed apartments — shared facilities, thin walls, and checkout at 10am. The Coastal is different. Twelve acres to yourself. A heated pool. A fire pit. A kitchen worth cooking in. Private decks on every suite. The Illawarra and Kiama are easy day trips; The Coastal is the kind of accommodation that makes you want to stay in, too."] },
+        ]}
+        />
+        <SectionCoverCTA
+          cover="/frame3.png"
+          suptitle="Plan a stay"
+          title="Four private stays on twelve acres in Berry — a house sleeping 8+ and three private suites. Choose yours, pick your dates and book direct."
+          button={{ label: "Plan your stay", href: "/book" }}
+        />
+      </div>
+    </>
   );
 }

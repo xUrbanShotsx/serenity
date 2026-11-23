@@ -1,12 +1,8 @@
 import type { Metadata } from "next";
-import Image from "next/image";
-import SiteHeader from "@/components/SiteHeader";
-import SiteFooter from "@/components/SiteFooter";
-import ButtonLink from "@/components/ButtonLink";
-import Reveal from "@/components/Reveal";
-import Gallery from "@/components/Gallery";
-import StayPanel from "@/components/StayPanel";
-import StayCards from "@/components/StayCards";
+import Hero from "@/components/Hero";
+import ChaptersBar from "@/components/ChaptersBar";
+import SectionLargeGallery from "@/components/SectionLargeGallery";
+import { SectionHeading, SectionDoubleImages, SectionAccommodations, BookingPanel } from "@/components/Sections";
 import { GALLERY } from "@/lib/site";
 import { HOUSE, SUITES } from "@/lib/properties";
 
@@ -42,56 +38,48 @@ export const metadata: Metadata = {
 
 export default function SuitesPage() {
   return (
-    <main>
-      <SiteHeader tone="light" />
-
-      <section className="hero hero--page">
-        <Image className="hero__img" src="/shorelinesuite.jpg" alt="The Suites at The Coastal, Berry NSW" fill priority sizes="100vw" />
-        <div className="hero__inner">
-          <p className="label">Three private suites</p>
-          <h1 className="display">The Suites</h1>
-          <p className="hero__text">Each different from the other. All of them entirely your own.</p>
+    <>
+      <Hero
+        title={"THE\nSUITES"}
+        description="Each different from the other. All of them entirely your own."
+        button={{ label: "Book your stay", href: "#book" }}
+        cover="/shorelinesuite.jpg"
+      />
+      <div className="builder">
+        <div id="overview">
+          <SectionHeading
+            suptitle="Three Private Suites"
+            title="The same care went into all three — the same materials, the same attention to light and proportion — but each arrived at its own character through where it sits on the property and what it looks towards."
+          />
         </div>
-      </section>
-
-      <section className="section">
-        <div className="grid">
-          <h2 className="label c-l start">About the suites</h2>
-          <Reveal className="c-r">
-            <p className="lead">
-              The same care went into all three — the same materials, the same attention to light and proportion — but each arrived at its own character through where it sits on the property and what it looks towards.
-            </p>
-          </Reveal>
-          <p className="small c-l r2 start">
-            Each suite is one bedroom with a full bathroom and a private outdoor space. They can be booked individually or taken together — the three of them share the property without sharing any walls.
-          </p>
-          <div className="c-r r2 media ar-43">
-            <Image src="/frame2.png" alt="Gardens around the suites" fill sizes="(max-width: 800px) 100vw, 50vw" />
-          </div>
+        <SectionDoubleImages
+          description="Each suite is one bedroom with a full bathroom and a private outdoor space. They can be booked individually or taken together — the three of them share the property without sharing any walls."
+          left={[{ src: "/frame2.png", alt: "Gardens around the suites", ratio: "577 / 734" }]}
+          right={[{ src: "/frame1.png", alt: "Grounds around the suites", ratio: "696 / 840" }]}
+        />
+        <div id="gallery">
+          <SectionLargeGallery slides={GALLERY} />
         </div>
-      </section>
-
-      <Gallery slides={GALLERY} />
-
-      <section className="section--tight" style={{ paddingTop: "clamp(72px, 11vw, 180px)" }}>
-        <div className="grid">
-          <h2 className="label c-f">Book a suite</h2>
+        <div id="book">
+          {SUITES.map((s) => (
+            <BookingPanel key={s.slug} stay={s} />
+          ))}
         </div>
-        {SUITES.map((s) => (
-          <StayPanel key={s.slug} stay={s} />
-        ))}
-      </section>
-
-      <section className="section">
-        <div className="grid" style={{ marginBottom: 40 }}>
-          <h2 className="label c-f">Also at The Coastal</h2>
-        </div>
-        <div style={{ padding: "0 var(--gutter)", maxWidth: 720 }}>
-          <StayCards stays={[HOUSE]} wide />
-        </div>
-      </section>
-
-      <SiteFooter />
-    </main>
+        <SectionAccommodations
+          suptitle="Also at The Coastal"
+          description="The main house sleeps eight and more, with a heated pool, fire pit and a terrace that faces the afternoon sun."
+          stays={[HOUSE]}
+          label="View house"
+          limitHeight
+        />
+      </div>
+      <ChaptersBar
+        chapters={[
+          { id: "overview", label: "Overview" },
+          { id: "gallery", label: "Gallery" },
+          { id: "book", label: "Book" },
+        ]}
+      />
+    </>
   );
 }

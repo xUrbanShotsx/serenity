@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
-import SiteHeader from "@/components/SiteHeader";
-import SiteFooter from "@/components/SiteFooter";
-import Link from "next/link";
+import Hero from "@/components/Hero";
+import { SectionHeading, SectionArticle, SectionCoverCTA } from "@/components/Sections";
 
 export const metadata: Metadata = {
   title: "Holiday House South Coast NSW | Sleeps 8+ | The Coastal Berry",
@@ -34,58 +33,27 @@ export const metadata: Metadata = {
   },
 };
 
-const FUTURA = 'var(--sans)';
-const SERIF = 'var(--serif)';
-const CREAM = "#f5eee9";
-const INK = "#373f1d";
 
 export default function HolidayHouseSouthCoastPage() {
   return (
-    <main style={{ backgroundColor: CREAM, minHeight: "100vh" }}>
-      <SiteHeader tone="dark" />
-      <article style={{ maxWidth: "800px", margin: "0 auto", padding: "160px 2rem 8rem" }}>
-        <p style={{ fontFamily: FUTURA, fontSize: "0.52rem", letterSpacing: "0.28em", color: INK, opacity: 0.4, marginBottom: "1.2rem" }}>
-          BERRY NSW · 2 HOURS FROM SYDNEY
-        </p>
-        <h1 style={{ fontFamily: SERIF, fontWeight: 300, fontSize: "clamp(2rem, 4vw, 3.2rem)", color: INK, lineHeight: 1.1, marginBottom: "2.5rem" }}>
-          Holiday House on the NSW South Coast
-        </h1>
-
-        <p style={{ fontFamily: SERIF, fontSize: "clamp(1rem, 1.4vw, 1.15rem)", color: INK, lineHeight: 1.9, opacity: 0.75, marginBottom: "2rem" }}>
-          The Coastal is a luxury South Coast NSW holiday house set on 12 private acres near Berry — two hours south of Sydney and minutes from Seven Mile Beach. The main house sleeps 8 or more across four bedrooms, with a heated pool, fire pit, fully equipped kitchen, and a terrace that faces the afternoon sun. It's the kind of South Coast holiday house that earns a return booking before check-out.
-        </p>
-
-        <h2 style={{ fontFamily: SERIF, fontWeight: 300, fontSize: "clamp(1.4rem, 2vw, 1.8rem)", color: INK, marginBottom: "1.2rem", marginTop: "3rem" }}>
-          Large Group Holiday House — South Coast NSW
-        </h2>
-        <p style={{ fontFamily: SERIF, fontSize: "clamp(1rem, 1.4vw, 1.15rem)", color: INK, lineHeight: 1.9, opacity: 0.75, marginBottom: "2rem" }}>
-          If you're looking for a large holiday house on the South Coast of NSW for a group — a family gathering, a milestone birthday, a long weekend with friends — The Coastal's main house is designed exactly for that. Four bedrooms, two bathrooms, a kitchen built to cook in properly, outdoor dining for a full group, and enough land around the house that nobody feels on top of each other. The private pool and fire pit mean you rarely need to leave.
-        </p>
-
-        <h2 style={{ fontFamily: SERIF, fontWeight: 300, fontSize: "clamp(1.4rem, 2vw, 1.8rem)", color: INK, marginBottom: "1.2rem", marginTop: "3rem" }}>
-          Also Available: Private Suites
-        </h2>
-        <p style={{ fontFamily: SERIF, fontSize: "clamp(1rem, 1.4vw, 1.15rem)", color: INK, lineHeight: 1.9, opacity: 0.75, marginBottom: "2rem" }}>
-          Alongside the main holiday house, The Coastal offers three private one-bedroom suites — the Olive, Shoreline, and Horizon — each with a private outdoor space and full bathroom. Perfect for couples or smaller groups wanting boutique South Coast NSW accommodation with absolute privacy.
-        </p>
-
-        <h2 style={{ fontFamily: SERIF, fontWeight: 300, fontSize: "clamp(1.4rem, 2vw, 1.8rem)", color: INK, marginBottom: "1.2rem", marginTop: "3rem" }}>
-          South Coast NSW — The Best of It
-        </h2>
-        <p style={{ fontFamily: SERIF, fontSize: "clamp(1rem, 1.4vw, 1.15rem)", color: INK, lineHeight: 1.9, opacity: 0.75, marginBottom: "2rem" }}>
-          Set between Berry and Seven Mile Beach, The Coastal is placed at the heart of what makes the South Coast special. Seven Mile Beach National Park is 12 minutes away — one of the least crowded long beaches in NSW. Berry township is walkable from the property, with Sara Dining, Silos Estate, Two Figs Winery, Milkwood Bakery, the famous Berry Donut Van, and independent boutiques all within easy reach. Kiama is 35 minutes north. Jervis Bay is 45 minutes south.
-        </p>
-
-        <div style={{ marginTop: "4rem", display: "flex", gap: "1.5rem", flexWrap: "wrap" }}>
-          <Link href="/book" style={{ fontFamily: FUTURA, fontWeight: 700, fontSize: "0.6rem", letterSpacing: "0.18em", color: CREAM, textDecoration: "none", backgroundColor: INK, borderRadius: "50px", padding: "0.85rem 2.2rem" }}>
-            BOOK NOW
-          </Link>
-          <Link href="/house" style={{ fontFamily: FUTURA, fontWeight: 700, fontSize: "0.6rem", letterSpacing: "0.18em", color: INK, textDecoration: "none", border: "1.5px solid rgba(55,63,29,0.4)", borderRadius: "50px", padding: "0.85rem 2.2rem" }}>
-            VIEW THE HOUSE
-          </Link>
-        </div>
-      </article>
-      <SiteFooter />
-    </main>
+    <>
+      <Hero title={"HOLIDAY HOUSE ON\nTHE NSW SOUTH COAST"} button={{ label: "Book now", href: "/book" }} cover={null} size="md" />
+      <div className="builder">
+        <SectionHeading suptitle="BERRY NSW · 2 HOURS FROM SYDNEY" title="The Coastal is a luxury South Coast NSW holiday house set on 12 private acres near Berry — two hours south of Sydney and minutes from Seven Mile Beach. The main house sleeps 8 or more across four bedrooms, with a heated pool, fire pit, fully equipped kitchen, and a terrace that faces the afternoon sun. It's the kind of South Coast holiday house that earns a return booking before check-out." />
+        <SectionArticle
+          blocks={[
+          { heading: "Large Group Holiday House — South Coast NSW", paragraphs: ["If you're looking for a large holiday house on the South Coast of NSW for a group — a family gathering, a milestone birthday, a long weekend with friends — The Coastal's main house is designed exactly for that. Four bedrooms, two bathrooms, a kitchen built to cook in properly, outdoor dining for a full group, and enough land around the house that nobody feels on top of each other. The private pool and fire pit mean you rarely need to leave."] },
+          { heading: "Also Available: Private Suites", paragraphs: ["Alongside the main holiday house, The Coastal offers three private one-bedroom suites — the Olive, Shoreline, and Horizon — each with a private outdoor space and full bathroom. Perfect for couples or smaller groups wanting boutique South Coast NSW accommodation with absolute privacy."] },
+          { heading: "South Coast NSW — The Best of It", paragraphs: ["Set between Berry and Seven Mile Beach, The Coastal is placed at the heart of what makes the South Coast special. Seven Mile Beach National Park is 12 minutes away — one of the least crowded long beaches in NSW. Berry township is walkable from the property, with Sara Dining, Silos Estate, Two Figs Winery, Milkwood Bakery, the famous Berry Donut Van, and independent boutiques all within easy reach. Kiama is 35 minutes north. Jervis Bay is 45 minutes south."] },
+        ]}
+        />
+        <SectionCoverCTA
+          cover="/frame3.png"
+          suptitle="Plan a stay"
+          title="Four private stays on twelve acres in Berry — a house sleeping 8+ and three private suites. Choose yours, pick your dates and book direct."
+          button={{ label: "Plan your stay", href: "/book" }}
+        />
+      </div>
+    </>
   );
 }

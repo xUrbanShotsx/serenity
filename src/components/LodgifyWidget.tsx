@@ -65,16 +65,16 @@ export default function LodgifyWidget({
 
   if (!rentalId) {
     return (
-      <div className="booking__fallback">
+      <div className="s-book__fallback">
         <p>
           Online booking for {name} is opening soon. Send us your dates and we&rsquo;ll confirm availability directly.
         </p>
         <a
-          className="btn btn--sage"
+          className="btn btn--green"
           href={`mailto:hello@thecoastal.com.au?subject=${encodeURIComponent(`Enquiry — ${name}`)}`}
         >
-          <span className="btn__text">Enquire about {name}</span>
-          <span className="btn__arrow" aria-hidden="true">→</span>
+          <span className="btn__label">Enquire about {name}</span>
+          <span className="btn__icon" aria-hidden="true">→</span>
         </a>
       </div>
     );

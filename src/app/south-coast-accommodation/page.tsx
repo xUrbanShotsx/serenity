@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
-import SiteHeader from "@/components/SiteHeader";
-import SiteFooter from "@/components/SiteFooter";
-import Link from "next/link";
+import Hero from "@/components/Hero";
+import { SectionHeading, SectionArticle, SectionCoverCTA } from "@/components/Sections";
 
 export const metadata: Metadata = {
   title: "South Coast NSW Accommodation | Berry, Kiama, Nowra | The Coastal",
@@ -36,58 +35,27 @@ export const metadata: Metadata = {
   },
 };
 
-const FUTURA = 'var(--sans)';
-const SERIF = 'var(--serif)';
-const CREAM = "#f5eee9";
-const INK = "#373f1d";
 
 export default function SouthCoastAccommodationPage() {
   return (
-    <main style={{ backgroundColor: CREAM, minHeight: "100vh" }}>
-      <SiteHeader tone="dark" />
-      <article style={{ maxWidth: "800px", margin: "0 auto", padding: "160px 2rem 8rem" }}>
-        <p style={{ fontFamily: FUTURA, fontSize: "0.52rem", letterSpacing: "0.28em", color: INK, opacity: 0.4, marginBottom: "1.2rem" }}>
-          NSW SOUTH COAST · BERRY · SHOALHAVEN
-        </p>
-        <h1 style={{ fontFamily: SERIF, fontWeight: 300, fontSize: "clamp(2rem, 4vw, 3.2rem)", color: INK, lineHeight: 1.1, marginBottom: "2.5rem" }}>
-          South Coast NSW Accommodation
-        </h1>
-
-        <p style={{ fontFamily: SERIF, fontSize: "clamp(1rem, 1.4vw, 1.15rem)", color: INK, lineHeight: 1.9, opacity: 0.75, marginBottom: "2rem" }}>
-          The Coastal is a private holiday retreat on the NSW South Coast — set on 12 acres near Berry, Shoalhaven, within easy reach of Kiama, Nowra and Jervis Bay. Four distinct stays: a main house sleeping 8+ and three private boutique suites. Two hours from Sydney, and exactly the kind of South Coast accommodation that earns a return.
-        </p>
-
-        <h2 style={{ fontFamily: SERIF, fontWeight: 300, fontSize: "clamp(1.4rem, 2vw, 1.8rem)", color: INK, marginBottom: "1.2rem", marginTop: "3rem" }}>
-          Close to Kiama, Nowra, and Jervis Bay
-        </h2>
-        <p style={{ fontFamily: SERIF, fontSize: "clamp(1rem, 1.4vw, 1.15rem)", color: INK, lineHeight: 1.9, opacity: 0.75, marginBottom: "2rem" }}>
-          The Coastal sits at the geographic heart of the best of the NSW South Coast. Kiama — famous for its blowhole, rock pools, and one of the most scenic coastal walks in NSW — is 35 minutes north. Nowra and the Shoalhaven are 30 minutes south. Jervis Bay, with its world-renowned white sand beaches, is 45 minutes away. Seven Mile Beach National Park is a 12-minute drive. Berry township — with its restaurants, wineries, and boutiques — is five minutes on foot.
-        </p>
-
-        <h2 style={{ fontFamily: SERIF, fontWeight: 300, fontSize: "clamp(1.4rem, 2vw, 1.8rem)", color: INK, marginBottom: "1.2rem", marginTop: "3rem" }}>
-          Private Accommodation — South Coast NSW
-        </h2>
-        <p style={{ fontFamily: SERIF, fontSize: "clamp(1rem, 1.4vw, 1.15rem)", color: INK, lineHeight: 1.9, opacity: 0.75, marginBottom: "2rem" }}>
-          Unlike hotels and motels on the South Coast, The Coastal offers complete privacy. No shared facilities. No lobby. No noise from neighbouring rooms. The main house is entirely self-contained across four bedrooms, with a heated pool, fire pit, and terrace. Each of the three private suites has its own entrance, outdoor space, and bathroom. Whether you're booking for a group or for two, you'll have the property to yourselves.
-        </p>
-
-        <h2 style={{ fontFamily: SERIF, fontWeight: 300, fontSize: "clamp(1.4rem, 2vw, 1.8rem)", color: INK, marginBottom: "1.2rem", marginTop: "3rem" }}>
-          The South Coast Experience
-        </h2>
-        <p style={{ fontFamily: SERIF, fontSize: "clamp(1rem, 1.4vw, 1.15rem)", color: INK, lineHeight: 1.9, opacity: 0.75, marginBottom: "2rem" }}>
-          The NSW South Coast is one of Australia's most visited and most loved domestic holiday regions for good reason — the beaches are genuinely world-class, the hinterland is lush, and the food and wine scene has grown considerably in the last decade. Berry sits at the intersection of all of it. From The Coastal, you can be walking on Seven Mile Beach within 15 minutes, sitting down to lunch at Sara Dining or Silos Estate within 10, or tasting at Two Figs Winery within 8. The Illawarra escarpment provides the backdrop; the Shoalhaven coast is the destination.
-        </p>
-
-        <div style={{ marginTop: "4rem", display: "flex", gap: "1.5rem", flexWrap: "wrap" }}>
-          <Link href="/book" style={{ fontFamily: FUTURA, fontWeight: 700, fontSize: "0.6rem", letterSpacing: "0.18em", color: CREAM, textDecoration: "none", backgroundColor: INK, borderRadius: "50px", padding: "0.85rem 2.2rem" }}>
-            BOOK NOW
-          </Link>
-          <Link href="/collection" style={{ fontFamily: FUTURA, fontWeight: 700, fontSize: "0.6rem", letterSpacing: "0.18em", color: INK, textDecoration: "none", border: "1.5px solid rgba(55,63,29,0.4)", borderRadius: "50px", padding: "0.85rem 2.2rem" }}>
-            VIEW ALL STAYS
-          </Link>
-        </div>
-      </article>
-      <SiteFooter />
-    </main>
+    <>
+      <Hero title={"SOUTH COAST NSW\nACCOMMODATION"} button={{ label: "Book now", href: "/book" }} cover={null} size="md" />
+      <div className="builder">
+        <SectionHeading suptitle="NSW SOUTH COAST · BERRY · SHOALHAVEN" title="The Coastal is a private holiday retreat on the NSW South Coast — set on 12 acres near Berry, Shoalhaven, within easy reach of Kiama, Nowra and Jervis Bay. Four distinct stays: a main house sleeping 8+ and three private boutique suites. Two hours from Sydney, and exactly the kind of South Coast accommodation that earns a return." />
+        <SectionArticle
+          blocks={[
+          { heading: "Close to Kiama, Nowra, and Jervis Bay", paragraphs: ["The Coastal sits at the geographic heart of the best of the NSW South Coast. Kiama — famous for its blowhole, rock pools, and one of the most scenic coastal walks in NSW — is 35 minutes north. Nowra and the Shoalhaven are 30 minutes south. Jervis Bay, with its world-renowned white sand beaches, is 45 minutes away. Seven Mile Beach National Park is a 12-minute drive. Berry township — with its restaurants, wineries, and boutiques — is five minutes on foot."] },
+          { heading: "Private Accommodation — South Coast NSW", paragraphs: ["Unlike hotels and motels on the South Coast, The Coastal offers complete privacy. No shared facilities. No lobby. No noise from neighbouring rooms. The main house is entirely self-contained across four bedrooms, with a heated pool, fire pit, and terrace. Each of the three private suites has its own entrance, outdoor space, and bathroom. Whether you're booking for a group or for two, you'll have the property to yourselves."] },
+          { heading: "The South Coast Experience", paragraphs: ["The NSW South Coast is one of Australia's most visited and most loved domestic holiday regions for good reason — the beaches are genuinely world-class, the hinterland is lush, and the food and wine scene has grown considerably in the last decade. Berry sits at the intersection of all of it. From The Coastal, you can be walking on Seven Mile Beach within 15 minutes, sitting down to lunch at Sara Dining or Silos Estate within 10, or tasting at Two Figs Winery within 8. The Illawarra escarpment provides the backdrop; the Shoalhaven coast is the destination."] },
+        ]}
+        />
+        <SectionCoverCTA
+          cover="/frame3.png"
+          suptitle="Plan a stay"
+          title="Four private stays on twelve acres in Berry — a house sleeping 8+ and three private suites. Choose yours, pick your dates and book direct."
+          button={{ label: "Plan your stay", href: "/book" }}
+        />
+      </div>
+    </>
   );
 }

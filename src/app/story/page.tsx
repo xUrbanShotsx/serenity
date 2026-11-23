@@ -1,10 +1,7 @@
 import type { Metadata } from "next";
-import Image from "next/image";
-import SiteHeader from "@/components/SiteHeader";
-import SiteFooter from "@/components/SiteFooter";
-import ButtonLink from "@/components/ButtonLink";
-import Reveal from "@/components/Reveal";
-import StoryParagraphs from "@/components/StoryParagraphs";
+import Hero from "@/components/Hero";
+import SectionRevealText from "@/components/SectionRevealText";
+import { SectionCoverCTA } from "@/components/Sections";
 import { PARAGRAPHS } from "@/lib/story";
 
 
@@ -25,29 +22,19 @@ export const metadata: Metadata = {
 
 export default function StoryPage() {
   return (
-    <main>
-      <SiteHeader tone="dark" />
-      <div className="page-top">
-        <h1 className="display">Our story</h1>
+    <>
+      <Hero title={"OUR\nSTORY"} description="How a Sunday walk on a gravel track became a place to stay." cover={null} />
+      <div className="builder">
+        {PARAGRAPHS.map((text) => (
+          <SectionRevealText key={text.slice(0, 40)} text={text} />
+        ))}
+        <SectionCoverCTA
+          cover="/frame3.png"
+          suptitle="Come and see it"
+          title="Choose your stay, pick your dates and book direct."
+          button={{ label: "Plan your stay", href: "/book" }}
+        />
       </div>
-
-      <section style={{ padding: "clamp(24px, 4vw, 64px) 0 clamp(72px, 11vw, 180px)" }}>
-        <div className="grid">
-          <h2 className="label c-l start">The Land</h2>
-          <div className="c-x">
-            <StoryParagraphs paragraphs={PARAGRAPHS} />
-          </div>
-        </div>
-      </section>
-
-      <section className="section" style={{ textAlign: "center", paddingTop: 0 }}>
-        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 28, padding: "0 var(--gutter)" }}>
-          <p className="display" style={{ fontSize: "clamp(2.2rem, 5vw, 5rem)", maxWidth: "14ch" }}>Come and see it</p>
-          <ButtonLink href="/book" tone="sage">Plan your stay</ButtonLink>
-        </div>
-      </section>
-
-      <SiteFooter />
-    </main>
+    </>
   );
 }
