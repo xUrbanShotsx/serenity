@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
+import { Fraunces, Inter } from "next/font/google";
 import "./globals.css";
 import StructuredData from "@/components/StructuredData";
+
+const serif = Fraunces({ subsets: ["latin"], variable: "--font-serif", display: "swap" });
+const sans = Inter({ subsets: ["latin"], variable: "--font-sans", display: "swap" });
 
 const BASE_URL = "https://thecoastal.com.au";
 
@@ -99,7 +103,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en-AU">
+    <html lang="en-AU" className={`${serif.variable} ${sans.variable}`}>
       <head>
         <meta name="geo.region" content="AU-NSW" />
         <meta name="geo.placename" content="Berry, New South Wales, Australia" />

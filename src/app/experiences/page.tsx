@@ -1,5 +1,11 @@
 import type { Metadata } from "next";
-import ExperiencesPageClient from "./ExperiencesPage";
+import Image from "next/image";
+import SiteHeader from "@/components/SiteHeader";
+import SiteFooter from "@/components/SiteFooter";
+import ButtonLink from "@/components/ButtonLink";
+import Reveal from "@/components/Reveal";
+import { EXPERIENCES } from "@/lib/experiences";
+
 
 export const metadata: Metadata = {
   title: "Experiences Near Berry NSW | Restaurants, Beaches & Wineries | The Coastal",
@@ -32,5 +38,49 @@ export const metadata: Metadata = {
 };
 
 export default function ExperiencesPage() {
-  return <ExperiencesPageClient />;
+  return (
+    <main>
+      <SiteHeader tone="dark" />
+      <div className="page-top">
+        <h1 className="display">Experiences</h1>
+      </div>
+
+      <section style={{ paddingBottom: "clamp(40px, 6vw, 96px)" }}>
+        <div className="grid">
+          <h2 className="label c-l start">In and around Berry</h2>
+          <Reveal className="c-r">
+            <p className="lead">
+              Berry and the South Coast reward the unhurried. Here is what we would do with a few days — and where we would eat.
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
+      {EXPERIENCES.map((e, i) => {
+        const flip = i % 2 === 1;
+        return (
+          <article key={e.title} className="exp grid">
+            <div className="media ar-43" style={{ gridColumn: flip ? "7 / 13" : "1 / 7", gridRow: 1 }}>
+              <Image src={e.image} alt={e.title} fill sizes="(max-width: 800px) 100vw, 50vw" />
+            </div>
+            <div style={{ gridColumn: flip ? "1 / 6" : "8 / 13", gridRow: 1 }}>
+              <Reveal>
+                <h2 className="exp__title" style={{ marginBottom: 24 }}>{e.title}</h2>
+                <p className="exp__text">{e.description}</p>
+              </Reveal>
+            </div>
+          </article>
+        );
+      })}
+
+      <section className="section" style={{ textAlign: "center" }}>
+        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 28, padding: "0 var(--gutter)" }}>
+          <p className="display" style={{ fontSize: "clamp(2.2rem, 5vw, 5rem)", maxWidth: "14ch" }}>Stay close to all of it</p>
+          <ButtonLink href="/book" tone="sage">Plan your stay</ButtonLink>
+        </div>
+      </section>
+
+      <SiteFooter />
+    </main>
+  );
 }

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import Navbar from "@/components/Navbar";
+import SiteHeader from "@/components/SiteHeader";
+import SiteFooter from "@/components/SiteFooter";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -38,10 +39,10 @@ export const metadata: Metadata = {
   },
 };
 
-const FUTURA = "'Futura', 'Century Gothic', 'Trebuchet MS', sans-serif";
-const SERIF = "Georgia, 'Times New Roman', serif";
-const CREAM = "#f2ede5";
-const INK = "#1a1916";
+const FUTURA = 'var(--sans)';
+const SERIF = 'var(--serif)';
+const CREAM = "#f5eee9";
+const INK = "#373f1d";
 
 const HIGHLIGHTS = [
   {
@@ -89,47 +90,48 @@ const HIGHLIGHTS = [
 export default function ThingsToDoPage() {
   return (
     <main style={{ backgroundColor: CREAM, minHeight: "100vh" }}>
-      <Navbar />
+      <SiteHeader tone="dark" />
       <article style={{ maxWidth: "800px", margin: "0 auto", padding: "160px 2rem 8rem" }}>
         <p style={{ fontFamily: FUTURA, fontSize: "0.52rem", letterSpacing: "0.28em", color: INK, opacity: 0.4, marginBottom: "1.2rem" }}>
           BERRY NSW · SOUTH COAST AUSTRALIA
         </p>
-        <h1 style={{ fontFamily: SERIF, fontStyle: "italic", fontWeight: 400, fontSize: "clamp(2rem, 4vw, 3.2rem)", color: INK, lineHeight: 1.1, marginBottom: "2.5rem" }}>
+        <h1 style={{ fontFamily: SERIF, fontWeight: 300, fontSize: "clamp(2rem, 4vw, 3.2rem)", color: INK, lineHeight: 1.1, marginBottom: "2.5rem" }}>
           Things to Do in Berry, NSW
         </h1>
 
-        <p style={{ fontFamily: SERIF, fontStyle: "italic", fontSize: "clamp(1rem, 1.4vw, 1.15rem)", color: INK, lineHeight: 1.9, opacity: 0.75, marginBottom: "3.5rem" }}>
+        <p style={{ fontFamily: SERIF, fontSize: "clamp(1rem, 1.4vw, 1.15rem)", color: INK, lineHeight: 1.9, opacity: 0.75, marginBottom: "3.5rem" }}>
           Berry is two hours south of Sydney and one of the most well-rounded destinations on the NSW South Coast. Independent restaurants, cellar doors, a national park beach, and a main street that's been better preserved than most. Here are the places worth your time — and the accommodation worth coming back to.
         </p>
 
         {HIGHLIGHTS.map((item) => (
-          <div key={item.name} style={{ marginBottom: "3rem", paddingBottom: "3rem", borderBottom: "1px solid rgba(26,25,22,0.08)" }}>
-            <h2 style={{ fontFamily: SERIF, fontStyle: "italic", fontWeight: 400, fontSize: "clamp(1.3rem, 1.8vw, 1.6rem)", color: INK, marginBottom: "1rem" }}>
+          <div key={item.name} style={{ marginBottom: "3rem", paddingBottom: "3rem", borderBottom: "1px solid rgba(55,63,29,0.08)" }}>
+            <h2 style={{ fontFamily: SERIF, fontWeight: 300, fontSize: "clamp(1.3rem, 1.8vw, 1.6rem)", color: INK, marginBottom: "1rem" }}>
               {item.name}
             </h2>
-            <p style={{ fontFamily: SERIF, fontStyle: "italic", fontSize: "clamp(0.95rem, 1.3vw, 1.1rem)", color: INK, lineHeight: 1.85, opacity: 0.7 }}>
+            <p style={{ fontFamily: SERIF, fontSize: "clamp(0.95rem, 1.3vw, 1.1rem)", color: INK, lineHeight: 1.85, opacity: 0.7 }}>
               {item.description}
             </p>
           </div>
         ))}
 
-        <div style={{ background: "rgba(26,25,22,0.04)", border: "1px solid rgba(26,25,22,0.08)", padding: "3rem", marginTop: "4rem", marginBottom: "3rem" }}>
+        <div style={{ background: "rgba(55,63,29,0.04)", border: "1px solid rgba(55,63,29,0.08)", padding: "3rem", marginTop: "4rem", marginBottom: "3rem" }}>
           <p style={{ fontFamily: FUTURA, fontWeight: 700, fontSize: "0.52rem", letterSpacing: "0.25em", color: INK, opacity: 0.4, marginBottom: "1rem" }}>
             WHERE TO STAY IN BERRY NSW
           </p>
-          <p style={{ fontFamily: SERIF, fontStyle: "italic", fontSize: "clamp(1rem, 1.4vw, 1.2rem)", color: INK, lineHeight: 1.8, opacity: 0.8, marginBottom: "2rem" }}>
+          <p style={{ fontFamily: SERIF, fontSize: "clamp(1rem, 1.4vw, 1.2rem)", color: INK, lineHeight: 1.8, opacity: 0.8, marginBottom: "2rem" }}>
             The Coastal is Berry's finest private holiday accommodation — a four-bedroom house sleeping 8+ and three private boutique suites, set on 12 acres five minutes from Queen Street and 12 minutes from Seven Mile Beach.
           </p>
           <div style={{ display: "flex", gap: "1.5rem", flexWrap: "wrap" }}>
             <Link href="/book" style={{ fontFamily: FUTURA, fontWeight: 700, fontSize: "0.6rem", letterSpacing: "0.18em", color: CREAM, textDecoration: "none", backgroundColor: INK, borderRadius: "50px", padding: "0.85rem 2.2rem" }}>
               BOOK NOW
             </Link>
-            <Link href="/experiences" style={{ fontFamily: FUTURA, fontWeight: 700, fontSize: "0.6rem", letterSpacing: "0.18em", color: INK, textDecoration: "none", border: "1.5px solid rgba(26,25,22,0.4)", borderRadius: "50px", padding: "0.85rem 2.2rem" }}>
+            <Link href="/experiences" style={{ fontFamily: FUTURA, fontWeight: 700, fontSize: "0.6rem", letterSpacing: "0.18em", color: INK, textDecoration: "none", border: "1.5px solid rgba(55,63,29,0.4)", borderRadius: "50px", padding: "0.85rem 2.2rem" }}>
               MORE EXPERIENCES
             </Link>
           </div>
         </div>
       </article>
+      <SiteFooter />
     </main>
   );
 }
