@@ -57,12 +57,8 @@ export default function SiteMenu({ open, onClose }: { open: boolean; onClose: ()
           opacity: 1,
           filter: "blur(0px)",
           ease: "power2.out",
-          stagger: {
-            each: 0.1,
-            onComplete() {
-              gsap.set(this.targets(), { clearProps: "filter" });
-            },
-          },
+          stagger: 0.1,
+          clearProps: "filter",
           duration: 0.5,
         },
         "-=0.2",
