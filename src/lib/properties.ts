@@ -16,9 +16,9 @@ export type Property = {
 export const PROPERTIES: Property[] = [
   {
     slug: "house",
-    name: "The House",
+    name: "The Residence",
     kind: "house",
-    tag: "The Main House",
+    tag: "The Residence",
     meta: "4 Bedrooms · Sleeps 8+",
     blurb:
       "Four bedrooms across a single generous floor, an open living area that runs onto a west-facing terrace, and a kitchen built to be used. A heated pool and fire pit keep a full group happy without anyone needing to leave.",

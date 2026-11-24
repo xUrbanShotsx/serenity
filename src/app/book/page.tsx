@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Book Your Stay | The Coastal Berry NSW",
     description:
-      "Reserve the house or one of three private suites at The Coastal, Berry NSW. Check availability and book direct.",
+      "Reserve The Residence or one of three private suites at The Coastal, Berry NSW. Check availability and book direct.",
     url: "https://thecoastal.com.au/book",
   },
 };

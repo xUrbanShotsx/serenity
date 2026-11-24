@@ -67,7 +67,7 @@ export default function SuitesPage() {
         </div>
         <SectionAccommodations
           suptitle="Also at The Coastal"
-          description="The main house sleeps eight and more, with a heated pool, fire pit and a terrace that faces the afternoon sun."
+          description="The Residence sleeps eight and more, with a heated pool, fire pit and a terrace that faces the afternoon sun."
           stays={[HOUSE]}
           label="View house"
           limitHeight

@@ -8,7 +8,7 @@ import { getLenis } from "@/lib/lenis";
 import { PROPERTIES } from "@/lib/properties";
 
 const PRIMARY = [
-  { label: "The House", href: "/house" },
+  { label: "The Residence", href: "/house" },
   { label: "The Suites", href: "/suites" },
   { label: "Experiences", href: "/experiences" },
   { label: "Our Story", href: "/story" },

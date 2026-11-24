@@ -14,7 +14,7 @@ export const LODGIFY = {
 export const NAV_LINKS = [
   { label: "Home", href: "/" },
   { label: "Accommodation", href: "/collection" },
-  { label: "The House", href: "/house" },
+  { label: "The Residence", href: "/house" },
   { label: "The Suites", href: "/suites" },
   { label: "Experiences", href: "/experiences" },
   { label: "Our Story", href: "/story" },
@@ -23,7 +23,7 @@ export const NAV_LINKS = [
 
 export const GALLERY = [
   { src: "/frame1.png", alt: "The Coastal grounds" },
-  { src: "/theresidence.jpg", alt: "The House at The Coastal" },
+  { src: "/theresidence.jpg", alt: "The Residence at The Coastal" },
   { src: "/frame2.png", alt: "Gardens at The Coastal" },
   { src: "/Olivesuite.jpg", alt: "The Olive Suite" },
   { src: "/frame4.png", alt: "Berry, NSW South Coast" },

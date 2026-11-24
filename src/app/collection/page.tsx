@@ -38,10 +38,10 @@ export default function CollectionPage() {
       <div className="builder">
         <SectionHeadingParagraph
           suptitle="Our stays"
-          title="Each stay offers a distinct expression of the property — from the generous proportions of the main house to the quiet intimacy of the suites. Every one is entirely your own."
+          title="Each stay offers a distinct expression of the property — from the generous proportions of The Residence to the quiet intimacy of the suites. Every one is entirely your own."
         />
         <SectionAccommodations
-          suptitle="The House"
+          suptitle="The Residence"
           description="Four bedrooms, an open living area that runs onto a west-facing terrace, a heated pool and a fire pit. It sleeps eight and more."
           stays={[HOUSE]}
           label="View house"

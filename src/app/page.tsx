@@ -59,7 +59,7 @@ export default function Page() {
         />
 
         <SectionAccommodations
-          suptitle="The House"
+          suptitle="The Residence"
           description="Four bedrooms, an open living area that runs onto a west-facing terrace, a heated pool and a fire pit. Made for families and groups who want space to spread out — it sleeps eight and more."
           stays={[HOUSE]}
           label="View house"
