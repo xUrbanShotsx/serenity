@@ -47,7 +47,7 @@ export default function ExperiencesPage() {
           suptitle="In and around Berry"
           title="Berry and the South Coast reward the unhurried. Here is what we would do with a few days — and where we would eat."
         />
-        <SectionRows rows={EXPERIENCES.map((e) => ({ title: e.title, description: e.description, image: e.image }))} />
+        <SectionRows rows={EXPERIENCES.map((e) => ({ title: e.title, description: e.description, image: e.image, ratio: e.ratio }))} />
         <SectionCoverCTA
           cover="/frame3.png"
           suptitle="Stay close to all of it"

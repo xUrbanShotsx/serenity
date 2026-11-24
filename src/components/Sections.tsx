@@ -219,7 +219,7 @@ export function SectionArticle({ blocks }: { blocks: { heading?: string; paragra
   );
 }
 
-export function SectionRows({ rows }: { rows: { title: string; description: string; image: string }[] }) {
+export function SectionRows({ rows }: { rows: { title: string; description: string; image: string; ratio?: string }[] }) {
   return (
     <section>
       <div className="container">
@@ -227,7 +227,7 @@ export function SectionRows({ rows }: { rows: { title: string; description: stri
           const flip = i % 2 === 1;
           return (
             <article className={`grid s-rows__row${flip ? " is-flip" : ""}`} key={row.title} style={{ paddingBottom: "8rem" }}>
-              <Media className="s-rows__img" src={row.image} alt={row.title} sizes="(max-width: 1023px) 100vw, 50vw" />
+              <Media className="s-rows__img" src={row.image} alt={row.title} sizes="(max-width: 1023px) 100vw, 50vw" style={row.ratio ? { aspectRatio: row.ratio } : undefined} />
               <div className="s-rows__text">
                 <h2 className="t32">{row.title}</h2>
                 <div className="wysiwyg">
