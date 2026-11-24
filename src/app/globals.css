@@ -767,3 +767,15 @@ a.chapters__btn--link:hover { background-color: var(--olive-dark); border-color:
 @media (prefers-reduced-motion: reduce) {
   .s-marquee__scrollable { animation: none; }
 }
+
+/* House features */
+.s-features { padding-top: 8rem; padding-bottom: 8rem; }
+.s-features__title { max-width: 60rem; margin-bottom: 6rem; }
+.s-features__list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr; border-top: 1px solid rgba(55,63,29,.2); }
+.s-features__item { display: flex; flex-direction: column; gap: 1.2rem; padding: 3.2rem 0; border-bottom: 1px solid rgba(55,63,29,.2); }
+.s-features__item p { max-width: 44rem; line-height: 1.5; }
+.s-features__num { font-size: 1.2rem; letter-spacing: .1em; color: var(--olive); }
+@media (min-width: 1024px) {
+  .s-features { padding-top: 12rem; padding-bottom: 12rem; }
+  .s-features__list { grid-template-columns: repeat(2, 1fr); column-gap: 8rem; }
+}

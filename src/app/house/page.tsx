@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import Hero from "@/components/Hero";
 import ChaptersBar from "@/components/ChaptersBar";
 import SectionLargeGallery from "@/components/SectionLargeGallery";
-import { SectionHeading, SectionDoubleImages, SectionAccommodations, BookingPanel } from "@/components/Sections";
+import { SectionHeading, SectionDoubleImages, SectionAccommodations, SectionFeatures, BookingPanel } from "@/components/Sections";
 import { GALLERY } from "@/lib/site";
+import { HOUSE_FEATURES } from "@/lib/features";
 import { HOUSE, SUITES } from "@/lib/properties";
 
 
@@ -54,6 +55,13 @@ export default function HousePage() {
           left={[{ src: "/frame2.png", alt: "Gardens around The House", ratio: "577 / 734" }]}
           right={[{ src: "/frame1.png", alt: "Grounds around The House", ratio: "696 / 840" }]}
         />
+        <div id="features">
+          <SectionFeatures
+            suptitle="Features"
+            title="Luxury features of The Residence"
+            items={HOUSE_FEATURES}
+          />
+        </div>
         <div id="gallery">
           <SectionLargeGallery slides={GALLERY} />
         </div>
@@ -70,6 +78,7 @@ export default function HousePage() {
       <ChaptersBar
         chapters={[
           { id: "overview", label: "Overview" },
+          { id: "features", label: "Features" },
           { id: "gallery", label: "Gallery" },
           { id: "book", label: "Book" },
         ]}

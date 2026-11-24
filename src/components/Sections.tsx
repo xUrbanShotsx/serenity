@@ -242,6 +242,26 @@ export function SectionRows({ rows }: { rows: { title: string; description: stri
   );
 }
 
+export function SectionFeatures({ suptitle, title, items }: { suptitle: string; title: string; items: { title: string; description: string }[] }) {
+  return (
+    <section className="s-features">
+      <div className="container">
+        <p className="suptitle" style={{ marginBottom: "2.4rem" }}>{suptitle}</p>
+        <h2 className="t48 s-features__title">{title}</h2>
+        <ul className="s-features__list">
+          {items.map((f, i) => (
+            <li key={f.title} className="s-features__item">
+              <span className="s-features__num">{String(i + 1).padStart(2, "0")}</span>
+              <h3 className="t32">{f.title}</h3>
+              <p>{f.description}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  );
+}
+
 export function BookingPanel({ stay }: { stay: Property }) {
   return (
     <section id={stay.slug} className="s-book">

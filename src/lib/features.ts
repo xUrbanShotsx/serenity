@@ -1,0 +1,16 @@
+export const HOUSE_FEATURES: { title: string; description: string }[] = [
+  { title: "Ziptap Filtered Water", description: "Fresh filtered water, instantly chilled or sparkling. A thoughtful touch that enhances the effortless luxury of The Residence." },
+  { title: "Nespresso Coffee Machine", description: "Barista-style coffee at the touch of a button. Perfect for slow mornings and relaxed afternoons in The Residence." },
+  { title: "Walk-In Pantry", description: "A generous butler's pantry providing added convenience and storage. Designed to make entertaining seamless in The Residence." },
+  { title: "Indoor Fireplace", description: "Warm, inviting ambience for cosy evenings. A stunning focal point that brings comfort and character to The Residence." },
+  { title: "Main Living Area", description: "A beautifully designed gathering space to relax and unwind. Created for connection, comfort, and memorable moments in The Residence." },
+  { title: "Dining Room", description: "An elegant setting for shared meals and special occasions. The perfect backdrop for long lunches and unforgettable dinners in The Residence." },
+  { title: "Bar Area with Fridge & Sink", description: "Craft your favourite cocktails and enjoy effortless entertaining. An indulgent feature that elevates every gathering in The Residence." },
+  { title: "Outdoor Dining Area", description: "A dedicated alfresco space for shared meals and long gatherings. Designed to make outdoor entertaining a memorable experience in The Residence." },
+  { title: "Outdoor Lounge Area", description: "A relaxed seating space for unwinding in comfort. The perfect place to enjoy peaceful afternoons and evenings in The Residence." },
+  { title: "Outdoor Fire Pit", description: "Relax under the stars beside the warmth of the fire. A favourite place to unwind and reconnect in The Residence." },
+  { title: "Outdoor BBQ", description: "Ideal for alfresco dining with family and friends. Designed to embrace the indoor-outdoor lifestyle of The Residence." },
+  { title: "11m x 4m Heated Pool & Spa", description: "A resort-style pool and spa for year-round enjoyment. The centrepiece of outdoor luxury in The Residence." },
+  { title: "Sauna", description: "A private wellness retreat to soothe and restore. Offering a spa-like experience within The Residence." },
+  { title: "Woodfired Pizza Oven", description: "Create authentic woodfired pizzas and memorable outdoor dining experiences. A unique feature that makes every stay in The Residence truly special." },
+];
