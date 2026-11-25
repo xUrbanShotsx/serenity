@@ -7,6 +7,8 @@ export type Property = {
   blurb: string;
   specs: [string, string][];
   image: string;
+  // Extra interior photos shown in the booking panel (src, alt, CSS aspect-ratio).
+  gallery?: { src: string; alt: string; ratio: string }[];
   href: string;
   // Lodgify rental id (the data-rental-id from Settings > Website > External widgets).
   // Leave null until known; the booking panel then shows an enquiry fallback.
@@ -47,6 +49,10 @@ export const PROPERTIES: Property[] = [
       ["Private", "Outdoor space"],
     ],
     image: "/Olivesuite.jpg",
+    gallery: [
+      { src: "/suites/olive-bedroom.webp", alt: "Bedroom in The Olive Suite", ratio: "1086 / 1448" },
+      { src: "/suites/olive-bathroom.webp", alt: "Bathroom in The Olive Suite", ratio: "1086 / 1448" },
+    ],
     href: "/suites#olive",
     // Lodgify "Studio 1" — confirm this is the Olive Suite.
     rentalId: "863227",

@@ -288,6 +288,13 @@ export function BookingPanel({ stay }: { stay: Property }) {
           </div>
           <div className="s-book__right">
             <Media src={stay.image} alt={stay.name} sizes="(max-width: 1023px) 100vw, 55vw" style={{ aspectRatio: "16 / 10" }} />
+            {stay.gallery && (
+              <div className="s-book__gallery">
+                {stay.gallery.map((g) => (
+                  <Media key={g.src} src={g.src} alt={g.alt} sizes="(max-width: 1023px) 50vw, 27vw" style={{ aspectRatio: g.ratio }} />
+                ))}
+              </div>
+            )}
             <div className="s-book__widget">
               <p className="suptitle s-book__widget-title">Check availability</p>
               <LodgifyWidget rentalId={stay.rentalId} name={stay.name} />
