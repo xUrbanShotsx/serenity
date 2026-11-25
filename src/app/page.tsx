@@ -39,6 +39,7 @@ export default function Page() {
         description="Four private stays set among gardens and open sky, where the hills of Berry meet the long, quiet sweep of Seven Mile Beach."
         button={{ label: "Explore Collection", href: "/collection" }}
         cover={HERO_IMAGE ?? undefined}
+        video={{ src: "/video/hero.mp4", poster: "/video/hero-poster.jpg" }}
       />
 
       <div className="builder">

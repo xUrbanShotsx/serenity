@@ -14,6 +14,8 @@ type Props = {
   cover?: string | null;
   priority?: boolean;
   size?: "md";
+  // Background video (muted, looping). Takes the place of the cover image.
+  video?: { src: string; poster: string };
 };
 
 function SplitTitle({ text }: { text: string }) {
@@ -42,7 +44,7 @@ function SplitTitle({ text }: { text: string }) {
 // Full-height hero. The title is split into lines/words/chars: every character
 // slides up from 100% (blurred) once the loader lifts, staggered 50ms. On scroll
 // the lines drift apart horizontally and the text column lags behind the page.
-export default function Hero({ title, description, button, cover, priority = true, size }: Props) {
+export default function Hero({ title, description, button, cover, priority = true, size, video }: Props) {
   const hasCover = cover !== null;
   const root = useRef<HTMLDivElement>(null);
   const wrapper = useRef<HTMLDivElement>(null);
@@ -119,7 +121,19 @@ export default function Hero({ title, description, button, cover, priority = tru
           <div className="hero__cover appear-scale-in">
             <div className="hero__media">
               <div>
-                {cover ? (
+                {video ? (
+                  <video
+                    className="hero__video"
+                    src={video.src}
+                    poster={video.poster}
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    preload="auto"
+                    aria-hidden="true"
+                  />
+                ) : cover ? (
                   <Image src={cover} alt="" fill sizes="100vw" priority={priority} style={{ objectFit: "cover" }} />
                 ) : (
                   <div className="hero__placeholder" style={{ width: "100%", height: "100%" }} />

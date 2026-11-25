@@ -367,7 +367,7 @@ html.lenis, html.lenis body { height: auto; }
 .hero__media { position: relative; width: 100%; height: 200%; overflow: visible; background: transparent; }
 .hero__media > div { position: sticky; top: 0; left: 0; width: 100%; height: 50%; }
 .hero__media::before { content: ""; position: absolute; inset: 0; z-index: 1; background-color: #000; opacity: 0.4; }
-.hero__media img { width: 100%; height: 100%; object-fit: cover; }
+.hero__media img, .hero__media .hero__video { display: block; width: 100%; height: 100%; object-fit: cover; }
 .hero__placeholder { background: radial-gradient(120% 90% at 30% 10%, #8a9a4e 0%, #5c6e21 55%, #3b4916 100%); }
 
 /* Hero title (split into lines / words / chars) */
