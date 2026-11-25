@@ -51,7 +51,7 @@ export default function Page() {
         <SectionDoubleImages
           description="Gardens, open sky, and nothing you need to rush back for. Berry's cafés, cellar doors and Queen Street are a short stroll away; Seven Mile Beach is twelve minutes by car."
           left={[{ src: "/aerial-property.webp", alt: "Aerial view of The Coastal and its gardens", ratio: "1122 / 1402" }]}
-          right={[{ src: "/frame1.png", alt: "The grounds at The Coastal", ratio: "696 / 840" }]}
+          right={[{ src: "/tree-lined-road.webp", alt: "The tree-lined road to The Coastal, Berry", ratio: "1672 / 941" }]}
         />
 
         <SectionHeadingParagraph
