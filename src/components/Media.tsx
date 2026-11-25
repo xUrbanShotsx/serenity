@@ -12,11 +12,12 @@ type Props = {
   style?: React.CSSProperties;
   parallax?: number;
   priority?: boolean;
+  quality?: number;
 };
 
 // Image frame whose picture is scaled up slightly and drifts vertically as the
 // frame crosses the viewport (the reference's `useMediaParallax`, default 0.12).
-export default function Media({ src, alt = "", sizes = "100vw", className = "", style, parallax = 0.12, priority = false }: Props) {
+export default function Media({ src, alt = "", sizes = "100vw", className = "", style, parallax = 0.12, priority = false, quality = 90 }: Props) {
   const root = useRef<HTMLDivElement>(null);
   const target = useRef<HTMLDivElement>(null);
 
@@ -50,7 +51,7 @@ export default function Media({ src, alt = "", sizes = "100vw", className = "", 
     <div className={`media ${className}`} style={style}>
       <div ref={root} className="media__root">
         <div ref={target} className="media__target">
-          <Image src={src} alt={alt} fill sizes={sizes} priority={priority} />
+          <Image src={src} alt={alt} fill sizes={sizes} priority={priority} quality={quality} />
         </div>
       </div>
     </div>
